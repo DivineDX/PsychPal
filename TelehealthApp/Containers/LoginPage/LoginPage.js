@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, Image, StyleSheet, Text,} from 'react-native';
-
+import { View, ImageBackground, Image, StyleSheet, Text, } from 'react-native';
 import bgImage from '../../Images/loginBG.jpg';
 import appLogo from '../../Images/appLogo.png';
 import InputBox from './InputBox';
+import PageButton from './PageButton';
 
 export default class LoginPage extends Component {
 	constructor() {
 		super();
 		this.state = {
-			showPass: true,
+			showPass: false,
 			press: false,
 		}
+	}
+
+	toggleShowPass = () => {
+		const curr = this.state.showPass;
+		this.setState({ showPass: !curr });
 	}
 
 	render() {
@@ -21,11 +26,13 @@ export default class LoginPage extends Component {
 					<Image source={appLogo} style={styles.logo} />
 					<Text style={styles.logoText}>Telehealth App</Text>
 				</View>
-				<View>
-					<InputBox placeholderText = {'Username'}/>
-					<InputBox placeholderText = {'Password'}/>
-				</View>
-
+				<InputBox placeholderText={'Username'} iconName={'person'} />
+				<InputBox
+					placeholderText={'Password'}
+					iconName={'lock'}
+					showPass={this.state.showPass}
+					toggle={this.toggleShowPass} />
+				<PageButton buttonText={'Login'} />
 			</ImageBackground>
 		);
 	}
@@ -38,7 +45,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	logoContainer: {
-		alignItems: 'center'
+		alignItems: 'center',
+		marginBottom: 50
 	},
 	logo: {
 		width: 120,
