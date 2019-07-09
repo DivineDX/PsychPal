@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
 
 class Planner extends Component {
+  static navigationOptions = {
+		header: null
+  }
+  
   render() {
     return (
       <Container>

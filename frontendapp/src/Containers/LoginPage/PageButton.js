@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Dimensions, View } from 'react-native';
 import { Button, Text } from 'native-base';
 
-const PageButton = ({ buttonText }) => {
+const PageButton = ({ nav, buttonText }) => {
     return (
         <View>
-            <Button primary rounded style={styles.buttonContainer}>
+            <Button onPress = {() => nav.navigate('Planner')}primary rounded style={styles.buttonContainer}>
                 <Text>{buttonText}</Text>
             </Button>
         </View>
@@ -21,4 +21,5 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
 })
+
 export default PageButton;

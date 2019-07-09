@@ -6,6 +6,10 @@ import InputBox from './InputBox';
 import PageButton from './PageButton';
 
 export default class LoginPage extends Component {
+	static navigationOptions = {
+		header: null
+	}
+
 	constructor() {
 		super();
 		this.state = {
@@ -20,6 +24,7 @@ export default class LoginPage extends Component {
 	}
 
 	render() {
+		const {navigation} = this.props;
 		return (
 			<ImageBackground source={bgImage} style={styles.backgroundContainer}>
 				<View style={styles.logoContainer}>
@@ -32,7 +37,7 @@ export default class LoginPage extends Component {
 					iconName={'lock'}
 					showPass={this.state.showPass}
 					toggle={this.toggleShowPass} />
-				<PageButton buttonText={'Login'} />
+				<PageButton nav = {navigation} buttonText={'Login'} />
 			</ImageBackground>
 		);
 	}
