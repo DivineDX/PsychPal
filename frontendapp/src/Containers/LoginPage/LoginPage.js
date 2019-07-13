@@ -4,6 +4,7 @@ import bgImage from '../../Images/loginBG.jpg';
 import appLogo from '../../Images/appLogo.png';
 import InputBox from './InputBox';
 import PageButton from './PageButton';
+import JitsiCallButton from '../../Components/Buttons/JitsiCallButton';
 
 export default class LoginPage extends Component {
 	static navigationOptions = {
@@ -38,6 +39,7 @@ export default class LoginPage extends Component {
 					showPass={this.state.showPass}
 					toggle={this.toggleShowPass} />
 				<PageButton nav = {navigation} buttonText={'Login'} />
+				<JitsiCallButton/>
 			</ImageBackground>
 		);
 	}
