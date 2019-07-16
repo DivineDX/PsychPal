@@ -1,10 +1,11 @@
 // Planner Psych
+
 import { View } from 'react-native' // view is div in web
 import { Card, Button, Text } from 'react-native-elements'  // RNE, an open source library
 import React from 'react';
 
 
-const PlannerPsych = () => {
+const App = () => {
   return (
     <View>
       <Text h4>{`\n  `}Your Next Appointment</Text>
@@ -41,4 +42,4 @@ const PlannerPsych = () => {
   );
 };
 
-export default PlannerPsych;
+export default App;
