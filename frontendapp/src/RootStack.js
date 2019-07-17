@@ -8,7 +8,8 @@ import RescheduleOverlay from './Containers/RescheduleOverlay/RescheduleOverlay'
 import Search from './Containers/Search/Search'
 import TreatmentPatient from './Containers/Treatment/TreatmentPatient'
 import TreatmentPsych from './Containers/Treatment/TreatmentPsych'
-
+import AppointmentPatient from './Containers/AppointmentPage/AppointmentPagePatient'
+import PatientDetails from './Containers/PatientDetails'
 
 const RootStack = createStackNavigator(
     {
@@ -20,10 +21,12 @@ const RootStack = createStackNavigator(
       RescheduleOverlay: RescheduleOverlay,
       Search: Search,
       TreatmentPatient: TreatmentPatient,
-      TreatmentPsych: TreatmentPsych
+      TreatmentPsych: TreatmentPsych,
+      AppointmentPatient: AppointmentPatient,
+      PatientDetails: PatientDetails
     },
     {
-      initialRouteName: 'PersonalParticulars',
+      initialRouteName: 'PatientDetails',
     }
   );
 
