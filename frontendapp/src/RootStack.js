@@ -10,6 +10,7 @@ import TreatmentPatient from './Containers/Treatment/TreatmentPatient'
 import TreatmentPsych from './Containers/Treatment/TreatmentPsych'
 import AppointmentPatient from './Containers/AppointmentPage/AppointmentPagePatient'
 import PatientDetails from './Containers/PatientDetails'
+import PickerCountry from './Components/Input/PickerCountry';
 
 const RootStack = createStackNavigator(
     {
@@ -23,10 +24,11 @@ const RootStack = createStackNavigator(
       TreatmentPatient: TreatmentPatient,
       TreatmentPsych: TreatmentPsych,
       AppointmentPatient: AppointmentPatient,
-      PatientDetails: PatientDetails
+      PatientDetails: PatientDetails,
+      PickerCountry: PickerCountry,
     },
     {
-      initialRouteName: 'PatientDetails',
+      initialRouteName: 'PersonalParticulars',
     }
   );
 

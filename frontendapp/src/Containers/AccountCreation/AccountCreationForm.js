@@ -3,6 +3,8 @@ import { View, StyleSheet } from 'react-native';
 import { Item, Input, Button, Label, Text, Content, H1 } from 'native-base';
 import { Formik } from 'formik';
 import * as yup from "yup";
+import InputBox from '../../Components/Input/InputBox';
+
 export default class AccountCreationForm extends Component {
     // static navigationOptions = {
     //     header: null
@@ -49,7 +51,7 @@ export default class AccountCreationForm extends Component {
 
                 {({ values, handleChange, errors, touched, isValid, handleSubmit, handleBlur }) => (
                     <View style={styles.container}>
-                        <View style = {styles.headerContainer}>
+                        <View style={styles.headerContainer}>
                             <H1>I am a...</H1>
                         </View>
 
@@ -68,49 +70,43 @@ export default class AccountCreationForm extends Component {
                             </Button>
                         </View>
 
-                        <Item stackedLabel>
-                            <Label>Email</Label>
-                            <Input onChangeText={handleChange('email')}
-                                onBlur={handleBlur('email')}
-                                value={values.email} />
-                        </Item>
-                        {touched.email && errors.email &&
-                            <Text style={styles.errorText}>{errors.email}</Text>
-                        }
+                        <InputBox
+                            title={"Email"}
+                            handleChange={handleChange('email')}
+                            handleBlur={handleBlur('email')}
+                            value={values.email}
+                            touched={touched.email}
+                            errors={errors.email}
+                        />
 
-                        <Item stackedLabel>
-                            <Label>User ID</Label>
-                            <Input onChangeText={handleChange('userID')}
-                                onBlur={handleBlur('userID')}
-                                value={values.userID} />
-                        </Item>
-                        {touched.userID && errors.userID &&
-                            <Text style={styles.errorText}>{errors.userID}</Text>
-                        }
+                        <InputBox
+                            title={"User ID"}
+                            handleChange={handleChange('userID')}
+                            handleBlur={handleBlur('userID')}
+                            value={values.userID}
+                            touched={touched.userID}
+                            errors={errors.userID}
+                        />
 
-                        <Item stackedLabel>
-                            <Label>Password</Label>
-                            <Input onChangeText={handleChange('password')}
-                                onBlur={handleBlur('password')}
-                                value={values.password}
-                                secureTextEntry
-                            />
-                        </Item>
-                        {touched.password && errors.password &&
-                            <Text style={styles.errorText}>{errors.password}</Text>
-                        }
+                        <InputBox
+                            title={"Password"}
+                            handleChange={handleChange('password')}
+                            handleBlur={handleBlur('password')}
+                            value={values.password}
+                            touched={touched.password}
+                            errors={errors.password}
+                            secure = {true}
+                        />
 
-                        <Item stackedLabel>
-                            <Label>Confirm Password</Label>
-                            <Input onChangeText={handleChange('cfmPassword')}
-                                onBlur={handleBlur('cfmPassword')}
-                                value={values.cfmPassword}
-                                secureTextEntry
-                            />
-                        </Item>
-                        {touched.cfmPassword && errors.cfmPassword &&
-                            <Text style={styles.errorText}>{errors.cfmPassword}</Text>
-                        }
+                        <InputBox
+                            title={"Confirm Password"}
+                            handleChange={handleChange('cfmPassword')}
+                            handleBlur={handleBlur('cfmPassword')}
+                            value={values.cfmPassword}
+                            touched={touched.cfmPassword}
+                            errors={errors.cfmPassword}
+                            secure = {true}
+                        />
 
                         <Button
                             disabled={!isValid}
@@ -144,7 +140,7 @@ const styles = StyleSheet.create({
         width: 175,
         height: 50,
         justifyContent: 'center',
-        
+
     },
     leftButton: {
         borderTopLeftRadius: 30,
