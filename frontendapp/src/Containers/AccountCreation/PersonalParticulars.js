@@ -9,14 +9,9 @@ import DOBInput from '../../Components/Input/DOBInput';
 import PickerCountry from '../../Components/Input/PickerCountry';
 import InputTextArea from '../../Components/Input/InputTextArea';
 
-export default class AccountCreationForm extends Component {
-    constructor() {
-        super();
-        // this.state = {
-        // }
-    }
+export default class PersonalParticulars extends Component {
 
-    submitForm = (values) => {
+    submitForm = (values) => { //API Post Call here
         console.log(values);
     }
 
@@ -84,6 +79,7 @@ export default class AccountCreationForm extends Component {
 
                         <InputTextArea
                             title={"Give a description of yourself"}
+                            placeholder={"I am a..."}
                             handleChange={handleChange('description')}
                             handleBlur={handleBlur('description')}
                             value={values.description}
