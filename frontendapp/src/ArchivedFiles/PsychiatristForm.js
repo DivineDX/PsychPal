@@ -3,8 +3,8 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Formik } from 'formik';
 import * as yup from "yup";
-import InputBox from '../../Components/Input/InputBox';
-import InputTextArea from '../../Components/Input/InputTextArea';
+import InputBox from '../Components/Input/InputBox';
+import InputTextArea from '../Components/Input/InputTextArea';
 
 export default class PsychiatristForm extends Component {
     submitForm = (values) => { //API Post Call here

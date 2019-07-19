@@ -1,9 +1,32 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Button, Text, H1 } from 'native-base';
+import { ScrollView, View, StyleSheet } from 'react-native';
+import { Button, Text, H1, Picker, Label } from 'native-base';
 import { Formik } from 'formik';
 import * as yup from "yup";
 import InputBox from '../../Components/Input/InputBox';
+import DOBInput from '../../Components/Input/DOBInput';
+import PickerCountry from '../../Components/Input/PickerCountry';
+import InputTextArea from '../../Components/Input/InputTextArea';
+
+const inputTextArr = [
+    { title: "Email", key: 'email', secure: false },
+    { title: "User ID", key: 'userID', secure: false },
+    { title: "Password", key: 'password', secure: true },
+    { title: "Confirm Password", key: 'cfmPassword', secure: true },
+    { title: "Name", key: 'name', secure: false }];
+
+const textAreaPatient = [
+    { title: "Give a description of yourself", placeholder: "I am a...", key: 'description' },
+    { title: "Please provide a history of your past medical conditions.\n(Note: Conditions must be diagnosed by a certified medical professional, and not based on personal judgement)", placeholder: "I have a history of...", key: 'medicalHistory' },
+];
+
+const textAreaPsychiatrist = [
+    { title: "Give a description of yourself", placeholder: "I am a...", key: 'description' },
+    { title: "State your current employment status", placeholder: "I am currently working as a...", key: 'currentEmployment' },
+    { title: "State your past work/volunteer experience as a psychiatrist", placeholder: "I am currently working as a...", key: 'workExperience' },
+    { title: "State your educational qualifications", placeholder: "I have a Bachelor in ...", key: 'education' },
+    { title: "State your professional certifications", placeholder: "I am a certified...", key: 'certifications' },
+];
 
 export default class AccountCreationForm extends Component {
     static navigationOptions = {
@@ -18,6 +41,11 @@ export default class AccountCreationForm extends Component {
             userID: '',
             password: '',
             cfmPassword: '',
+            name: '',
+            gender: 'male', //dropdown
+            dob: '',
+            country: 'US', //picker with list of nationalities
+            description: '',
         }
     }
 
@@ -26,10 +54,11 @@ export default class AccountCreationForm extends Component {
             alert("Please select whether you are a patient or psychiatrist");
         } else {
             //Must check if email/userID already used
+            console.log(values);
             this.setState(values);
             const { navigation } = this.props;
             if (true) { //connect to database, change condition to if backeend responses okay
-                navigation.navigate('Home', {
+                navigation.navigate('SignedIn', {
                     userID: this.state.userID,
                     type: this.state.type,
                 });
@@ -39,24 +68,37 @@ export default class AccountCreationForm extends Component {
 
     toggleType = (type) => {
         this.setState({ type: type });
+        console.log("Toggling", this.state.type);
     }
 
     render() {
         const reqString = "This field is required";
         return (
             <Formik
-                initialValues={{ email: '', userID: '', password: '', cfmPassword: '', }}
+                initialValues={{
+                    gender: 'male', country: 'US'
+                }}
                 onSubmit={values => this.createAccount(values)}
                 validationSchema={yup.object().shape({
-                    // email: yup.string().email("This is an invalid email").required(reqString),
+                    email: yup.string().email("This is an invalid email").required(reqString),
                     userID: yup.string().min(6, "UserID must be at least 6 characters").required(reqString),
-                    // password: yup.string().min(8, "Password must be at least 8 characters").required(reqString),
-                    // cfmPassword: yup.string().oneOf([yup.ref('password'), null], "Passwords don't match").required(reqString),
+                    password: yup.string().min(8, "Password must be at least 8 characters").required(reqString),
+                    cfmPassword: yup.string().oneOf([yup.ref('password'), null], "Passwords don't match").required(reqString),
+                    name: yup.string().required(reqString).min(3, "Please use your full name"),
+                    gender: yup.string().required(reqString),
+                    dob: yup.date().required(reqString),
+                    country: yup.string().required(reqString),
+                    description: yup.string().required(reqString).min(10, "Please give a more substantial description"),
+                    medicalHistory: this.state.type === 'patient' && yup.string(),
+                    currentEmployment: this.state.type === 'psychiatrist' && yup.string().required(reqString),
+                    workExperience: this.state.type === 'psychiatrist' && yup.string().required(reqString),
+                    education: this.state.type === 'psychiatrist' && yup.string().required(reqString),
+                    certifications: this.state.type === 'psychiatrist' && yup.string().required(reqString),
                 })}
             >
 
                 {({ values, handleChange, errors, touched, isValid, handleSubmit, handleBlur }) => (
-                    <View style={styles.container}>
+                    <ScrollView style={styles.container}>
                         <View style={styles.headerContainer}>
                             <H1>I am a...</H1>
                         </View>
@@ -76,43 +118,77 @@ export default class AccountCreationForm extends Component {
                             </Button>
                         </View>
 
-                        <InputBox
-                            title={"Email"}
-                            handleChange={handleChange('email')}
-                            handleBlur={handleBlur('email')}
-                            value={values.email}
-                            touched={touched.email}
-                            errors={errors.email}
+                        {
+                            inputTextArr.map(e => {
+                                return <InputBox
+                                    title={e.title}
+                                    handleChange={handleChange(e.key)}
+                                    handleBlur={handleBlur(e.key)}
+                                    value={values[e.key]}
+                                    touched={touched[e.key]}
+                                    errors={errors[e.key]}
+                                    secure={e.secure}
+                                />
+                            })
+                        }
+
+                        <View>
+                            <Label>Select Gender</Label>
+                            <Picker
+                                mode="dropdown"
+                                placeholder="Gender"
+                                placeholderStyle={{ color: "#2874F0" }}
+                                note={false}
+                                selectedValue={values.gender}
+                                onValueChange={handleChange('gender')}
+                            >
+                                <Picker.Item label="Male" value="male" />
+                                <Picker.Item label="Female" value="female" />
+                                <Picker.Item label="Others" value="others" />
+                            </Picker>
+                        </View>
+
+                        <DOBInput
+                            handleChange={handleChange('dob')}
+                            handleBlur={handleBlur('dob')}
+                            value={values.dob}
+                            touched={touched.dob}
+                            errors={errors.dob}
                         />
 
-                        <InputBox
-                            title={"User ID"}
-                            handleChange={handleChange('userID')}
-                            handleBlur={handleBlur('userID')}
-                            value={values.userID}
-                            touched={touched.userID}
-                            errors={errors.userID}
+                        <PickerCountry
+                            handleChange={handleChange('country')}
+                            value={values.country}
                         />
 
-                        <InputBox
-                            title={"Password"}
-                            handleChange={handleChange('password')}
-                            handleBlur={handleBlur('password')}
-                            value={values.password}
-                            touched={touched.password}
-                            errors={errors.password}
-                            secure={true}
-                        />
 
-                        <InputBox
-                            title={"Confirm Password"}
-                            handleChange={handleChange('cfmPassword')}
-                            handleBlur={handleBlur('cfmPassword')}
-                            value={values.cfmPassword}
-                            touched={touched.cfmPassword}
-                            errors={errors.cfmPassword}
-                            secure={true}
-                        />
+                        {this.state.type === 'patient'
+                            && textAreaPatient.map(e => {
+                                return (<InputTextArea
+                                    title={e.title}
+                                    placeholder={e.placeholder}
+                                    handleChange={handleChange(e.key)}
+                                    handleBlur={handleBlur(e.key)}
+                                    value={values[e.key]}
+                                    touched={touched[e.key]}
+                                    errors={errors[e.key]}
+                                />);
+                            })
+                        }
+
+                        {this.state.type === 'psychiatrist'
+                            && textAreaPsychiatrist.map(e => {
+                                return (<InputTextArea
+                                    title={e.title}
+                                    placeholder={e.placeholder}
+                                    handleChange={handleChange(e.key)}
+                                    handleBlur={handleBlur(e.key)}
+                                    value={values[e.key]}
+                                    touched={touched[e.key]}
+                                    errors={errors[e.key]}
+                                />);
+                            })
+                        }
 
                         <Button
                             disabled={!isValid}
@@ -120,7 +196,7 @@ export default class AccountCreationForm extends Component {
                             style={styles.submitButton}>
                             <Text>Create Account</Text>
                         </Button>
-                    </View>
+                    </ScrollView>
                 )}
             </Formik>
 
@@ -130,8 +206,7 @@ export default class AccountCreationForm extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'center',
-        marginHorizontal: 20,
+        paddingHorizontal: 20,
     },
     errorText: {
         fontSize: 12,
@@ -143,7 +218,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     buttonStyle: {
-        width: 200,
+        width: 150,
         height: 50,
         justifyContent: 'center',
 

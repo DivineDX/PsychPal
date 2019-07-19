@@ -4,10 +4,10 @@ import { Button } from 'react-native-elements';
 import { Picker, Label } from 'native-base';
 import { Formik } from 'formik';
 import * as yup from "yup";
-import InputBox from '../../Components/Input/InputBox';
-import DOBInput from '../../Components/Input/DOBInput';
-import PickerCountry from '../../Components/Input/PickerCountry';
-import InputTextArea from '../../Components/Input/InputTextArea';
+import InputBox from '../Components/Input/InputBox';
+import DOBInput from '../Components/Input/DOBInput';
+import PickerCountry from '../Components/Input/PickerCountry';
+import InputTextArea from '../Components/Input/InputTextArea';
 
 export default class PersonalParticulars extends Component {
 

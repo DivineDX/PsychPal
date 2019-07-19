@@ -69,7 +69,7 @@ export default class LoginContainer extends Component {
     attemptLogIn = () => {
         let status = this.checkThroughDB(this.state.userID, this.state.password);
         if (status) {
-            this.props.nav.navigate('SignIn', { //replaced with API fetch call 
+            this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
                 id: status.userID,
                 type: status.type,
                 particulars: status.particulars,
