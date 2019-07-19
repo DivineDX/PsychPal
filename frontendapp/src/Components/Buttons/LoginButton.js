@@ -2,10 +2,12 @@ import React from 'react';
 import { StyleSheet, Dimensions, View } from 'react-native';
 import { Button, Text } from 'native-base';
 
-const LoginButton = ({ nav, buttonText }) => {
+const LoginButton = ({ nav, buttonText, onPress }) => {
     return (
         <View>
-            <Button primary rounded style={styles.buttonContainer}>
+            <Button 
+                primary rounded style={styles.buttonContainer}
+                onPress = {() => onPress()}>
                 <Text>{buttonText}</Text>
             </Button>
         </View>

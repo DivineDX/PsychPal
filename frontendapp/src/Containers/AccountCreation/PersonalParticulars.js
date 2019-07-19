@@ -13,11 +13,18 @@ export default class PersonalParticulars extends Component {
 
     submitForm = (values) => { //API Post Call here
         console.log(values);
+        const {navigation} = this.props;
+        if (true) { //Replace with backend API response true here
+            navigation.navigate('Home', {
+                userID: this.props.userID,
+                type: this.props.type,
+                particulars: true,
+            });
+        }
     }
 
     render() {
         const reqString = "This field is required";
-
         return (
             <Formik
                 initialValues={{

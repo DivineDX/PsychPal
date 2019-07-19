@@ -13,7 +13,6 @@ export default class PsychiatristForm extends Component {
 
     render() {
         const reqString = "This field is required";
-        let data = new FormData();
         return (
             <Formik
                 initialValues={{

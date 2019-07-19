@@ -1,5 +1,6 @@
-import { createStackNavigator } from "react-navigation";
-import StartPage from './Containers/StartPage/StartPage';
+import { createStackNavigator, createSwitchNavigator } from "react-navigation";
+import SignedOut from './Containers/SignedOut/SignedOut';
+import Home from './Containers/Homepage/Home';
 import AccountCreationForm from './Containers/AccountCreation/AccountCreationForm';
 import PersonalParticulars from './Containers/AccountCreation/PersonalParticulars';
 import PatientForm from './Containers/AccountCreation/PatientForm';
@@ -13,11 +14,10 @@ import TreatmentPsych from './Containers/Treatment/TreatmentPsych'
 import AppointmentPatient from './Containers/AppointmentPage/AppointmentPagePatient'
 import PatientDetails from './Containers/PatientDetails'
 import PickerCountry from './Components/Input/PickerCountry';
-
-const RootStack = createStackNavigator(
+import TempFooter from './Containers/TempFooter';
+export const HomeStack = createStackNavigator(
 	{
-		Home: StartPage,
-		AccountCreation: AccountCreationForm,
+		Home: Home,
 		PersonalParticulars: PersonalParticulars,
 		PatientForm: PatientForm,
 		PsychiatristForm: PsychiatristForm,
@@ -30,10 +30,30 @@ const RootStack = createStackNavigator(
 		AppointmentPatient: AppointmentPatient,
 		PatientDetails: PatientDetails,
 		PickerCountry: PickerCountry,
+		TempFooter: TempFooter,
 	},
 	{
-		initialRouteName: 'PsychiatristForm',
+		initialRouteName: 'Home',
 	}
 );
 
-export default RootStack;
+export const SignedOutStack = createStackNavigator(
+	{
+		RootPage: SignedOut,
+		AccountCreation: AccountCreationForm,
+		SignIn: HomeStack
+	},
+	{
+		initialRouteName: 'RootPage',
+	}
+);
+
+export const RootNavigator = createSwitchNavigator(
+	{
+		SignedOut: SignedOutStack,
+		SignedIn: HomeStack,
+	},
+	{
+		initialRouteName: 'SignedOut'
+	}
+);

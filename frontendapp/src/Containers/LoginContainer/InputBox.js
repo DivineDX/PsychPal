@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Dimensions, View, TouchableOpacity } from 'react-native';
 import { Item, Input, Icon } from 'native-base';
 
-const InputBox = ({ placeholderText, iconName, showPass, toggle}) => {
+const InputBox = ({ placeholderText, iconName, showPass, toggle, onChange}) => {
     let secure = false;
     if (placeholderText === 'Password') {
         secure = true;
@@ -12,7 +12,10 @@ const InputBox = ({ placeholderText, iconName, showPass, toggle}) => {
         <View>
             <Item rounded style={styles.inputBox}>
                 <Icon active name={iconName} style={{ color: 'rgba(0,0,0,0.7)' }} />
-                <Input placeholder={placeholderText} secureTextEntry={secure && !showPass} />
+                <Input 
+                    placeholder={placeholderText} 
+                    secureTextEntry={secure && !showPass}
+                    onChangeText = {onChange}/>
                 {placeholderText === 'Password'
                     ? <TouchableOpacity onPress = {() => toggle()}>
                         <Icon active name={'eye'} style={styles.icon} />

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Item, Input, Button, Label, Text, Content, H1 } from 'native-base';
+import { Button, Text, H1 } from 'native-base';
 import { Formik } from 'formik';
 import * as yup from "yup";
 import InputBox from '../../Components/Input/InputBox';
 
 export default class AccountCreationForm extends Component {
-    // static navigationOptions = {
-    //     header: null
-    // }
+    static navigationOptions = {
+        title: 'Create Account'
+    }
 
     constructor() {
         super();
@@ -25,8 +25,15 @@ export default class AccountCreationForm extends Component {
         if (this.state.type === '') { //not selected
             alert("Please select whether you are a patient or psychiatrist");
         } else {
+            //Must check if email/userID already used
             this.setState(values);
-            console.log(this.state);
+            const { navigation } = this.props;
+            if (true) { //connect to database, change condition to if backeend responses okay
+                navigation.navigate('Home', {
+                    userID: this.state.userID,
+                    type: this.state.type,
+                });
+            }
         }
     }
 
@@ -36,16 +43,15 @@ export default class AccountCreationForm extends Component {
 
     render() {
         const reqString = "This field is required";
-
         return (
             <Formik
                 initialValues={{ email: '', userID: '', password: '', cfmPassword: '', }}
                 onSubmit={values => this.createAccount(values)}
                 validationSchema={yup.object().shape({
-                    email: yup.string().email("This is an invalid email").required(reqString),
+                    // email: yup.string().email("This is an invalid email").required(reqString),
                     userID: yup.string().min(6, "UserID must be at least 6 characters").required(reqString),
-                    password: yup.string().min(8, "Password must be at least 8 characters").required(reqString),
-                    cfmPassword: yup.string().oneOf([yup.ref('password'), null], "Passwords don't match").required(reqString),
+                    // password: yup.string().min(8, "Password must be at least 8 characters").required(reqString),
+                    // cfmPassword: yup.string().oneOf([yup.ref('password'), null], "Passwords don't match").required(reqString),
                 })}
             >
 
@@ -95,7 +101,7 @@ export default class AccountCreationForm extends Component {
                             value={values.password}
                             touched={touched.password}
                             errors={errors.password}
-                            secure = {true}
+                            secure={true}
                         />
 
                         <InputBox
@@ -105,14 +111,14 @@ export default class AccountCreationForm extends Component {
                             value={values.cfmPassword}
                             touched={touched.cfmPassword}
                             errors={errors.cfmPassword}
-                            secure = {true}
+                            secure={true}
                         />
 
                         <Button
                             disabled={!isValid}
                             onPress={handleSubmit}
                             style={styles.submitButton}>
-                            <Text>Submit</Text>
+                            <Text>Create Account</Text>
                         </Button>
                     </View>
                 )}
@@ -137,7 +143,7 @@ const styles = StyleSheet.create({
         marginBottom: 40,
     },
     buttonStyle: {
-        width: 175,
+        width: 200,
         height: 50,
         justifyContent: 'center',
 

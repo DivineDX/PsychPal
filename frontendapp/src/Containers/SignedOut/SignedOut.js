@@ -5,7 +5,7 @@ import bgImage from '../../Images/loginBG.jpg';
 import appLogo from '../../Images/appLogo.png';
 import LoginContainer from '../LoginContainer/LoginContainer';
 
-export default class StartPage extends Component {
+export default class SignedOut extends Component {
 	static navigationOptions = {
 		header: null
 	}
@@ -22,7 +22,7 @@ export default class StartPage extends Component {
 	}
 
 	render() {
-		const {navigation} = this.props;
+		const { navigation } = this.props;
 
 		return (
 			<ImageBackground source={bgImage} style={styles.backgroundContainer}>
@@ -34,17 +34,17 @@ export default class StartPage extends Component {
 
 				{
 					this.state.loggingIn
-						? <LoginContainer/>
+						? <LoginContainer nav = {navigation}/>
 						: <View style={styles.viewContainer}>
 							<View style={{ marginBottom: 20 }}>
-								<Button large onPress = {() => navigation.navigate('AccountCreation')}><Text>Create an Account</Text></Button>
+								<Button large onPress={() => navigation.navigate('AccountCreation')}><Text>Create an Account</Text></Button>
 							</View>
 							<Text>
 								Already have an account? <Text onPress={() => this.logginInFlip()}
 									style={{ color: 'blue' }}>Sign in</Text>
 							</Text>
 						</View>
-				}	
+				}
 
 			</ImageBackground>
 		);
