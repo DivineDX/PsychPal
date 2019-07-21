@@ -9,6 +9,7 @@ const App = () => {
   return (
     <View>
       <Text h4>{`\n  `}Your Next Appointment</Text>
+      
       <Card title='Your Next Appointment'>
     	  <Text style={{marginBottom: 10}}>
           {`Friday, 21 July 2019 with Dr. Milner\n6.00pm - 8.00pm`}
