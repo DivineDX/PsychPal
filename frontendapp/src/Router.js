@@ -44,11 +44,11 @@ const HomeTab = createBottomTabNavigator( // 4 Tabs - Planner, Search, Treatment
 				const { routeName } = navigation.state;
 				let iconName;
 				if (routeName === 'Planner') {
-					iconName = 'home';
+					iconName = 'calendar';
 				} else if (routeName === 'Search') {
 					iconName = 'search';
 				} else if (routeName === 'Treatment') {
-					iconName = 'medical';
+					iconName = 'medkit';
 				} else if (routeName === 'Account') {
 					iconName = 'person';
 				}
