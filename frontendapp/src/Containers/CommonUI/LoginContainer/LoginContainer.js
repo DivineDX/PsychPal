@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text } from 'native-base';
 import InputBox from './InputBox';
-import LoginButton from '../../Components/Buttons/LoginButton';
+import LoginButton from '../../../Components/Buttons/LoginButton'
 
 const userData = [ //fake logindata. Can delete after conencted with backend
     {

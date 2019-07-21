@@ -3,7 +3,7 @@ import { View, ImageBackground, Image, StyleSheet } from 'react-native';
 import { Button, Text } from 'native-base';
 import bgImage from '../../Images/loginBG.jpg';
 import appLogo from '../../Images/appLogo.png';
-import LoginContainer from '../LoginContainer/LoginContainer';
+import LoginContainer from './LoginContainer/LoginContainer'
 
 export default class SignedOut extends Component {
 	static navigationOptions = {

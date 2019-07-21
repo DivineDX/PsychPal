@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import TreatmentPlanPatient from '../../Components/TreatmentPlan/TreatmentPlanPatient'
-import TreatmentPlanPatient from '../../Components/TreatmentPlan/TreatmentPlanPsych'
+import TreatmentPlanPsych from '../../Components/TreatmentPlan/TreatmentPlanPsych'
 
 export default class TreatmentPlan extends Component {
     constructor() { //receive type and account completion as props

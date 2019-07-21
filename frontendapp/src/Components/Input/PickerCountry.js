@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, } from 'react-native';
 import CountryPicker from 'react-native-country-picker-modal';
-import { Label, Text } from 'native-base';
+import { Label } from 'native-base';
 
 const PickerCountry = ({ handleChange, value }) => {
 	return (

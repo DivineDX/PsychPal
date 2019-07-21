@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Container, Header, Content, DatePicker, Text, Label } from 'native-base';
+import { DatePicker, Label } from 'native-base';
 
 const DOBInput = ({ handleChange }) => {
     return (

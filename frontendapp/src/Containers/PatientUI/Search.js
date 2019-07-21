@@ -5,11 +5,11 @@ import DoctorInfoCard from '../../Components/Cards/DoctorInfoCard'
 
 const doctors = [
   {
-      name: 'brynn',
+      name: 'Mario Mandzukic',
   },
 
   {
-      name: 'Antelope',
+      name: 'Harry Kane',
    },
 ]
 
@@ -43,9 +43,9 @@ const App = () => {
       <Button
         title="Filter (smaller button)" />
       {
-        doctors.map(() => {
+        doctors.map((each) => {
           return (
-            <DoctorInfoCard doctorName={u.name}></DoctorInfoCard>
+            <DoctorInfoCard doctorName={each.name}></DoctorInfoCard>
           )
         })
       }

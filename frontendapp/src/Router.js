@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from "react-navigation";
 import { Icon } from 'native-base';
+
 // import from CommonUI
 import InputBox from './Containers/CommonUI/LoginContainer/InputBox'
 import LoginContainer from './Containers/CommonUI/LoginContainer/LoginContainer'
@@ -20,36 +21,29 @@ import AddTreatment from './Containers/PsychUI/AddTreatment'
 import PatientRecords from './Containers/PsychUI/PatientRecords'
 import PatientRecordsMoreDetails from './Containers/PsychUI/PatientRecordsMoreDetails'
 
+// import from Components
+import PlannerPatient from './Components/Planner/PlannerPatient'
+import PlannerPsych from './Components/Planner/PlannerPsych'
+import PlannerMoreDetailsPatient from './Components/PlannerMoreDetails/PlannerMoreDetailsPatient'
+import PlannerMoreDetailsPsych from './Components/PlannerMoreDetails/PlannerMoreDetailsPsych'
+import TreatmentPlanPatient from './Components/TreatmentPlan/TreatmentPlanPatient'
+import TreatmentPlanPsych from './Components/TreatmentPlan/TreatmentPlanPsych'
 
 
-// import SignedOut from './Containers/SignedOut/SignedOut';
-// import Planner from './Containers/Planner/Planner';
-// import AccountCreationForm from './Containers/AccountCreation/AccountCreationForm';
-// import Account from './Containers/Account/Account';
-// import PlannerPatient from './Components/Planner/PlannerPatient'
-// import PlannerPsych from './Components/Planner/PlannerPsych'
-// import RescheduleOverlay from './Containers/RescheduleOverlay/RescheduleOverlay'
-// import Search from './Containers/Search/Search'
-// import TreatmentPatient from './Containers/Treatment/TreatmentPatient'
-// import TreatmentPsych from './Containers/Treatment/TreatmentPsych'
-// import AppointmentPatient from './Containers/AppointmentPage/AppointmentPagePatient'
-// import PatientDetails from './Containers/PatientDetails'
-// import DoctorCard from './Components/Cards/DoctorCard'
-
-const HomeTab = createBottomTabNavigator( //4 tabs are search, home, treatment and account
+const HomeTab = createBottomTabNavigator( // 4 Tabs - Planner, Search, Treatment, Account
 	{
-		Home: Planner,
+		Planner: Planner,
 		Search: Search,
-		Treatment: TreatmentPatient,
-		Account: Account,
+		Treatment: TreatmentPlanPatient,
+		Account: AccountSettings,
 	},
 	{
-		initialRouteName: 'Home',
+		initialRouteName: 'Planner',
 		defaultNavigationOptions: ({ navigation }) => ({
 			tabBarIcon: ({tintColor }) => {
 				const { routeName } = navigation.state;
 				let iconName;
-				if (routeName === 'Home') {
+				if (routeName === 'Planner') {
 					iconName = 'home';
 				} else if (routeName === 'Search') {
 					iconName = 'search';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Item, Textarea, Label, Text } from 'native-base';
+import { Textarea, Label, Text } from 'native-base';
 
 const InputTextArea = ({ title, placeholder, handleChange, handleBlur, value, touched, errors }) => {
     return (
