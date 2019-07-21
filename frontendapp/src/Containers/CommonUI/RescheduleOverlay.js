@@ -1,6 +1,4 @@
-// Reschedule overlay
-
-import { Button, Text, SearchBar, Overlay } from 'react-native-elements'  // RNE, an open source library
+import { Button, Text, Overlay } from 'react-native-elements'
 import React from 'react';
 
 const App = () => {

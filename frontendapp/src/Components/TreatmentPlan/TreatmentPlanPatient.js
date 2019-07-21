@@ -1,10 +1,8 @@
-// TreatmentPatient
-
-import { View } from 'react-native' // view is div in web
-import { Card, Button, Text } from 'react-native-elements'  // RNE, an open source library
+import { View } from 'react-native'
+import { Card, Button, Text } from 'react-native-elements'
 import React from 'react';
 
-const App = () => {
+const TreatmentPlanPatient = () => {
   return (
     <View>
       <Text h4>{`\n  Mr. Vardy's Treatment Plan\n`}</Text>
@@ -27,4 +25,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default TreatmentPlanPatient

@@ -1,6 +1,5 @@
-import { Card, Button, Text } from 'react-native-elements'  // RNE, an open source library
+import { Card, Button, Text } from 'react-native-elements'
 import React from 'react'
-
 
 const DoctorCard = (props) => {
     return (

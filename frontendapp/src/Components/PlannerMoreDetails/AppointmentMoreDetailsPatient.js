@@ -1,11 +1,8 @@
-// AppointmentPage Patient
-
-import { View } from 'react-native' // view is div in web
-import { Card, Button, Text } from 'react-native-elements'  // RNE, an open source library
+import { View } from 'react-native'
+import { Card, Button, Text } from 'react-native-elements'
 import React from 'react';
 
-
-const App = () => {
+const PlannerMoreDetailsPatient = () => {
   return (
     <View>
       <Text h4>{`\n  Friday, 21 July 2019\n  6:00pm - 8:00pm`}</Text>
@@ -25,4 +22,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default PlannerMoreDetailsPatient

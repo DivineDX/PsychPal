@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native' // view is div in web
+import { View, StyleSheet } from 'react-native'
 import { Input, Text } from 'react-native-elements';
-import { Container, Header, Content, Textarea, Form } from "native-base";
+import { Textarea } from "native-base";
 
 const AddTreatment = () => {
   return (

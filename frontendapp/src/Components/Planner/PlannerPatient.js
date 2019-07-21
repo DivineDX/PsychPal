@@ -1,9 +1,8 @@
-// Planner Psych
 import React from 'react';
 import { ScrollView } from 'react-native'
 import { Card, Button, Text } from 'react-native-elements'
 
-const PlannerPatient = ({ props }) => {
+const PlannerPatient = (props) => {
 	return (
 		<ScrollView>
 			<Text h1>Patient Planner</Text>

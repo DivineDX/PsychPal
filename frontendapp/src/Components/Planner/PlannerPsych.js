@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native'
 import { Card, Button, Text } from 'react-native-elements'
 
-const PlannerPsych = ({ props }) => {
+const PlannerPsych = (props) => {
 	return (
 		<ScrollView>
 			<Text h1>Psychiatrist Planner</Text>

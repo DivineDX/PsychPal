@@ -17,7 +17,7 @@ const users = [
      },
 ]
 
-const PatientList = () => {
+const PatientRecords = () => {
     return (
         <View>
             {
@@ -48,4 +48,4 @@ const PatientList = () => {
     );
 };
 
-export default PatientList;
+export default PatientRecords

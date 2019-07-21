@@ -1,16 +1,11 @@
-// Search
-
-import { View, ScrollView } from 'react-native' // view is div in web
-import { Card, Button, Text, SearchBar } from 'react-native-elements'  // RNE, an open source library
+import { View, ScrollView } from 'react-native'
+import { Button, SearchBar } from 'react-native-elements'
 import React from 'react';
-import DoctorCard from '../../Components/Cards/DoctorCard'
-
-const newDoctor = "Harry Kane"
+import DoctorInfoCard from '../../Components/Cards/DoctorInfoCard'
 
 const doctors = [
   {
       name: 'brynn',
-      school: 'NUS' //
   },
 
   {
@@ -50,7 +45,7 @@ const App = () => {
       {
         doctors.map(() => {
           return (
-            <DoctorCard doctorName={u.name}></DoctorCard>
+            <DoctorInfoCard doctorName={u.name}></DoctorInfoCard>
           )
         })
       }

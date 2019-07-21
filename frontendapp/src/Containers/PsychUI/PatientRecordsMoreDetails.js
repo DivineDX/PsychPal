@@ -1,5 +1,5 @@
-import { View, StyleSheet } from 'react-native' // view is div in web
-import { Button, Text, Card } from 'react-native-elements'  // RNE, an open source library
+import { View, StyleSheet } from 'react-native'
+import { Button, Text, Card } from 'react-native-elements'
 import React from 'react';
 
 const PatientDetails = () => {
