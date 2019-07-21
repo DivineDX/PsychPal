@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements'
 import AppointmentSegment from '../../../Components/Planner/AppointmentSegment';
-
+import PlannerMoreDetailsPsych from '../../../Components/Planner/PlannerMoreDetailsPsych'
 const fakeData = [ //replaced with database fetch call in future
     {
         key: 1,
@@ -28,8 +28,8 @@ export default class Planner extends Component {
 
     render() {
         const { navigation } = this.props;
-        const type = navigation.dangerouslyGetParent().getParam('type', 'nulltype');
-        const id = navigation.dangerouslyGetParent().getParam('id', 'nullid')
+        const type = navigation.dangerouslyGetParent().dangerouslyGetParent().getParam('type', 'nulltype');
+        const id = navigation.dangerouslyGetParent().dangerouslyGetParent().getParam('id', 'nullid')
 
         return (
             <ScrollView>
@@ -38,17 +38,26 @@ export default class Planner extends Component {
                     type === 'psychiatrist'
                         ? <AppointmentSegment
                             header="Pending Appointments"
-                            appointmentData={fakeData} />
+                            appointmentData={fakeData}
+                            type = {type}
+                            navigation = {navigation}
+                            />
                         : null
                 }
 
                 <AppointmentSegment
                     header="Upcoming Appointments"
-                    appointmentData={fakeData} />
+                    appointmentData={fakeData}
+                    type = {type}
+                    navigation = {navigation}
+                    />
 
                 <AppointmentSegment
                     header="Past Appointments"
-                    appointmentData={fakeData} />
+                    appointmentData={fakeData}
+                    type = {type}
+                    navigation = {navigation}
+                    />
 
             </ScrollView>
         );

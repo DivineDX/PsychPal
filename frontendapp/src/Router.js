@@ -8,7 +8,6 @@ import LoginContainer from './Containers/CommonUI/LoginContainer/LoginContainer'
 import AccountCreationForm from './Containers/CommonUI/AccountCreationForm'
 import AccountSettings from './Containers/CommonUI/AccountSettings'
 import Planner from './Containers/CommonUI/Planner/Planner'
-import PlannerMoreDetails from './Containers/CommonUI/PlannerMoreDetails'
 import RescheduleOverlay from './Containers/CommonUI/RescheduleOverlay'
 import SignedOut from './Containers/CommonUI/SignedOut'
 import TreatmentPlan from './Containers/CommonUI/TreatmentPlan'
@@ -22,15 +21,25 @@ import PatientRecords from './Containers/PsychUI/PatientRecords'
 import PatientRecordsMoreDetails from './Containers/PsychUI/PatientRecordsMoreDetails'
 
 // import from Components
-import PlannerMoreDetailsPatient from './Components/PlannerMoreDetails/PlannerMoreDetailsPatient'
-import PlannerMoreDetailsPsych from './Components/PlannerMoreDetails/PlannerMoreDetailsPsych'
+import PlannerMoreDetailsPatient from './Components/Planner/PlannerMoreDetailsPatient'
+import PlannerMoreDetailsPsych from './Components/Planner/PlannerMoreDetailsPsych'
 import TreatmentPlanPatient from './Components/TreatmentPlan/TreatmentPlanPatient'
 import TreatmentPlanPsych from './Components/TreatmentPlan/TreatmentPlanPsych'
 
+const PlannerStack = createStackNavigator(
+	{
+		Main: Planner,
+		PatientDetails: PlannerMoreDetailsPatient,
+		PsychDetails: PlannerMoreDetailsPsych,
+	},
+	{
+		initialRouteName: 'Main'
+	}
+);
 
 const HomeTab = createBottomTabNavigator( // 4 Tabs - Planner, Search, Treatment, Account
 	{
-		Planner: Planner,
+		Planner: PlannerStack,
 		Search: Search,
 		Treatment: TreatmentPlanPatient,
 		Account: AccountSettings,
@@ -60,15 +69,19 @@ const HomeTab = createBottomTabNavigator( // 4 Tabs - Planner, Search, Treatment
 	}
 );
 
-//To be done later if need arises
-const PlannerStack = createStackNavigator(
+export const RootNavigator = createSwitchNavigator(
 	{
-		Main: Planner,
+		SignedOut: SignedOut,
+		AccountCreation: AccountCreationForm,
+		SignedIn: HomeTab,
 	},
 	{
-		initialRouteName: 'Main'
+		initialRouteName: 'SignedOut'
 	}
 );
+
+//To be done later if need arises
+
 
 /*
 
@@ -90,13 +103,3 @@ const TreatmentStack = createStackNavigator(
 	}
 ); */
 
-export const RootNavigator = createSwitchNavigator(
-	{
-		SignedOut: SignedOut,
-		AccountCreation: AccountCreationForm,
-		SignedIn: HomeTab,
-	},
-	{
-		initialRouteName: 'SignedOut'
-	}
-);
