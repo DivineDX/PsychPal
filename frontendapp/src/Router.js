@@ -2,11 +2,11 @@ import React from 'react';
 import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from "react-navigation";
 import { Icon } from 'native-base';
 import SignedOut from './Containers/SignedOut/SignedOut';
-import Home from './Containers/Homepage/Home';
+import Planner from './Containers/Planner/Planner';
 import AccountCreationForm from './Containers/AccountCreation/AccountCreationForm';
 import Account from './Containers/Account/Account';
-import PlannerPatient from './Containers/Planner/PlannerPatient'
-import PlannerPsych from './Containers/Planner/PlannerPsych'
+import PlannerPatient from './Components/Planner/PlannerPatient'
+import PlannerPsych from './Components/Planner/PlannerPsych'
 import RescheduleOverlay from './Containers/RescheduleOverlay/RescheduleOverlay'
 import Search from './Containers/Search/Search'
 import TreatmentPatient from './Containers/Treatment/TreatmentPatient'
@@ -16,7 +16,7 @@ import PatientDetails from './Containers/PatientDetails'
 
 const HomeTab = createBottomTabNavigator( //4 tabs are search, home, treatment and account
 	{
-		Home: PlannerPatient,
+		Home: Planner,
 		Search: Search,
 		Treatment: TreatmentPatient,
 		Account: Account,
@@ -47,14 +47,16 @@ const HomeTab = createBottomTabNavigator( //4 tabs are search, home, treatment a
 );
 
 //To be done later if need arises
-/* const PlannerStack = createStackNavigator(
+const PlannerStack = createStackNavigator(
 	{
-		Main: PlannerPatient,
+		Main: Planner,
 	},
 	{
 		initialRouteName: 'Main'
 	}
 );
+
+/*
 
 const SearchStack = createStackNavigator(
 	{
