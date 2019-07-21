@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Dimensions, View } from 'react-native';
 import { Button, Text } from 'native-base';
 
-const LoginButton = ({ nav, buttonText, onPress }) => {
+const LoginButton = ({ buttonText, onPress }) => {
     return (
         <View>
             <Button 

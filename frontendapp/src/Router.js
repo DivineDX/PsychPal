@@ -8,6 +8,7 @@ import AccountCreationForm from './Containers/CommonUI/AccountCreationForm'
 import AccountSettings from './Containers/CommonUI/AccountSettings'
 import Planner from './Containers/CommonUI/Planner'
 import PlannerMoreDetails from './Containers/CommonUI/PlannerMoreDetails'
+import RescheduleOverlay from './Containers/CommonUI/RescheduleOverlay'
 import SignedOut from './Containers/CommonUI/SignedOut'
 import TreatmentPlan from './Containers/CommonUI/TreatmentPlan'
 
