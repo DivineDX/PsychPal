@@ -9,12 +9,15 @@ export default class Account extends Component {
     render() {
         return (
             <View>
-                <Text>This is the account page</Text>
+                <Text>Upload Profile Picture</Text>
+                <Text>Remove Profile Picture</Text>
+                <Text>Change Password</Text>
+                <Text>Sign Out</Text>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    
+
 })

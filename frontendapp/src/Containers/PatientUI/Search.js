@@ -10,13 +10,13 @@ const newDoctor = "Harry Kane"
 const doctors = [
   {
       name: 'brynn',
+      school: 'NUS' //
   },
 
   {
       name: 'Antelope',
    },
 ]
-
 
 
 /*function retrieveDoctorInfo() {
@@ -48,7 +48,7 @@ const App = () => {
       <Button
         title="Filter (smaller button)" />
       {
-        doctors.map((u) => {
+        doctors.map(() => {
           return (
             <DoctorCard doctorName={u.name}></DoctorCard>
           )
