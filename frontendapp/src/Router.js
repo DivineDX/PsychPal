@@ -13,6 +13,7 @@ import TreatmentPatient from './Containers/Treatment/TreatmentPatient'
 import TreatmentPsych from './Containers/Treatment/TreatmentPsych'
 import AppointmentPatient from './Containers/AppointmentPage/AppointmentPagePatient'
 import PatientDetails from './Containers/PatientDetails'
+import DoctorCard from './Components/Cards/DoctorCard'
 
 const HomeTab = createBottomTabNavigator( //4 tabs are search, home, treatment and account
 	{
