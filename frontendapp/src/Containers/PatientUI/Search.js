@@ -6,10 +6,14 @@ import DoctorInfoCard from '../../Components/Cards/DoctorInfoCard'
 const doctors = [
   {
       name: 'Mario Mandzukic',
+      languages: 'English',
+      profile_picture: ''
   },
 
   {
       name: 'Harry Kane',
+      languages: 'Spanish',
+      profile_picture: ''
    },
 ]
 
@@ -45,7 +49,8 @@ const App = () => {
       {
         doctors.map((each) => {
           return (
-            <DoctorInfoCard doctorName={each.name}></DoctorInfoCard>
+            <DoctorInfoCard name={each.name} lang={each.languages}
+              profile_picture={each.profile_picture}></DoctorInfoCard>
           )
         })
       }
