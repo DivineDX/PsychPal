@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements'
 import AppointmentSegment from '../../../Components/Planner/AppointmentSegment';
-import PlannerMoreDetailsPsych from '../../../Components/Planner/PlannerMoreDetailsPsych'
+
 const fakeData = [ //replaced with database fetch call in future
     {
         key: 1,

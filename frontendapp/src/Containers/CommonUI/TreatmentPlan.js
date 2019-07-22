@@ -18,7 +18,7 @@ export default class TreatmentPlan extends Component {
                 <TreatmentPlanPatient />
             );
         } else if (type === 'psychiatrist') {
-            return <TreatmentPlanPysch />
+            return <TreatmentPlanPsych />
         } else {
             return <View><Text>Errors! This is not suppposed to happen</Text></View>
         }
