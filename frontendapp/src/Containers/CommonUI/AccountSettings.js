@@ -1,49 +1,26 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Text, Button } from 'react-native';
+import React from 'react';
+import AccountSettingsChild from './AccountSettingsChild'
+import { View } from 'react-native';
 import { Avatar } from 'react-native-elements';
 
-const user = [
+// Simulate a user object (either patient or psych) pulled from db
+const user = 
     {
-        name : 'Xiao Ming',
-        profile_picture: '',
-    },
-]
-
-export default class Account extends Component {
-    constructor() { //receive type and account completion as props
-        super();
+        name : 'Aaron Ramsey',
+        profile_picture_uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg' // Attn CJ: pls find a way to pull img url from db
     }
 
-    render() {
-        return (
-            <View>
-                {
-                    user.map((i) => {
-                        return (
-                            <Avatar
-                            size='large'
-                            rounded
-                            source={{
-                                uri: u.profile_picture
-                            }}
-                        />
-                        )
-                    })
-                }
 
-                <Button
-                    title="Upload Profile Picture"/>
-                <Button
-                    title="Remove Profile Picture"/>
-                <Button
-                    title="Change Password"/>
-                <Button
-                    title="Sign Out"/>
-            </View>
-        );
-    }
+const AccountSettings = () => {
+    return (
+        <View>
+            <Avatar
+                rounded
+                source={{ uri: user.profile_picture_uri }}
+            />
+            <AccountSettingsChild name = {user.name}></AccountSettingsChild>
+        </View>
+    )
 }
 
-const styles = StyleSheet.create({
-
-})
+export default AccountSettings

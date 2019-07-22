@@ -1,23 +1,23 @@
 import { Card, Button, Text } from 'react-native-elements'
 import React from 'react'
 
-const DoctorCard = (name, lang, profile_picture) => {
+const DoctorCard = (props) => {
     return (
-        <Card title={props.doctorName}>
-            <Avatar
+        <Card title={props.name}>
+            {/* <Avatar
                 size='large'
                 rounded
                 source={{
                     uri: profile_picture
                 }}
-            />
+            /> */}
 
             <Text style={{marginBottom: 10}}>
-                { name }
+                {props.name}
             </Text>
 
             <Text style={{marginBottom: 10}}>
-                {`Spoken languages: ` + lang}
+                {props.languages}
             </Text>
 
             <Button

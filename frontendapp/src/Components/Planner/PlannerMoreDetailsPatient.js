@@ -7,6 +7,7 @@ const PlannerMoreDetailsPatient = () => {
     <View>
       <Text h4>{`\n  Friday, 21 July 2019\n  6:00pm - 8:00pm`}</Text>
       <Card title='Appointment with Dr Milner'>
+        {/* Attn CJ: Add Jitsi key to db */}
         <Button
           backgroundColor='#03A9F4'
           buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}

@@ -47,10 +47,10 @@ const App = () => {
       <Button
         title="Filter (smaller button)" />
       {
-        doctors.map((each) => {
+        doctors.map((u) => {
           return (
-            <DoctorInfoCard name={each.name} lang={each.languages}
-              profile_picture={each.profile_picture}></DoctorInfoCard>
+            <DoctorInfoCard name={u.name} lang={u.languages}
+              profile_picture={u.profile_picture}></DoctorInfoCard>
           )
         })
       }
