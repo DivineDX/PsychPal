@@ -63,7 +63,6 @@ export default class LoginContainer extends Component {
     //to verify stored log in details
 	checklStoredLoginDetails = () => {
 		let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
-		console.log(this.state.datausername)
 		if (status != null) {
 			this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
                 id: status.userID,
