@@ -24,5 +24,4 @@ const PatientCard = (name, profile_picture) => {
     )
 }
 
-export default DoctorCard
-
+export default PatientCard
