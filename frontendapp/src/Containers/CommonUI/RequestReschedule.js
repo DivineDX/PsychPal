@@ -36,7 +36,7 @@ export default class RequestReschedule extends Component {
                 <DateTimePicker></DateTimePicker>
 
                 <Text>{'\n'}</Text>
-                
+
                 <Button 
                     buttonStyle={ styles.buttonContainer }
                     title="Confirm"></Button>
