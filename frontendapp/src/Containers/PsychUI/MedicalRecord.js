@@ -20,8 +20,6 @@ const patient = {
         'English',
         'Spanish'
     ]
-        
-    }
     
 }
 
