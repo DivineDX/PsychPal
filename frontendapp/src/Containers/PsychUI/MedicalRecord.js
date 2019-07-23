@@ -14,6 +14,14 @@ const dates = [
 
 const patient = { 
     name: 'Asahi',
+    age: '23',
+    // put as array of languages, modify to text only if needed
+    language: [
+        'English',
+        'Spanish'
+    ]
+        
+    }
     
 }
 
