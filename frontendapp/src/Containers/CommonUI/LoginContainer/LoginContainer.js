@@ -4,7 +4,8 @@ import { Text } from 'native-base';
 import InputBox from './InputBox';
 import LoginButton from '../../../Components/Buttons/LoginButton';
 import { CheckBox } from 'react-native-elements'
-
+ 
+//hi nic
 const userData = [ //fake logindata. Can delete after conencted with backend
     {
         userID: 'alex',
@@ -23,7 +24,7 @@ const userData = [ //fake logindata. Can delete after conencted with backend
     {
         userID: 'nicholas',
         password: '123',
-        type: 'patient',
+        type: 'psych',
         particulars: true,
         details: false,
     },
@@ -42,10 +43,10 @@ const userData = [ //fake logindata. Can delete after conencted with backend
         details: true,
     }
 ];
-
+ 
 //flag to check if previous log in details is stored and verified
 let isloaded = false;
-
+ 
 export default class LoginContainer extends Component {
     constructor() {
         super();
@@ -54,17 +55,20 @@ export default class LoginContainer extends Component {
             password: '',
             showPass: false,
             loginFailed: false,
-			datausername: null,
+            datausername: null,
             datapassword: null,
             checked: false,
+ 
+ 
+ 
         }
     }
-
+ 
     //to verify stored log in details
-	checklStoredLoginDetails = () => {
-		let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
-		if (status != null) {
-			this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
+    checklStoredLoginDetails = () => {
+        let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
+        if (status != null) {
+            this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
                 id: status.userID,
                 type: status.type,
                 particulars: status.particulars,
@@ -76,21 +80,21 @@ export default class LoginContainer extends Component {
     
     //get log in details from local storage if available
     async fetchdata() {
-		this.setState({
-			datapassword: await AsyncStorage.getItem('password'),
-			datausername: await AsyncStorage.getItem('username')
-		})
-	}
-
-	componentDidMount() {
-		this.fetchdata();
-	}
-
+        this.setState({
+            datapassword: await AsyncStorage.getItem('password'),
+            datausername: await AsyncStorage.getItem('username')
+        })
+    }
+ 
+    componentDidMount() {
+        this.fetchdata();
+    }
+ 
     toggleShowPass = () => {
         const curr = this.state.showPass;
         this.setState({ showPass: !curr });
     }
-
+ 
     onInputChange = (input, value) => {
         if (input === 'userid') {
             this.setState({ userID: value })
@@ -98,7 +102,7 @@ export default class LoginContainer extends Component {
             this.setState({ password: value })
         }
     }
-
+ 
     attemptLogIn = () => {
         let status = this.checkThroughDB(this.state.userID, this.state.password);
         if (status) {
@@ -118,7 +122,7 @@ export default class LoginContainer extends Component {
             this.setState({ loginFailed: true });
         }
     }
-
+ 
     checkThroughDB = (userID, password) => {
         for (let user of userData) { //reaplaced with api fetch call
             if (user.userID === userID && user.password === password) {
@@ -127,7 +131,18 @@ export default class LoginContainer extends Component {
         }
         return null;
     }
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     render() {
         const { nav } = this.props;
         this.checklStoredLoginDetails();
@@ -175,10 +190,11 @@ export default class LoginContainer extends Component {
         
     }
 }
-
+ 
 const styles = StyleSheet.create({
     loginContainer: {
         justifyContent: 'center',
         alignItems: 'center',
     },
 })
+ 
