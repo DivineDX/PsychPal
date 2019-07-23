@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, ImageBackground, Image, StyleSheet } from 'react-native';
+import { View, ImageBackground, Image, StyleSheet, AsyncStorage } from 'react-native';
 import { Button, Text } from 'native-base';
 import bgImage from '../../Images/loginBG.jpg';
 import appLogo from '../../Images/appLogo.png';
-import LoginContainer from './LoginContainer/LoginContainer'
+import LoginContainer from './LoginContainer/LoginContainer';
 
 export default class SignedOut extends Component {
 	static navigationOptions = {
@@ -20,10 +20,17 @@ export default class SignedOut extends Component {
 	logginInFlip = () => {
 		this.setState({ loggingIn: true });
 	}
+	//testing purposes to remove stored acc details
+	async removeLogin(username, password) {
+		try{
+			await AsyncStorage.removeItem(username);
+			await AsyncStorage.removeItem(password);
+		}catch(error) {
+		}
+	}
 
 	render() {
 		const { navigation } = this.props;
-
 		return (
 			<ImageBackground source={bgImage} style={styles.backgroundContainer}>
 				<View style={styles.viewContainer}>
@@ -43,6 +50,7 @@ export default class SignedOut extends Component {
 								Already have an account? <Text onPress={() => this.logginInFlip()}
 									style={{ color: 'blue' }}>Sign in</Text>
 							</Text>
+							<Button large onPress={() => this.removeLogin('username','password')}><Text>reset</Text></Button>
 						</View>
 				}
 
