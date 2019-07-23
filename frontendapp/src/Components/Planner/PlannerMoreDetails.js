@@ -40,7 +40,7 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment_data.jitsi_key}</Text>
 					<Button title='Join Call' />
 					<Text>{'\n'}</Text>
-					<Button title='Request to reschedule' />
+					<Button title='Request to Reschedule' />
 				</View>
 			)
 		} else {
@@ -51,7 +51,7 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment_data.patient_name}</Text>
 					<Button title='Join Call' />
 					<Text>{'\n'}</Text>
-					<Button title='Request to reschedule' />
+					<Button title='Request to Reschedule' />
 					<Text>{'\n'}</Text>
 					<Button title='Treatment Plan of Patient' />
 					<Text>{'\n'}</Text>
