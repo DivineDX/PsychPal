@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements'
 const AddTreatmentButton = (props) => {
     if (props.user_type == "Psychiatrist") {
         return (
-            <Button title="Add Treatment"/>
+            <Button title="Add Treatment (only for psych)"/>
         )
     } else {
         return null

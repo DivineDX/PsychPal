@@ -1,34 +1,52 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import TreatmentPlanPatient from '../../Components/TreatmentPlan/TreatmentPlanPatient'
-import TreatmentPlanPsych from '../../Components/TreatmentPlan/TreatmentPlanPsych'
+import React, { Component } from 'react'
+import { ScrollView, Text } from 'react-native-elements'
+import AddTreatmentButton from '../../Components/Buttons/AddTreatmentButton'
+import TreatmentPlanCard from '../../Components/Cards/TreatmentPlanCard'
 
+
+const treatment_plan_test = [
+    {   
+        "user_type": "Patient",
+        "patient_name": "Christian Eriksen",
+        "treatment_title": "Strepsils",
+        "treatment_details": "Placebo for PTSD. 2 times a day. Complete course."
+    },
+    {   
+        "user_type": "Patient",
+        "patient_name": "Christian Eriksen",
+        "treatment_title": "Panadol",
+        "treatment_details": "Panadol cures anything. 3 times a day."
+    }
+]
 export default class TreatmentPlan extends Component {
-    constructor() { //receive type and account completion as props
-        super();
+    constructor(props) {
+        super(props)
+        this.state = {
+            treatment_plan: treatment_plan_test
+        }
     }
 
-    render() {
-        const { navigation } = this.props;
-        const type = navigation.dangerouslyGetParent().getParam('type', 'nulltype');
-        const id = navigation.dangerouslyGetParent().getParam('id', 'nullid')
+    componentDidMount() {
+        // for cj
+    }
 
-        if (type === 'patient') {
-            return (
-                <TreatmentPlanPatient />
-            );
-        } else if (type === 'psychiatrist') {
-            return <TreatmentPlanPsych />
-        } else {
-            return <View><Text>Errors! This is not suppposed to happen</Text></View>
-        }
-
+    render(props) {
+        return (
+            <Text>HI</Text>
+            // <ScrollView>
+            //     <Text>Treatment Plan for {this.state.treatment_plan[0].patient_name}</Text>
+            //     <AddTreatmentButton user_type={this.state.treatment_plan[0].user_type}></AddTreatmentButton>
+            //     {/* {
+            //         this.state.treatment_plan.map((u) => {
+            //             return (
+            //                 <TreatmentPlanCard
+            //                     treatment_title={u.treatment_title}
+            //                     treatment_details={u.treatment_details}>
+            //                 </TreatmentPlanCard>
+            //             )
+            //         })
+            //     } */}
+            // </ScrollView>
+        )
     }
 }
-
-const styles = StyleSheet.create({
-    loginContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-})

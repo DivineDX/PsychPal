@@ -1,59 +1,97 @@
-import React from 'react';
-import { View, Text } from 'react-native'
-// import { Avatar } from 'react-native-elements';
-// import { Card, Button } from 'react-native-elements';
-import PatientInfoCard from '../../Components/Cards/PatientInfoCard'
+import { ScrollView } from 'react-native'
+import { ListItem } from 'react-native-elements'
+import React, { Component } from 'react';
 
-const users = [
-    {
-        name: 'brynn',
-        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        desc: 'Testing123'
-    },
-
-    {
-        name: 'Antelope',
-        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        desc: 'Testing123 Lorem Ipsum Asdfw Asdpock VMreopd Sdklmflkm '
-     },
+// avatar image must be 128 px * 128 px
+const testlist = [
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Andy Robertson',
+    avatar_url: 'https://c.imge.to/2019/07/23/NJXbH.jpg',
+    languages_spoken: 'English, Spanish'
+  },
+  {
+    name: 'Andy Robertson',
+    avatar_url: 'https://c.imge.to/2019/07/23/NJXbH.jpg',
+    languages_spoken: 'English, Spanish'
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'  
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Amy Farha',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  },
+  {
+    name: 'Chris Jackson',
+    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    languages_spoken: 'Chinese, Italian, French, English'
+  }
+  
 ]
 
-const PatientRecords = () => {
-    return (
-        <View>
-            {
-                users.map((i) => {
-                    return (
-                        <PatientInfoCard name={i.name} profile_picture={i.avatar}/>
-                    )
-                })
-            }
-            {/* {
-            users.map((u, i) => {
-                return (
-                    <Card title={u.name}>
-                        <Avatar
-                            size='medium'
-                            rounded
-                            source={{
-                            uri: u.avatar
-                            }}
-                        />
-                        
-                        <Text style= {{marginBottom: 20, marginTop: 10}}>
-                            { u.desc }
-                        </Text>
-                        
-                        <Button
-                            backgroundColor='#03A9F4'
-                            buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                            title='More details' />
-                    </Card>
-                );
-            })
-            } */}
-      </View>  
-    );
-};
+export default class PatientRecords extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            doctors: testlist
+        }
+    }
 
-export default PatientRecords
+    componentDidMount() {
+        // for cj
+    }
+
+    render(props) {
+        return (
+            <ScrollView>
+                {
+                    this.state.doctors.map((u) => (
+                        <ListItem
+                            leftAvatar={{ source: { uri: u.avatar_url } }}
+                            title={u.name}
+                            subtitle={u.languages_spoken}
+                        />
+                    ))
+                }
+            </ScrollView>
+        )
+    }
+}

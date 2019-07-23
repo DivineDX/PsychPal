@@ -41,7 +41,7 @@ const HomeTab = createBottomTabNavigator( // 4 Tabs - Planner, Search, Treatment
 	{
 		Planner: PlannerStack,
 		Search: Search,
-		Treatment: TreatmentPlanPatient,
+		Treatment: TreatmentPlan,
 		Account: AccountSettings,
 	},
 	{

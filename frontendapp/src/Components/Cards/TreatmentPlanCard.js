@@ -6,7 +6,6 @@ const TreatmentPlanCard = (props) => {
     return (
         <Card title={props.treatment_title}>
             <Text>{props.treatment_details}</Text>
-            <Text>{'\n'}</Text>
             {/* Attn CJ: Delete treatment plan from db on click of button */}
             <Button
                 backgroundColor='#03A9F4'
