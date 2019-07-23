@@ -1,37 +1,69 @@
-import { View, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import { Text } from 'react-native-elements'
-import React from 'react';
+import React, { Component } from 'react';
 
-const MedicalRecords = () => {
+const dates = [
+    {
+        date: '21-03-2019'
+    },
+
+    {
+        date: '22-03-2019'
+    },
+]
+
+const patient = { 
+    name: 'Asahi',
+    
+}
+
+const MedicalRecordsView = () => {
 	return (
-		<View>
+		<ScrollView>
             <Text h2>{ 'Medical Record' }</Text>
             <Text h3>{ 'Basic Information' }</Text>
                 <Text h4>
                     { 'Name:' + '\n' +
                       'Age: ' + '\n' +
-                      'Language: ' }
+                      'Language: ' + '\n' }
                 </Text>
             <Text h3>{ 'Current Condition' }</Text>
                 <Text h4>
-                    { 'Medical Sypnosis / Diagnosis: ' }
+                    { 'Medical Sypnosis / Diagnosis: ' + '\n'}
                 </Text>
             <Text h3>{ 'Medical History' }</Text>
                 <Text h4>
                     { 'Drug Allergies: ' + '\n' +
                       'Past Condition: ' + '\n' +
-                      'Family History: '}
+                      'Family History: ' + '\n' }
                 </Text>
-            <Text h3>{ 'Medical Log' }</Text>
+            <Text h3>{ 'Medical Log:' }</Text>
                 {
                     dates.map((i) => {
                         return (
-                            <Text h4>{ 'Appointment on ' + i }</Text>
+                            <Text h4>{ 'Appointment on ' + i.date }</Text>
                         )
                     })
                 }
-		</View>
+		</ScrollView>
 	);
 };
 
-export default MedicalRecords;
+export default class MedicalRecord extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            userData: [],
+        }
+    }
+
+    componentDidMount() {
+        // for cj
+    }
+
+    render(props) {
+        return (
+            MedicalRecordsView()
+        )
+    }
+}
