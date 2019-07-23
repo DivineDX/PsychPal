@@ -78,6 +78,7 @@
 		9C701040987B4269A73F45B1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9E94395E6D5495F828D9C6A /* Zocial.ttf */; };
 		DF423722CEBC44DF9BDF7732 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A913235BC0864980A76D2CD9 /* libRNDeviceInfo.a */; };
 		E561799BC51C4A3DB7A15441 /* libRNDeviceInfo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C05C8ABC144340866CBD07 /* libRNDeviceInfo-tvOS.a */; };
+		8946F94F3C3E47039DE3F0D5 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D232241E0554052A69F6CD8 /* Fontisto.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -427,6 +428,7 @@
 		75E873294A6445F78E1A1C21 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; name = "RNDeviceInfo.xcodeproj"; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		A913235BC0864980A76D2CD9 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; name = "libRNDeviceInfo.a"; path = "libRNDeviceInfo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		44C05C8ABC144340866CBD07 /* libRNDeviceInfo-tvOS.a */ = {isa = PBXFileReference; name = "libRNDeviceInfo-tvOS.a"; path = "libRNDeviceInfo-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		2D232241E0554052A69F6CD8 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -737,6 +739,7 @@
 				5FBFD2A900064E09AFF47F9A /* Octicons.ttf */,
 				42DBD2EA25F84B1C96383288 /* SimpleLineIcons.ttf */,
 				A9E94395E6D5495F828D9C6A /* Zocial.ttf */,
+				2D232241E0554052A69F6CD8 /* Fontisto.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1221,6 +1224,7 @@
 				9D4420D6BD6F4E0C811C80A4 /* Octicons.ttf in Resources */,
 				4C181D863BD14DFE94CEFFF3 /* SimpleLineIcons.ttf in Resources */,
 				9C701040987B4269A73F45B1 /* Zocial.ttf in Resources */,
+				8946F94F3C3E47039DE3F0D5 /* Fontisto.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
