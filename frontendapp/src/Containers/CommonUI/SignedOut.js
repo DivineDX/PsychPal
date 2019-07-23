@@ -20,17 +20,17 @@ export default class SignedOut extends Component {
 	logginInFlip = () => {
 		this.setState({ loggingIn: true });
 	}
-	//testing purposes to remove stored acc details
-	async removeLogin(username, password) {
-		try{
-			await AsyncStorage.removeItem(username);
-			await AsyncStorage.removeItem(password);
-		}catch(error) {
+
+	async fetchdata() {
+		if (await AsyncStorage.getItem('password') != null && await AsyncStorage.getItem('username') != null) {
+			this.logginInFlip();
 		}
 	}
 
+
 	render() {
 		const { navigation } = this.props;
+		this.fetchdata();
 		return (
 			<ImageBackground source={bgImage} style={styles.backgroundContainer}>
 				<View style={styles.viewContainer}>
@@ -50,7 +50,6 @@ export default class SignedOut extends Component {
 								Already have an account? <Text onPress={() => this.logginInFlip()}
 									style={{ color: 'blue' }}>Sign in</Text>
 							</Text>
-							<Button large onPress={() => this.removeLogin('username','password')}><Text>reset</Text></Button>
 						</View>
 				}
 
