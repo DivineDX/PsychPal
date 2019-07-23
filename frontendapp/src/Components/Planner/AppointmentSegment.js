@@ -16,7 +16,7 @@ const AppointmentSegment = ({header, appointmentData, type, navigation}) => {
                                 person = {data.person}
                                 type = {type}
                                 navigation = {navigation}
-                                />
+                            />
                 })
             }
         </View>

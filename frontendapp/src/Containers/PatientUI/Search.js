@@ -2,9 +2,9 @@ import { View, ScrollView } from 'react-native'
 import { Button, SearchBar } from 'react-native-elements'
 import React from 'react';
 import DoctorInfoCard from '../../Components/Cards/DoctorInfoCard'
-
+  
 const doctors = [
-  {
+{
     "name": "Erik Lamela",
     "language1": "English",
     "language2": "Spanish",
@@ -35,7 +35,7 @@ const Search = () => {
     <SearchBar></SearchBar>
       <Button
         title="Filter (smaller button)" />
-      <DoctorInfoCard></DoctorInfoCard>
+      
       {/* {
         doctors.map((u) => {
           return (

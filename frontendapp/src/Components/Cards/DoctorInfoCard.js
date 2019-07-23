@@ -1,9 +1,10 @@
-import { Card, Button, Text } from 'react-native-elements'
 import React from 'react'
+import { Card, Button, Text } from 'react-native-elements'
 
-const DoctorCard = (props) => {
+
+const DoctorInfoCard = () => {
     return (
-       null
+        <Text>hi</Text>
         // <Card title={props.name}>
         //     <Avatar
         //         size='large'
@@ -29,5 +30,5 @@ const DoctorCard = (props) => {
     )
 }
 
-export default DoctorCard
+export default DoctorInfoCard
 
