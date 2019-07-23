@@ -5,7 +5,6 @@ import InputBox from './InputBox';
 import LoginButton from '../../../Components/Buttons/LoginButton';
 import { CheckBox } from 'react-native-elements'
 
-//hi nic
 const userData = [ //fake logindata. Can delete after conencted with backend
     {
         userID: 'alex',
@@ -24,7 +23,7 @@ const userData = [ //fake logindata. Can delete after conencted with backend
     {
         userID: 'nicholas',
         password: '123',
-        type: 'psych',
+        type: 'patient',
         particulars: true,
         details: false,
     },
