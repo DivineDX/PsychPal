@@ -25,17 +25,22 @@ export default class DateTimePickerTester extends Component {
  
   render() {
     return (
-      <>
-        <Button title="Show DatePicker" onPress={this.showDateTimePicker} />
+      <View>
+        <Button 
+            buttonStyle={styles.buttonContainer}
+            title="Choose date and time" 
+            onPress={this.showDateTimePicker} />
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this.handleDatePicked}
           onCancel={this.hideDateTimePicker}
+          mode='datetime'
         />
-      </>
+      </View>
     );
   }
 }
+
 const styles = StyleSheet.create({
 	buttonContainer: {
 		marginHorizontal: 20,

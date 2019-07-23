@@ -33,9 +33,11 @@ export default class RequestReschedule extends Component {
         return (
             <View>
                 <Text h4>Request To Reschedule { '\n' }</Text>
-                <DateTimePicker mode={'time'}></DateTimePicker>
+                <DateTimePicker></DateTimePicker>
+
+                <Text>{'\n'}</Text>
                 
-                {/* <Button 
+                <Button 
                     buttonStyle={ styles.buttonContainer }
                     title="Confirm"></Button>
 
@@ -43,7 +45,7 @@ export default class RequestReschedule extends Component {
 
                 <Button 
                     buttonStyle = { styles.buttonContainer }
-                    title="Cancel"></Button> */}
+                    title="Cancel"></Button>
             </View>
         )
     }
