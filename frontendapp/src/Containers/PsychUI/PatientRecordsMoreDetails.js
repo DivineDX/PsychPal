@@ -2,7 +2,7 @@ import { View, StyleSheet } from 'react-native'
 import { Button, Text, Card } from 'react-native-elements'
 import React from 'react';
 
-const PatientDetails = () => {
+const PatientRecordsMoreDetails = () => {
 	return (
 		<View>
 			<Card>
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 	}
 })
-export default PatientDetails;
+export default PatientRecordsMoreDetails;

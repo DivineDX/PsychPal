@@ -1,26 +1,35 @@
-import { View } from 'react-native'
-import { Card, Button, Text } from 'react-native-elements'
-import React from 'react';
+import React from 'react'
+import { ScrollView } from 'react-native'
+import { Text } from 'react-native-elements'
+import TreatmentmentPlanCard from '../Cards/TreatmentPlanCard'
+import AddTreatmentButton from '../Buttons/AddTreatmentButton'
+
+// JSON array for treatment plan
+const treatment_plan = 
+[{
+  "patient_name": "John Barnes",
+  "treatment_title": "Paxil tablet",
+  "treatment_details": "Medication for PTSD. 2 times a day. Complete course."
+},
+{
+  "patient_name": "John Barnes",
+  "treatment_title": "Paxil tablet",
+  "treatment_details": "Medication for PTSD. 2 times a day. Complete course."
+}]
+
+const user_type_first = "Patient"
+const user_type_second = "Psychiatrist"
 
 const TreatmentPlanPatient = () => {
   return (
-    <View>
-      <Text h4>{`\n  Mr. Vardy's Treatment Plan\n`}</Text>
-      <Card title='Celexa'>
-      <Text>{'Antidepressant. 2 times a day, after meals.\n'}</Text>
-        <Button
-          backgroundColor='#03A9F4'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='Remove' />
-      </Card>
-      <Card title='Paxil'>
-      <Text>{'Medication for PTSD. 3 times a day, before/after meals.\n'}</Text>
-        <Button
-          backgroundColor='#03A9F4'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='Remove' />
-      </Card>
-    </View>
+    <ScrollView>
+      <Text h4>Treatment plan for {treatment_plan.patient_name}</Text>
+      <AddTreatmentButton user_type={user_type_second}></AddTreatmentButton> 
+      <TreatmentmentPlanCard 
+        treatment_title = {treatment_plan.treatment_title}
+        treatment_details = {treatment_plan.treatment_details}>
+      </TreatmentmentPlanCard>
+    </ScrollView>
     
   );
 };

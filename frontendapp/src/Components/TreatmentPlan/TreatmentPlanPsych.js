@@ -1,3 +1,5 @@
+// Please use TreatmentPlanPatient for now
+
 import { View } from 'react-native'
 import { Card, Button, Text } from 'react-native-elements'
 import React from 'react';

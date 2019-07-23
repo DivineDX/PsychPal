@@ -5,40 +5,31 @@ import DoctorInfoCard from '../../Components/Cards/DoctorInfoCard'
 
 const doctors = [
   {
-      name: 'Mario Mandzukic',
-      languages: 'English',
-      profile_picture: ''
+    "name": "Erik Lamela",
+    "language1": "English",
+    "language2": "Spanish",
+    "language3": null,
+    "profile_picture_uri": null
   },
 
   {
-      name: 'Harry Kane',
-      languages: 'Spanish',
-      profile_picture: ''
+    "name": "John Stones",
+    "language1": "English",
+    "language2": null,
+    "language3": null,
+    "profile_picture_uri": null
+   },
+
+   {
+    "name": "David Luiz",
+    "language1": "Portugese",
+    "language2": null,
+    "language3": null,
+    "profile_picture_uri": "https://hu.wikipedia.org/wiki/David_Luiz#/media/F%C3%A1jl:David_Luiz_and_Ahmed_Musa_(cropped).jpg"
    },
 ]
 
-
-/*function retrieveDoctorInfo() {
-  //return array of doctor objects
-}
-
-export default class Search extends Comment {
-  constructor(props) {
-    super(props);
-    this.state = {
-      doctors: null
-    }
-  }
-
-  ComponentWillMount() {
-    this.setState({doctors: this.retrieveDoctorInfo(
-
-    )})
-  }
-}
-*/
-
-const App = () => {
+const Search = () => {
   return (
     <View>
     <SearchBar></SearchBar>
@@ -55,37 +46,10 @@ const App = () => {
         })
       }
       
-      {/* <Card title='Dr. James Milner'>
-    	  <Text style={{marginBottom: 10}}>
-          {`Spoken languages: English, Spanish\nMedical College of Liverpool`}
-        </Text>
-        <Button
-          backgroundColor='#03A9F4'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='More details' />
-      </Card>
-      <Card title='Dr. Jadon Sancho'>
-    	  <Text style={{marginBottom: 10}}>
-          {`Spoken languages: English, German\nDortmund School of Medicine`}
-        </Text>
-        <Button
-          backgroundColor='#03A9F4'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='More details' />
-      </Card>
-      <Card title='Dr. Robert Green'>
-    	  <Text style={{marginBottom: 10}}>
-          {`Spoken languages: English, Italian\nWest Ham Medical College`}
-        </Text>
-        <Button
-          backgroundColor='#03A9F4'
-          buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-          title='More details' />
-      </Card> */}
     </View>
     </ScrollView>
     </View>
   );
 };
 
-export default App;
+export default Search;

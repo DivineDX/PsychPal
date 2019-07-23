@@ -9,7 +9,7 @@ const user =
         account_type: 'Patient',
         name : 'Aaron Ramsey',
         profile_picture_uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
-        // Attn CJ: pls find a way to pull img url from db
+        // Attn CJ: As mentioned, each user (patient/psych) will have a profile pic uri in their table
     }
 
 

@@ -4,13 +4,13 @@ import React from 'react'
 const DoctorCard = (props) => {
     return (
         <Card title={props.name}>
-            {/* <Avatar
+            <Avatar
                 size='large'
                 rounded
                 source={{
-                    uri: profile_picture
+                    uri: props.profile_picture
                 }}
-            /> */}
+            />
 
             <Text style={{marginBottom: 10}}>
                 {props.name}
