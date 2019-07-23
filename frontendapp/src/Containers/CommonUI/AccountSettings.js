@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AccountSettingsChild from './AccountSettingsChild'
 import { View, Text, AsyncStorage } from 'react-native';
 import { Avatar } from 'react-native-elements';
@@ -15,24 +15,35 @@ const user =
     }
 
 
-const AccountSettings = () => {
-    return (
-        <View>
-            <Button large onPress={async () => {
-                        try{
-                            await AsyncStorage.removeItem('username');
-                            await AsyncStorage.removeItem('password');
-                        }catch(error) {
+export default class AccountSettings extends Component {
+    constructor() {
+        super()
+        this.state = {
+            userData : [],
+        }
+    }
 
-                        }
-                }}><Text>reset</Text></Button>
-            <Avatar
-                rounded
-                source={{ uri: user.profile_picture_uri }}
-            />
-            <AccountSettingsChild name = {user.name}></AccountSettingsChild>
-        </View>
-    )
+    componentDidMount() {
+        // for cj
+    }
+
+    render() {
+        return (
+            <View>
+                <Button large onPress={async () => {
+                            try{
+                                await AsyncStorage.removeItem('username');
+                                await AsyncStorage.removeItem('password');
+                            }catch(error) {
+    
+                            }
+                    }}><Text>reset</Text></Button>
+                <Avatar
+                    rounded
+                    source={{ uri: user.profile_picture_uri }}
+                />
+                <AccountSettingsChild name = {user.name}></AccountSettingsChild>
+            </View>
+        )
+    }
 }
-
-export default AccountSettings
