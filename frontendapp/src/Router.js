@@ -8,9 +8,11 @@ import LoginContainer from './Containers/CommonUI/LoginContainer/LoginContainer'
 import AccountCreationForm from './Containers/CommonUI/AccountCreationForm'
 import AccountSettings from './Containers/CommonUI/AccountSettings'
 import Planner from './Containers/CommonUI/Planner/Planner'
-import RescheduleOverlay from './Containers/CommonUI/RescheduleOverlay'
+import RequestReschedule from './Containers/CommonUI/RequestReschedule'
+import ScheduleNextAppointment from './Containers/CommonUI/ScheduleNextAppointment'
 import SignedOut from './Containers/CommonUI/SignedOut'
 import TreatmentPlan from './Containers/CommonUI/TreatmentPlan'
+
 
 // import from PatientUI
 import Search from './Containers/PatientUI/Search'
@@ -19,6 +21,7 @@ import Search from './Containers/PatientUI/Search'
 import AddTreatment from './Containers/PsychUI/AddTreatment'
 import PatientRecords from './Containers/PsychUI/PatientRecords'
 import PatientRecordsMoreDetails from './Containers/PsychUI/PatientRecordsMoreDetails'
+import MedicalRecord from './Containers/PsychUI/MedicalRecord'
 
 // import from Components
 import PlannerMoreDetailsPatient from './Components/Planner/PlannerMoreDetailsPatient'

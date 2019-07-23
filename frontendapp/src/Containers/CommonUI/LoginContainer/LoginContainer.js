@@ -24,7 +24,7 @@ const userData = [ //fake logindata. Can delete after conencted with backend
     {
         userID: 'nicholas',
         password: '123',
-        type: 'psych',
+        type: 'psychiatrist',
         particulars: true,
         details: false,
     },

@@ -19,49 +19,17 @@ const patient = {
     language: [
         'English',
         'Spanish'
-    ]
-    
+    ],
+    medicalSypnosis: 'Cancer Stage 5\nNeeds euthanasia',
+    // put as array, modify to tet only if needed
+    drugAllergies: [
+        'Panadol',
+        'Ibuprofen',
+        'Fendac'
+    ],
+    pastCondition: 'Cancer Stage 4',
+    familyHistory: 'All died of cancer'
 }
-
-const MedicalRecordsView = () => {
-	return (
-		<ScrollView>
-            <Text h2>{ 'Medical Record' }</Text>
-            <Text h3>{ 'Basic Information' }</Text>
-                <Text h4>
-                    { 'Name:' + '\n' +
-                      'Age: ' + '\n' +
-                      'Language: '}
-                </Text>
-                {
-                    patient.language.map((i) => {
-                        return (
-                            <Text h4>{ i }</Text>
-                        )}
-                    )
-                }
-                
-            <Text h3>{ 'Current Condition' }</Text>
-                <Text h4>
-                    { 'Medical Sypnosis / Diagnosis: ' + '\n'}
-                </Text>
-            <Text h3>{ 'Medical History' }</Text>
-                <Text h4>
-                    { 'Drug Allergies: ' + '\n' +
-                      'Past Condition: ' + '\n' +
-                      'Family History: ' + '\n' }
-                </Text>
-            <Text h3>{ 'Medical Log:' }</Text>
-                {
-                    dates.map((i) => {
-                        return (
-                            <Text h4>{ 'Appointment on ' + i.date }</Text>
-                        )
-                    })
-                }
-		</ScrollView>
-	);
-};
 
 export default class MedicalRecord extends Component {
     constructor(props) {
@@ -77,7 +45,35 @@ export default class MedicalRecord extends Component {
 
     render(props) {
         return (
-            MedicalRecordsView()
+            <ScrollView>
+                <Text h2>{ 'Medical Record' }</Text>
+                <Text h3>{ 'Basic Information' }</Text>
+                    <Text h4>
+                        { 'Name:' +  patient.name + '\n' +
+                        'Age: ' +  patient.age  + '\n' +
+                        'Language: ' + patient.language.toString() + '\n' }
+                    </Text>
+                    
+                    
+                <Text h3>{ 'Current Condition' }</Text>
+                    <Text h4>
+                        { 'Medical Sypnosis / Diagnosis: ' + patient.medicalSypnosis + '\n' }
+                    </Text>
+                <Text h3>{ 'Medical History' }</Text>
+                    <Text h4>
+                        { 'Drug Allergies: ' + patient.drugAllergies + '\n' +
+                        'Past Condition: ' + patient.pastCondition + '\n' +
+                        'Family History: ' + patient.familyHistory + '\n' }
+                    </Text>
+                <Text h3>{ 'Medical Log:' }</Text>
+                    {
+                        dates.map((i) => {
+                            return (
+                                <Text h4>{ 'Appointment on ' + i.date }</Text>
+                            )
+                        })
+                    }
+		</ScrollView>
         )
     }
 }

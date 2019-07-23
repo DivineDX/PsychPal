@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { ScrollView, Text } from 'react-native-elements'
+import { Text } from 'react-native-elements'
+import { ScrollView } from 'react-native'
 import AddTreatmentButton from '../../Components/Buttons/AddTreatmentButton'
 import TreatmentPlanCard from '../../Components/Cards/TreatmentPlanCard'
 
@@ -30,23 +31,25 @@ export default class TreatmentPlan extends Component {
         // for cj
     }
 
-    render(props) {
+    render() {
         return (
-            <Text>HI</Text>
-            // <ScrollView>
-            //     <Text>Treatment Plan for {this.state.treatment_plan[0].patient_name}</Text>
-            //     <AddTreatmentButton user_type={this.state.treatment_plan[0].user_type}></AddTreatmentButton>
-            //     {/* {
-            //         this.state.treatment_plan.map((u) => {
-            //             return (
-            //                 <TreatmentPlanCard
-            //                     treatment_title={u.treatment_title}
-            //                     treatment_details={u.treatment_details}>
-            //                 </TreatmentPlanCard>
-            //             )
-            //         })
-            //     } */}
-            // </ScrollView>
+            // <Text>HI</Text>
+            <ScrollView>
+                 <Text>Treatment Plan for {this.state.treatment_plan[0].patient_name}</Text>
+                <AddTreatmentButton user_type={this.state.treatment_plan[0].user_type}></AddTreatmentButton>
+                {
+                    this.state.treatment_plan.map((u) => {
+                        return (
+                            <TreatmentPlanCard
+                                treatment_title={u.treatment_title}
+                                treatment_details={u.treatment_details}>
+                            </TreatmentPlanCard>
+                        )
+                    })
+                }
+            </ScrollView>
         )
     }
 }
+
+      
