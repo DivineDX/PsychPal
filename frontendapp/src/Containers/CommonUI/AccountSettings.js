@@ -1,7 +1,9 @@
 import React from 'react';
 import AccountSettingsChild from './AccountSettingsChild'
-import { View } from 'react-native';
+import { View, Text, AsyncStorage } from 'react-native';
 import { Avatar } from 'react-native-elements';
+import {Button} from 'native-base';
+
 
 // Simulate a user object (either patient or psych) pulled from db
 const user = 
@@ -16,6 +18,14 @@ const user =
 const AccountSettings = () => {
     return (
         <View>
+            <Button large onPress={async () => {
+                        try{
+                            await AsyncStorage.removeItem('username');
+                            await AsyncStorage.removeItem('password');
+                        }catch(error) {
+
+                        }
+                }}><Text>reset</Text></Button>
             <Avatar
                 rounded
                 source={{ uri: user.profile_picture_uri }}
