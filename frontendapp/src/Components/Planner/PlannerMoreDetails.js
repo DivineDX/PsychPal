@@ -42,7 +42,7 @@ export default class PlannerMoreDetails extends Component {
 					<JitsiCallButton/>
 					<Button title='Join Call' />
 					<Text>{'\n'}</Text>
-					<Button title='Request to reschedule' />
+					<Button title='Request to Reschedule' />
 				</View>
 			)
 		} else {
@@ -54,7 +54,7 @@ export default class PlannerMoreDetails extends Component {
 					<JitsiCallButton key={this.state.appointment_data.jitsi_key}></JitsiCallButton>
 					<Button title='Join Call' />
 					<Text>{'\n'}</Text>
-					<Button title='Request to reschedule' />
+					<Button title='Request to Reschedule' />
 					<Text>{'\n'}</Text>
 					<Button title='Treatment Plan of Patient' />
 					<Text>{'\n'}</Text>
