@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native'
-import { Avatar } from 'react-native-elements';
-import { Card, Button } from 'react-native-elements';
+// import { Avatar } from 'react-native-elements';
+// import { Card, Button } from 'react-native-elements';
+import PatientInfoCard from '../../Components/Cards/PatientInfoCard'
 
 const users = [
     {
@@ -21,6 +22,13 @@ const PatientRecords = () => {
     return (
         <View>
             {
+                users.map((i) => {
+                    return (
+                        <PatientInfoCard name={i.name} profile_picture={i.avatar}/>
+                    )
+                })
+            }
+            {/* {
             users.map((u, i) => {
                 return (
                     <Card title={u.name}>
@@ -43,7 +51,7 @@ const PatientRecords = () => {
                     </Card>
                 );
             })
-            }
+            } */}
       </View>  
     );
 };
