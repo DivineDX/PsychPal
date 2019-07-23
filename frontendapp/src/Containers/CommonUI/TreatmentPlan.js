@@ -17,6 +17,36 @@ const treatment_plan_test = [
         "patient_name": "Christian Eriksen",
         "treatment_title": "Panadol",
         "treatment_details": "Panadol cures anything. 3 times a day."
+    },
+    {   
+        "user_type": "Patient",
+        "patient_name": "Christian Eriksen",
+        "treatment_title": "Panadol",
+        "treatment_details": "Panadol cures anything. 3 times a day."
+    },
+    {   
+        "user_type": "Patient",
+        "patient_name": "Christian Eriksen",
+        "treatment_title": "Panadol",
+        "treatment_details": "Panadol cures anything. 3 times a day."
+    },
+    {   
+        "user_type": "Patient",
+        "patient_name": "Christian Eriksen",
+        "treatment_title": "Panadol",
+        "treatment_details": "Panadol cures anything. 3 times a day."
+    },
+    {   
+        "user_type": "Patient",
+        "patient_name": "Christian Eriksen",
+        "treatment_title": "Panadol",
+        "treatment_details": "Panadol cures anything. 3 times a day."
+    },
+    {   
+        "user_type": "Patient",
+        "patient_name": "Christian Eriksen",
+        "treatment_title": "KitKat",
+        "treatment_details": "Have a break. Have a KitKat."
     }
 ]
 
