@@ -35,7 +35,7 @@ export default class TreatmentPlan extends Component {
         return (
             // <Text>HI</Text>
             <ScrollView>
-                 <Text>Treatment Plan for {this.state.treatment_plan[0].patient_name}</Text>
+                 <Text h4>Treatment Plan for {this.state.treatment_plan[0].patient_name}</Text>
                 <AddTreatmentButton user_type={this.state.treatment_plan[0].user_type}></AddTreatmentButton>
                 {
                     this.state.treatment_plan.map((u) => {
