@@ -3,21 +3,29 @@ import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements'
 import AppointmentSegment from '../../../Components/Planner/AppointmentSegment';
 
+
+const jitsi_key = Math.random().toString(36).substring(2, 15) 
+                + Math.random().toString(36).substring(2, 15);
+
+
 const fakeData = [ //replaced with database fetch call in future
     {
-        key: 1,
         dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
-        person: "Dr. Milner",
+        person: "Dr. Steven Gerrard",
+        jitsi_key: Math.random().toString(36).substring(2, 15) 
+        + Math.random().toString(36).substring(2, 15)
     },
     {
-        key: 2,
         dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
-        person: "Dr. Milner",
+        person: "Dr. Frank Lampard",
+        jitsi_key: Math.random().toString(36).substring(2, 15) 
+        + Math.random().toString(36).substring(2, 15)
     },
     {
-        key: 3,
         dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
-        person: "Dr. Milner",
+        person: "Dr. Paul Scholes",
+        jitsi_key: Math.random().toString(36).substring(2, 15) 
+        + Math.random().toString(36).substring(2, 15)
     },
 ]
 

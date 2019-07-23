@@ -33,23 +33,20 @@ const Search = () => {
   return (
     <View>
     <SearchBar></SearchBar>
-    <ScrollView>
-    <View>
       <Button
         title="Filter (smaller button)" />
-      {
+      <DoctorInfoCard></DoctorInfoCard>
+      {/* {
         doctors.map((u) => {
           return (
             <DoctorInfoCard name={u.name} lang={u.languages}
               profile_picture={u.profile_picture}></DoctorInfoCard>
           )
         })
-      }
+      } */}
       
     </View>
-    </ScrollView>
-    </View>
-  );
-};
+  )
+}
 
 export default Search;
