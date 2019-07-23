@@ -5,7 +5,7 @@ import InputBox from './InputBox';
 import LoginButton from '../../../Components/Buttons/LoginButton';
 import { CheckBox } from 'react-native-elements'
 
-const userData = [ //fake logindata. Can delete after conencted with backend
+/*const userData = [ //fake logindata. Can delete after conencted with backend
     {
         userID: 'alex',
         password: '123',
@@ -41,7 +41,7 @@ const userData = [ //fake logindata. Can delete after conencted with backend
         particulars: true,
         details: true,
     }
-];
+];*/
 
 //flag to check if previous log in details is stored and verified
 let isloaded = false;
@@ -57,6 +57,9 @@ export default class LoginContainer extends Component {
 			datausername: null,
             datapassword: null,
             checked: false,
+            //put yr hardcoded data in this state
+            userData: [],
+            isloaded: false
         }
     }
 
@@ -80,10 +83,6 @@ export default class LoginContainer extends Component {
 			datapassword: await AsyncStorage.getItem('password'),
 			datausername: await AsyncStorage.getItem('username')
 		})
-	}
-
-	componentDidMount() {
-		this.fetchdata();
 	}
 
     toggleShowPass = () => {
@@ -120,7 +119,7 @@ export default class LoginContainer extends Component {
     }
 
     checkThroughDB = (userID, password) => {
-        for (let user of userData) { //reaplaced with api fetch call
+        for (let user of this.state.userData) { //reaplaced with api fetch call
             if (user.userID === userID && user.password === password) {
                 return user;
             }
@@ -128,10 +127,21 @@ export default class LoginContainer extends Component {
         return null;
     }
 
+    componentDidMount() {
+        //comment here to use hardcoded data
+        fetch('http://localhost:3005/select*from patients')
+          .then(response => response.json())
+          .then(data => this.setState({userData: data,
+            isloaded: true
+        }))
+        //dont comment this
+        this.fetchdata();
+    }
+
     render() {
         const { nav } = this.props;
         this.checklStoredLoginDetails();
-        if (!isloaded) {
+        if (!isloaded || !this.state.isloaded) {
             return(
                 <ActivityIndicator/>
             )
