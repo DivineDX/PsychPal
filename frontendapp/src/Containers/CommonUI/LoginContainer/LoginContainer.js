@@ -4,8 +4,9 @@ import { Text } from 'native-base';
 import InputBox from './InputBox';
 import LoginButton from '../../../Components/Buttons/LoginButton';
 import { CheckBox } from 'react-native-elements'
-
-/*const userData = [ //fake logindata. Can delete after conencted with backend
+ 
+//hi nic
+const userData = [ //fake logindata. Can delete after conencted with backend
     {
         userID: 'alex',
         password: '123',
@@ -23,7 +24,7 @@ import { CheckBox } from 'react-native-elements'
     {
         userID: 'nicholas',
         password: '123',
-        type: 'patient',
+        type: 'psych',
         particulars: true,
         details: false,
     },
@@ -41,11 +42,11 @@ import { CheckBox } from 'react-native-elements'
         particulars: true,
         details: true,
     }
-];*/
-
+];
+ 
 //flag to check if previous log in details is stored and verified
 let isloaded = false;
-
+ 
 export default class LoginContainer extends Component {
     constructor() {
         super();
@@ -54,20 +55,20 @@ export default class LoginContainer extends Component {
             password: '',
             showPass: false,
             loginFailed: false,
-			datausername: null,
+            datausername: null,
             datapassword: null,
             checked: false,
-            //put yr hardcoded data in this state
-            userData: [],
-            isloaded: false
+ 
+ 
+ 
         }
     }
-
+ 
     //to verify stored log in details
-	checklStoredLoginDetails = () => {
-		let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
-		if (status != null) {
-			this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
+    checklStoredLoginDetails = () => {
+        let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
+        if (status != null) {
+            this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
                 id: status.userID,
                 type: status.type,
                 particulars: status.particulars,
@@ -79,17 +80,21 @@ export default class LoginContainer extends Component {
     
     //get log in details from local storage if available
     async fetchdata() {
-		this.setState({
-			datapassword: await AsyncStorage.getItem('password'),
-			datausername: await AsyncStorage.getItem('username')
-		})
-	}
-
+        this.setState({
+            datapassword: await AsyncStorage.getItem('password'),
+            datausername: await AsyncStorage.getItem('username')
+        })
+    }
+ 
+    componentDidMount() {
+        this.fetchdata();
+    }
+ 
     toggleShowPass = () => {
         const curr = this.state.showPass;
         this.setState({ showPass: !curr });
     }
-
+ 
     onInputChange = (input, value) => {
         if (input === 'userid') {
             this.setState({ userID: value })
@@ -97,7 +102,7 @@ export default class LoginContainer extends Component {
             this.setState({ password: value })
         }
     }
-
+ 
     attemptLogIn = () => {
         let status = this.checkThroughDB(this.state.userID, this.state.password);
         if (status) {
@@ -117,31 +122,31 @@ export default class LoginContainer extends Component {
             this.setState({ loginFailed: true });
         }
     }
-
+ 
     checkThroughDB = (userID, password) => {
-        for (let user of this.state.userData) { //reaplaced with api fetch call
+        for (let user of userData) { //reaplaced with api fetch call
             if (user.userID === userID && user.password === password) {
                 return user;
             }
         }
         return null;
     }
-
-    componentDidMount() {
-        //comment here to use hardcoded data
-        fetch('http://localhost:3005/select*from patients')
-          .then(response => response.json())
-          .then(data => this.setState({userData: data,
-            isloaded: true
-        }))
-        //dont comment this
-        this.fetchdata();
-    }
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     render() {
         const { nav } = this.props;
         this.checklStoredLoginDetails();
-        if (!isloaded || !this.state.isloaded) {
+        if (!isloaded) {
             return(
                 <ActivityIndicator/>
             )
@@ -185,10 +190,11 @@ export default class LoginContainer extends Component {
         
     }
 }
-
+ 
 const styles = StyleSheet.create({
     loginContainer: {
         justifyContent: 'center',
         alignItems: 'center',
     },
 })
+ 
