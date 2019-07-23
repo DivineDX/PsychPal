@@ -31,8 +31,16 @@ const MedicalRecordsView = () => {
                 <Text h4>
                     { 'Name:' + '\n' +
                       'Age: ' + '\n' +
-                      'Language: ' + '\n' }
+                      'Language: '}
                 </Text>
+                {
+                    patient.language.map((i) => {
+                        return (
+                            <Text h4>{ i }</Text>
+                        )}
+                    )
+                }
+                
             <Text h3>{ 'Current Condition' }</Text>
                 <Text h4>
                     { 'Medical Sypnosis / Diagnosis: ' + '\n'}
