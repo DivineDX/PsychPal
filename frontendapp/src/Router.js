@@ -12,6 +12,7 @@ import RequestReschedule from './Containers/CommonUI/RequestReschedule'
 import ScheduleNextAppointment from './Containers/CommonUI/ScheduleNextAppointment'
 import SignedOut from './Containers/CommonUI/SignedOut'
 import TreatmentPlan from './Containers/CommonUI/TreatmentPlan'
+import PlannerAlex from './Containers/CommonUI/PlannerAlex'
 
 
 // import from PatientUI
@@ -29,7 +30,7 @@ import PlannerMoreDetailsPsych from './Components/Planner/PlannerMoreDetailsPsyc
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: Planner,
+		Main: PlannerAlex,
 		PatientDetails: PlannerMoreDetailsPatient,
 		PsychDetails: PlannerMoreDetailsPsych,
 	},

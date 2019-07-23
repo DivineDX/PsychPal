@@ -8,7 +8,6 @@ const PlannerMoreDetailsPatient = () => {
       <Text h4>{`\n  Friday, 21 July 2019\n  6:00pm - 8:00pm`}</Text>
       <Card title='Appointment with Dr Milner'>
         <Text h4> 
-                Jitsi room key: {jitsi_key}
         </Text>
         <Button
           backgroundColor='#03A9F4'
