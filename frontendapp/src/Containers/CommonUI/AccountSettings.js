@@ -6,8 +6,10 @@ import { Avatar } from 'react-native-elements';
 // Simulate a user object (either patient or psych) pulled from db
 const user = 
     {
+        account_type: 'Patient',
         name : 'Aaron Ramsey',
-        profile_picture_uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg' // Attn CJ: pls find a way to pull img url from db
+        profile_picture_uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+        // Attn CJ: pls find a way to pull img url from db
     }
 
 

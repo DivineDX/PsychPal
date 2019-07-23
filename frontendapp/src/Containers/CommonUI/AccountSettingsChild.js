@@ -7,6 +7,7 @@ const AccountSettingsChild = (props) => {
     return (
         <View> 
             <Text h4>{props.name}</Text>
+            <Text>{'\n'}</Text>
             
             {/* Attn CJ: Change img uri from db */}
             <Button
