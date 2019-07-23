@@ -19,6 +19,7 @@ const treatment_plan_test = [
         "treatment_details": "Panadol cures anything. 3 times a day."
     }
 ]
+
 export default class TreatmentPlan extends Component {
     constructor(props) {
         super(props)

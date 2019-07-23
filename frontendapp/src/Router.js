@@ -26,8 +26,6 @@ import MedicalRecord from './Containers/PsychUI/MedicalRecord'
 // import from Components
 import PlannerMoreDetailsPatient from './Components/Planner/PlannerMoreDetailsPatient'
 import PlannerMoreDetailsPsych from './Components/Planner/PlannerMoreDetailsPsych'
-import TreatmentPlanPatient from './Components/TreatmentPlan/TreatmentPlanPatient'
-import TreatmentPlanPsych from './Components/TreatmentPlan/TreatmentPlanPsych'
 
 const PlannerStack = createStackNavigator(
 	{
