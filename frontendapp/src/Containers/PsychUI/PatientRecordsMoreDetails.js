@@ -9,7 +9,7 @@ const PatientRecordsMoreDetails = () => {
 				<Button
 					backgroundColor='#03A9F4'
 					buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-					title='Patient Details' />
+					title='Medical Record' />
 				<Text>{'\n'}</Text>
 				<Button
 					backgroundColor='#03A9F4'
