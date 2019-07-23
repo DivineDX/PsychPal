@@ -43,7 +43,7 @@ export default class DateTimePickerTester extends Component {
 
 const styles = StyleSheet.create({
 	buttonContainer: {
-		marginHorizontal: 20,
-		marginBottom: 10,
+		marginHorizontal: 1,
+		marginBottom: 50,
 	}
 })  
