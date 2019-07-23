@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, AsyncStorage, ActivityIndicator } from 'react-native';
 import { Text } from 'native-base';
 import InputBox from './InputBox';
-import LoginButton from '../../../Components/Buttons/LoginButton'
+import LoginButton from '../../../Components/Buttons/LoginButton';
+import { CheckBox } from 'react-native-elements'
 
 const userData = [ //fake logindata. Can delete after conencted with backend
     {
@@ -42,6 +43,9 @@ const userData = [ //fake logindata. Can delete after conencted with backend
     }
 ];
 
+//flag to check if previous log in details is stored and verified
+let isloaded = false;
+
 export default class LoginContainer extends Component {
     constructor() {
         super();
@@ -50,8 +54,38 @@ export default class LoginContainer extends Component {
             password: '',
             showPass: false,
             loginFailed: false,
+			datausername: null,
+            datapassword: null,
+            checked: false,
         }
     }
+
+    //to verify stored log in details
+	checklStoredLoginDetails = () => {
+		let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
+		console.log(this.state.datausername)
+		if (status != null) {
+			this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
+                id: status.userID,
+                type: status.type,
+                particulars: status.particulars,
+                details: status.details,
+            });
+        } 
+        isloaded = true;
+    }
+    
+    //get log in details from local storage if available
+    async fetchdata() {
+		this.setState({
+			datapassword: await AsyncStorage.getItem('password'),
+			datausername: await AsyncStorage.getItem('username')
+		})
+	}
+
+	componentDidMount() {
+		this.fetchdata();
+	}
 
     toggleShowPass = () => {
         const curr = this.state.showPass;
@@ -69,6 +103,12 @@ export default class LoginContainer extends Component {
     attemptLogIn = () => {
         let status = this.checkThroughDB(this.state.userID, this.state.password);
         if (status) {
+            if(this.state.checked) {
+                AsyncStorage.multiSet([
+                    ['username', this.state.userID],
+                    ['password', this.state.password]
+                ])
+            }
             this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
                 id: status.userID,
                 type: status.type,
@@ -81,47 +121,59 @@ export default class LoginContainer extends Component {
     }
 
     checkThroughDB = (userID, password) => {
-        for (let user of userData) {
+        for (let user of userData) { //reaplaced with api fetch call
             if (user.userID === userID && user.password === password) {
                 return user;
             }
         }
-        return undefined;
+        return null;
     }
 
     render() {
         const { nav } = this.props;
-        return (
-            <View style={styles.loginContainer}>
-                <InputBox
-                    placeholderText={'UserID'}
-                    iconName={'person'}
-                    onChange={e => this.onInputChange('userid', e)}
-                />
-                <InputBox
-                    placeholderText={'Password'}
-                    iconName={'lock'}
-                    showPass={this.state.showPass}
-                    toggle={this.toggleShowPass}
-                    onChange={e => this.onInputChange('password', e)}
-                />
-                {
-                    this.state.loginFailed
-                        ? <Text style = {{color: 'red'}}>UserID or Password is incorrect</Text>
-                        : null
-                }
-                <LoginButton
-                    nav={nav}
-                    buttonText={'Login'}
-                    onPress={this.attemptLogIn}
-                />
-
-                <Text style={{ color: 'blue', marginTop: 10 }} onPress={() => nav.navigate('AccountCreation')}>
-                    Don't have an account?
-                </Text>
-            </View>
-
-        );
+        this.checklStoredLoginDetails();
+        if (!isloaded) {
+            return(
+                <ActivityIndicator/>
+            )
+        } else {
+            return (
+                <View style={styles.loginContainer}>
+                    <InputBox
+                        placeholderText={'UserID'}
+                        iconName={'person'}
+                        onChange={e => this.onInputChange('userid', e)}
+                    />
+                    <InputBox
+                        placeholderText={'Password'}
+                        iconName={'lock'}
+                        showPass={this.state.showPass}
+                        toggle={this.toggleShowPass}
+                        onChange={e => this.onInputChange('password', e)}
+                    />
+                    {
+                        this.state.loginFailed
+                            ? <Text style = {{color: 'red'}}>UserID or Password is incorrect</Text>
+                            : null
+                    }
+                    <LoginButton
+                        nav={nav}
+                        buttonText={'Login'}
+                        onPress={this.attemptLogIn}
+                    />
+                    <CheckBox
+                        title='Stay logged in'
+                        checked={this.state.checked}
+                        onPress={() => this.setState({checked: !this.state.checked})}
+                        />
+                    <Text style={{ color: 'blue', marginTop: 10 }} onPress={() => nav.navigate('AccountCreation')}>
+                        Don't have an account? 
+                    </Text>
+                </View>
+    
+            );
+        }
+        
     }
 }
 
