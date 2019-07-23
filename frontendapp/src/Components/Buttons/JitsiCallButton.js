@@ -3,8 +3,16 @@ import { Linking, StyleSheet, Dimensions, View } from 'react-native';
 import { Button, Text } from 'native-base';
 
 export default class JitsiCallButton extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            key: '233'
+        }
+    }
+
     buttonPress = () => {
-        const meeting_url = 'loltest'; //edit acccordingly for test, to be handle with props later on
+        const meeting_url = '233' //edit acccordingly for test, to be handle with props later on
         const url = `https://meet.jit.si/${meeting_url}`; //string
         Linking.canOpenURL(url)
             .then((supported) => {
@@ -21,7 +29,7 @@ export default class JitsiCallButton extends Component {
         return (
             <View>
                 <Button rounded success onPress={() => this.buttonPress()} style={styles.buttonContainer}>
-                    <Text>Start Video Call</Text>
+                    <Text>{this.state.key}</Text>
                 </Button>
             </View>
         );

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { View } from 'react-native'
 import { Button, Text } from 'react-native-elements'
-
+import JitsiCallButton from '../../Components/Buttons/JitsiCallButton'
 
 
 const appointment_data_test =
@@ -18,10 +18,11 @@ const appointment_data_test =
 
 export default class PlannerMoreDetails extends Component {
 
-	constructor(props) {
-		super(props)
+	constructor() {
+		super()
 		this.state = {
-			appointment_data: appointment_data_test
+			appointment_data: appointment_data_test,
+			jitsi_key: appointment_data_test.jitsi_key,
 		}
 	}
 
@@ -38,6 +39,7 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment_data.doctor_name}</Text>
 					<Text>{'\n'}</Text>
 					<Text h4>{this.state.appointment_data.jitsi_key}</Text>
+					<JitsiCallButton/>
 					<Button title='Join Call' />
 					<Text>{'\n'}</Text>
 					<Button title='Request to reschedule' />
@@ -49,6 +51,7 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment_data.appointment_date}</Text>
 					<Text h4>{this.state.appointment_data.appointment_time}</Text>
 					<Text h4>{this.state.appointment_data.patient_name}</Text>
+					<JitsiCallButton key={this.state.appointment_data.jitsi_key}></JitsiCallButton>
 					<Button title='Join Call' />
 					<Text>{'\n'}</Text>
 					<Button title='Request to reschedule' />
