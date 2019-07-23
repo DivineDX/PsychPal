@@ -25,12 +25,13 @@ import PatientRecordsMoreDetails from './Containers/PsychUI/PatientRecordsMoreDe
 import MedicalRecord from './Containers/PsychUI/MedicalRecord'
 
 // import from Components
-import PlannerMoreDetailsPatient from './Components/Planner/PlannerMoreDetailsPatient'
+import PlannerMoreDetailsPatient from './Components/Planner/PlannerMoreDetails'
 import PlannerMoreDetailsPsych from './Components/Planner/PlannerMoreDetailsPsych'
+import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails';
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: PlannerAlex,
+		Main: PlannerMoreDetails,
 		PatientDetails: PlannerMoreDetailsPatient,
 		PsychDetails: PlannerMoreDetailsPsych,
 	},

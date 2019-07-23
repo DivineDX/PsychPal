@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-native-elements'
 
-// Conditional rendering - AddTreatment button is only rendered for user type is Psychiastrist
+// Conditional rendering - AddTreatment button is only rendered for user type is Psychiatrist
 const AddTreatmentButton = (props) => {
     if (props.user_type == "Psychiatrist") {
         return (
