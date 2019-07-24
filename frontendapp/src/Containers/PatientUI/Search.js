@@ -4,112 +4,65 @@ import React, { Component } from 'react';
 
 // need to refactor this based on database
 
-// avatar image must be 128 px * 128 px
+
 const test_list = [
   {
-    'name': 'Amy Farha',
+    'name': 'Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-     language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MBBS (NUS)'
   },
   {
     'name': 'Andy Robertson',
     'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MD (Liverpool)'
   },
   {
     'name': 'Andy Robertson',
     'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MD (Liverpool)'
   },
   {
-    'name': 'Amy Farha',
+    'name': 'Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Amy Farha',
+    'name': 'Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Amy Farha',
+    'name': 'Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Amy Farha',
+    'name': 'Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Amy Farha',
+    'name': 'Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Amy Farha',
+    'name': 'Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
-  },
-  {
-    'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
-  },
-  {
-    'name': 'Chris Jackson',
+    'name': 'Pedro',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    language: [
-      'English',
-      'Spanish'
-  ],
+    'professional_credentials': 'MD (London)'
   }
-  
 ]
 
 export default class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            doctors: test_list
+            doctors: test_list,
         }
     }
 
@@ -130,7 +83,7 @@ export default class Search extends Component {
                         <ListItem
                             leftAvatar={{ source: { uri: u.profile_pic_url } }}
                             title={u.name}
-                            subtitle={u.language.toString()}
+                            subtitle={u.professional_credentials}
                         />
                     ))
                 }
