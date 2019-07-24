@@ -9,17 +9,17 @@ const AccountSettingsChild = (props) => {
             <Text h4>{props.name}</Text>
             <Text>{'\n'}</Text>
             
-            {/* Attn CJ: Change img uri from db */}
+            {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific user object */}
             <Button
                 title="Update Profile Picture"/>
             <Text>{'\n'}</Text>
             
-            {/* Attn CJ: Delete img uri from db */}
+            {/* Attn CJ: Delete profile_pic_url for this specific user object - set to null */}
             <Button
                 title="Remove Profile Picture"/>
             <Text>{'\n'}</Text>
 
-            {/* Attn CJ: Change password from db */}
+            {/* Attn CJ: Change password for this specific user object */}
             <Button
                 title="Change Password"/>
             <Text>{'\n'}</Text>

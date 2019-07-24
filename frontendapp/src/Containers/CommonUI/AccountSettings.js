@@ -5,21 +5,19 @@ import { Avatar } from 'react-native-elements';
 import {Button} from 'native-base';
 
 
-// Simulate a user object (either patient or psych) pulled from db
-const user = 
+const test_user = 
     {
-        account_type: 'Patient',
+        user_type: 'Patient',
         name : 'Aaron Ramsey',
         profile_picture_uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
-        // Attn CJ: As mentioned, each user (patient/psych) will have a profile pic uri in their table
     }
 
-
+// Attn CJ: Data required here is the specific user object (patient/psych)
 export default class AccountSettings extends Component {
     constructor() {
         super()
         this.state = {
-            userData : [],
+            user : test_user
         }
     }
 
@@ -40,9 +38,9 @@ export default class AccountSettings extends Component {
                     }}><Text>reset</Text></Button>
                 <Avatar
                     rounded
-                    source={{ uri: user.profile_picture_uri }}
+                    source={{ uri: this.state.user.profile_picture_uri }}
                 />
-                <AccountSettingsChild name = {user.name}></AccountSettingsChild>
+                <AccountSettingsChild name = {this.state.user.name}></AccountSettingsChild>
             </View>
         )
     }
