@@ -5,6 +5,7 @@ import AddTreatmentButton from '../../Components/Buttons/AddTreatmentButton'
 import TreatmentPlanCard from '../../Components/Cards/TreatmentPlanCard'
 
 
+// Attn CJ: Data required here is an array of treatment objects for that 1 particular patient
 const treatment_plan_test = [
     {   
         "user_type": "Patient",
@@ -64,7 +65,6 @@ export default class TreatmentPlan extends Component {
 
     render() {
         return (
-            // <Text>HI</Text>
             <ScrollView>
                  <Text h4>Treatment Plan for {this.state.treatment_plan[0].patient_name}</Text>
                 <AddTreatmentButton user_type={this.state.treatment_plan[0].user_type}></AddTreatmentButton>

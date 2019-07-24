@@ -3,10 +3,11 @@ import { View } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import JitsiCallButton from '../../Components/Buttons/JitsiCallButton'
 
-// Oh shit I cant make it fixed
+// Attn CJ: Once this random string is generated, store it in db, so it is fixed
 const jitsi_key_fixed = Math.random().toString(36).substring(2, 15) 
 						+ Math.random().toString(36).substring(2, 15);
 
+// Attn CJ: Data required here is the appointment object of that specific user
 const appointment_data_test =
 	{
 		"user_type": "Patient",

@@ -2,6 +2,8 @@ import { ScrollView } from 'react-native'
 import { Button, SearchBar, ListItem } from 'react-native-elements'
 import React, { Component } from 'react';
 
+// need to refactor this based on database
+
 // avatar image must be 128 px * 128 px
 const test_list = [
   {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button, Text } from 'react-native-elements'
 
-const AppointmentCard = ({ dateTime, person, type, navigation, jitsi_key}) => {
+const AppointmentCard = ({ dateTime, person, type, navigation }) => {
     let nextRoute = '';
     if (type === 'patient') {
         nextRoute = 'PatientDetails';

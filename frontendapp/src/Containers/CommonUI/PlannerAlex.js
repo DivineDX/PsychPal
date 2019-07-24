@@ -3,10 +3,7 @@ import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements'
 import AppointmentSegment from '../../Components/Planner/AppointmentSegment';
 
-
-const jitsi_key = Math.random().toString(36).substring(2, 15) 
-                + Math.random().toString(36).substring(2, 15);
-
+// need to refactor this based on db schema
 
 const fakeData = [ //replaced with database fetch call in future
     {
@@ -53,16 +50,6 @@ export default class Planner extends Component {
         return (
             <ScrollView>
                 <Text h4>Welcome back {id}</Text>
-                {/* {
-                    type === 'psychiatrist'
-                        ? <AppointmentSegment
-                            header="Pending Appointments"
-                            appointmentData={fakeData}
-                            type = {type}
-                            navigation = {navigation}
-                            />
-                        : null
-                } */}
 
                 <AppointmentSegment
                     header="Pending Appointments"

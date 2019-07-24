@@ -29,7 +29,7 @@ import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails';
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: PlannerMoreDetails
+		Main: PlannerAlex
 	},
 	{
 		initialRouteName: 'Main'

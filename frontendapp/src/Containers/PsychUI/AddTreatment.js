@@ -3,12 +3,11 @@ import { View, StyleSheet } from 'react-native'
 import { Input, Text } from 'react-native-elements';
 import { Textarea } from "native-base";
 
-
+// Attn CJ: Data required here is just the name of patient
 export default class AddTreatment extends Component {
     constructor() {
         super()
         this.state={
-            userData:[],
             name: 'Ashley',
         }
     }
@@ -21,7 +20,7 @@ export default class AddTreatment extends Component {
         return (
             <View>
                 <Text h4>{`\n  `}Add treatment for {this.state.name + '\n'}</Text>
-
+                {/* Attn CJ: upon input, treatment title furnished, treatment object created */}
                 <Input
                     placeholder='Title'
                 />
