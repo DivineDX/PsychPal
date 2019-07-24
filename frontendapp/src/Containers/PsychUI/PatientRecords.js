@@ -7,62 +7,62 @@ const testlist = [
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Andy Robertson',
     avatar_url: 'https://c.imge.to/2019/07/23/NJXbH.jpg',
-    languages_spoken: 'English, Spanish'
+    languages_spoken: ['English', 'Spanish']
   },
   {
     name: 'Andy Robertson',
     avatar_url: 'https://c.imge.to/2019/07/23/NJXbH.jpg',
-    languages_spoken: 'English, Spanish'
+    languages_spoken: ['English', 'Spanish']
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'  
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']  
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Amy Farha',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   },
   {
     name: 'Chris Jackson',
     avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    languages_spoken: 'Chinese, Italian, French, English'
+    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
   }
   
 ]
@@ -87,7 +87,7 @@ export default class PatientRecords extends Component {
                         <ListItem
                             leftAvatar={{ source: { uri: u.avatar_url } }}
                             title={u.name}
-                            subtitle={u.languages_spoken}
+                            subtitle={u.languages_spoken.toString()}
                         />
                     ))
                 }

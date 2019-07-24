@@ -8,51 +8,99 @@ import React, { Component } from 'react';
 const test_list = [
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+     language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Andy Robertson',
-    'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+    'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Andy Robertson',
-    'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+    'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Amy Farha',
-    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   },
   {
     'name': 'Chris Jackson',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+    language: [
+      'English',
+      'Spanish'
+  ],
   }
   
 ]
@@ -82,7 +130,7 @@ export default class Search extends Component {
                         <ListItem
                             leftAvatar={{ source: { uri: u.profile_pic_url } }}
                             title={u.name}
-                            //subtitle={u.languages_spoken}
+                            subtitle={u.language.toString()}
                         />
                     ))
                 }
