@@ -3,10 +3,10 @@ import { Button, SearchBar, ListItem } from 'react-native-elements'
 import React, { Component } from 'react';
 
 // avatar image must be 128 px * 128 px
-const testlist = [
+const test_list = [
   {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    'name': 'Amy Farha',
+    'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     languages_spoken: 'Chinese, Italian, French, English'
   },
   {
@@ -71,7 +71,7 @@ export default class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            doctors: testlist
+            doctors: test_list
         }
     }
 

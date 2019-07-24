@@ -3,6 +3,9 @@ import { View } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import JitsiCallButton from '../../Components/Buttons/JitsiCallButton'
 
+// Oh shit I cant make it fixed
+const jitsi_key_fixed = Math.random().toString(36).substring(2, 15) 
+						+ Math.random().toString(36).substring(2, 15);
 
 const appointment_data_test =
 	{
@@ -11,8 +14,7 @@ const appointment_data_test =
 		"appointment_time": "8:00pm",
 		"doctor_name": "Dr. Andrea Pirlo",
 		"patient_name": "Diego Costa",
-		"jitsi_key": Math.random().toString(36).substring(2, 15)
-			+ Math.random().toString(36).substring(2, 15)
+		"jitsi_key": test
 
 	}
 
@@ -21,8 +23,7 @@ export default class PlannerMoreDetails extends Component {
 	constructor() {
 		super()
 		this.state = {
-			appointment_data: appointment_data_test,
-			jitsi_key: appointment_data_test.jitsi_key,
+			appointment_data: appointment_data_test
 		}
 	}
 
@@ -38,8 +39,7 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment_data.appointment_time}</Text>
 					<Text h4>{this.state.appointment_data.doctor_name}</Text>
 					<Text>{'\n'}</Text>
-					<Text h4>{this.state.appointment_data.jitsi_key}</Text>
-					<JitsiCallButton/>
+					<JitsiCallButton jitsi_key = {this.state.appointment_data.jitsi_key}/>
 					<Button title='Join Call' />
 					<Text>{'\n'}</Text>
 					<Button title='Request to Reschedule' />

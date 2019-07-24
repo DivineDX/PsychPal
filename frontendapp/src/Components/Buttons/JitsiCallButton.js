@@ -4,17 +4,12 @@ import { Button, Text } from 'native-base';
 
 export default class JitsiCallButton extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            key: '233'
-        }
-    }
-
-    buttonPress = () => {
-        const meeting_url = '233' //edit acccordingly for test, to be handle with props later on
-        const url = `https://meet.jit.si/${meeting_url}`; //string
-        Linking.canOpenURL(url)
+    buttonPress = (jitsi_key_url) => {
+        //const meeting_url = '233'
+        const url_first_half = "https://meet.jit.si/"
+        const url_full = url_first_half.concat(jitsi_key_url)
+        //const url = `https://meet.jit.si/${meeting_url}`; //string
+        Linking.canOpenURL(url_full)
             .then((supported) => {
                 if (!supported) {
                     console.warn("Can't handle url: " + url);
@@ -28,8 +23,8 @@ export default class JitsiCallButton extends Component {
     render() {
         return (
             <View>
-                <Button rounded success onPress={() => this.buttonPress()} style={styles.buttonContainer}>
-                    <Text>{this.state.key}</Text>
+                <Button rounded success onPress={() => this.buttonPress(this.props.jitsi_key)} style={styles.buttonContainer}>
+                    <Text>{this.props.jitsi_key}</Text>
                 </Button>
             </View>
         );
