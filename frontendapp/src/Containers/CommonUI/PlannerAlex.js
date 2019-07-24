@@ -5,26 +5,20 @@ import AppointmentSegment from '../../Components/Planner/AppointmentSegment';
 
 // need to refactor this based on db schema
 
-const fakeData = [ //replaced with database fetch call in future
+const fakeData = [
     {
         dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
         person: "Dr. Steven Gerrard",
-        jitsi_key: Math.random().toString(36).substring(2, 15) 
-        + Math.random().toString(36).substring(2, 15),
         apptType: "Pending"
     },
     {
         dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
         person: "Dr. Frank Lampard",
-        jitsi_key: Math.random().toString(36).substring(2, 15) 
-        + Math.random().toString(36).substring(2, 15),
         apptType: "Upcoming"
     },
     {
         dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
         person: "Dr. Paul Scholes",
-        jitsi_key: Math.random().toString(36).substring(2, 15) 
-        + Math.random().toString(36).substring(2, 15),
         apptType: "Upcoming"
     },
 ]
