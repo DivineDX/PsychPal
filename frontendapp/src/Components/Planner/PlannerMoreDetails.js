@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import JitsiCallButton from '../../Components/Buttons/JitsiCallButton'
 
@@ -41,9 +41,13 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment_data.doctor_name}</Text>
 					<Text>{'\n'}</Text>
 					<JitsiCallButton jitsi_key = {this.state.appointment_data.jitsi_key}/>
-					<Button title='Join Call' />
+					<Button 
+						containerStyle={styles.buttonContainer}
+						title='Join Call' />
 					<Text>{'\n'}</Text>
-					<Button title='Request to Reschedule' />
+					<Button 
+						containerStyle={styles.buttonContainer}
+						title='Request to Reschedule' />
 				</View>
 			)
 		} else {
@@ -53,19 +57,35 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment_data.appointment_time}</Text>
 					<Text h4>{this.state.appointment_data.patient_name}</Text>
 					<JitsiCallButton key={this.state.appointment_data.jitsi_key}></JitsiCallButton>
-					<Button title='Join Call' />
+					<Button 
+						containerStyle={styles.buttonContainer}
+						title='Join Call' />
 					<Text>{'\n'}</Text>
-					<Button title='Request to Reschedule' />
+					<Button 
+						containerStyle={styles.buttonContainer}
+						title='Request to Reschedule' />
 					<Text>{'\n'}</Text>
-					<Button title='Treatment Plan of Patient' />
+					<Button 
+						containerStyle={styles.buttonContainer}
+						title='Treatment Plan of Patient' />
 					<Text>{'\n'}</Text>
-					<Button title='Create Appointment Log' />
+					<Button 
+						containerStyle={styles.buttonContainer}
+						title='Create Appointment Log' />
 					<Text>{'\n'}</Text>
-					<Button title='Schedule Next Appointment' />
+					<Button 
+						containerStyle={styles.buttonContainer}
+						title='Schedule Next Appointment' />
 				</View>
 			)
 		}
 		
 	}
-
 }
+
+const styles = StyleSheet.create({
+	buttonContainer: {
+		width: 275,
+		marginHorizontal: 75
+	}
+})
