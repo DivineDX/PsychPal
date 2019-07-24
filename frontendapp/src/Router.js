@@ -3,33 +3,34 @@ import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator }
 import { Icon } from 'native-base';
 
 // import from CommonUI
-import InputBox from './Containers/CommonUI/LoginContainer/InputBox'
+
 import LoginContainer from './Containers/CommonUI/LoginContainer/LoginContainer'
-import AccountCreationForm from './Containers/CommonUI/AccountCreationForm'
-import AccountSettings from './Containers/CommonUI/AccountSettings'
-import Planner from './Containers/CommonUI/Planner/Planner'
-import RequestReschedule from './Containers/CommonUI/RequestReschedule'
-import ScheduleNextAppointment from './Containers/CommonUI/ScheduleNextAppointment'
+import AccountCreation from './Containers/CommonUI/AccountCreation'
+import AccountSettings from './Containers/CommonUI/AccountSettings/AccountSettings'
+import Planner from './Containers/CommonUI/Planner'
 import SignedOut from './Containers/CommonUI/SignedOut'
-import TreatmentPlan from './Containers/CommonUI/TreatmentPlan'
-import PlannerAlex from './Containers/CommonUI/PlannerAlex'
 
 
 // import from PatientUI
 import Search from './Containers/PatientUI/Search'
+import TreatmentPlan from './Containers/PatientUI/TreatmentPlan'
 
 // import from PsychUI
-import AddTreatment from './Containers/PsychUI/AddTreatment'
 import PatientRecords from './Containers/PsychUI/PatientRecords'
-import PatientRecordsMoreDetails from './Containers/PsychUI/PatientRecordsMoreDetails'
-import MedicalRecord from './Containers/PsychUI/MedicalRecord'
 
 // import from Components
-import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails';
+import InputBox from './Components/Input/InputBox'
+import RequestReschedule from './Components/RequestReschedule'
+import ScheduleNextAppointment from './Components/ScheduleNextAppointment'
+import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails'
+import AddTreatment from './Components/AddTreatment'
+import MedicalRecord from './Components/MedicalRecord'
+import PatientRecordsMoreDetails from './Components/PatientRecordsMoreDetails'
+
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: PlannerAlex
+		Main: Planner
 	},
 	{
 		initialRouteName: 'Main'
@@ -71,7 +72,7 @@ const HomeTab = createBottomTabNavigator( // 4 Tabs - Planner, Search, Treatment
 export const RootNavigator = createSwitchNavigator(
 	{
 		SignedOut: SignedOut,
-		AccountCreation: AccountCreationForm,
+		AccountCreation: AccountCreation,
 		SignedIn: HomeTab,
 	},
 	{

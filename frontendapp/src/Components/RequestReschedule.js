@@ -1,16 +1,12 @@
 import { Button, Text } from 'react-native-elements'
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native'
-import DateTimePicker from '../../Components/Input/DateTimePicker'
-
-
-const test_user
+import DateTimePicker from './Input/DateTimePicker'
 
 export default class RequestReschedule extends Component {
     constructor() {
         super()
         this.state = {
-            user = test_user
         }
     }
 
