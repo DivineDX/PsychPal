@@ -59,6 +59,7 @@ export default class Planner extends Component {
                     appointmentData={fakeData.filter(function(item) {
                         return item.apptType == 'Upcoming';
                     })}
+                    
                     type = {type}
                     navigation = {navigation}
                     />
