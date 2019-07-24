@@ -22,8 +22,9 @@ export default class JitsiCallButton extends Component {
     render() {
         return (
             <View>
+                <Text>Jitsi room key: {this.props.jitsi_key}</Text>
                 <Button rounded success onPress={() => this.buttonPress(this.props.jitsi_key)} style={styles.buttonContainer}>
-                    <Text>{this.props.jitsi_key}</Text>
+                    <Text>Join Call</Text>
                 </Button>
             </View>
         );
