@@ -5,16 +5,15 @@ import { Button, Text } from 'native-base';
 export default class JitsiCallButton extends Component {
 
     buttonPress = (jitsi_key_url) => {
-        //const meeting_url = '233'
         const url_first_half = "https://meet.jit.si/"
         const url_full = url_first_half.concat(jitsi_key_url)
-        //const url = `https://meet.jit.si/${meeting_url}`; //string
+        
         Linking.canOpenURL(url_full)
             .then((supported) => {
                 if (!supported) {
-                    console.warn("Can't handle url: " + url);
+                    console.warn("Can't handle url: " + url_full);
                 } else {
-                    return Linking.openURL(url);
+                    return Linking.openURL(url_full);
                 }
             })
             .catch((err) => console.warn('An error occurred', err));

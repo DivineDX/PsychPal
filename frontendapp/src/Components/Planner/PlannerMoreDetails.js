@@ -14,7 +14,7 @@ const appointment_data_test =
 		"appointment_time": "8:00pm",
 		"doctor_name": "Dr. Andrea Pirlo",
 		"patient_name": "Diego Costa",
-		"jitsi_key": test
+		"jitsi_key": jitsi_key_fixed
 
 	}
 

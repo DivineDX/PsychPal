@@ -3,18 +3,6 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native'
 import DateTimePicker from '../../Components/Input/DateTimePicker'
 
-// const App = () => {
-//   return (
-//       <Overlay>
-//         <Text h4>Request To Reschedule</Text>
-//         <Text>{'\n'}</Text>
-//         <Text h4>Date and Time picker here</Text>
-//         <Button title="Confirm"></Button>
-//         <Text>{'\n'}</Text>
-//         <Button title="Cancel"></Button>
-//       </Overlay>
-//   );
-// };
 
 export default class RequestReschedule extends Component {
     constructor() {
