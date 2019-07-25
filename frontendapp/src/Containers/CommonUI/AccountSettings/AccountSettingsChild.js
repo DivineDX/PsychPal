@@ -4,44 +4,76 @@ import { Text, Button } from 'react-native-elements';
 
 
 const AccountSettingsChild = (props) => {
-    return (
-        <View style={styles.buttonContainer2}> 
-            <Text h4>{props.name}</Text>
-                  
-            {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific user object */}
-            <Button
-                containerStyle={ styles.buttonContainer }
-                title="Update Profile Picture"/>           
-            
-            {/* Attn CJ: Delete profile_pic_url for this specific user object - set to null */}
-            <Button
-                containerStyle={ styles.buttonContainer }
-                title="Remove Profile Picture"/>
-            
-            {/* Attn CJ: Change password for this specific user object */}
-            <Button
-                containerStyle={ styles.buttonContainer }
-                title="Change Password"/>
-            
-            {/* Attn CJ: End user login session */}
-            <Button
-                containerStyle={ styles.buttonContainer }
-                title="Sign Out"/>
-            
-        </View>
 
-    )
+    if (props.user_type == "Patient") {
+        return (
+            <View style={styles.buttonContainer2}>
+                <Text h4>{props.name}</Text>
+
+                {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific patient */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Update Profile Picture" />
+
+                {/* Attn CJ: Delete profile_pic_url for this specific patient - set to null */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Remove Profile Picture" />
+
+                {/* Attn CJ: Change password for this specific patient */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Change Password" />
+
+                {/* Attn CJ: End login session */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Sign Out" />
+            </View>
+        )
+    } else {
+        return (
+            <View style={styles.buttonContainer2}>
+                <Text h4>{props.name}</Text>
+
+                {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific doctor */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Update Profile Picture" />
+
+                {/* Attn CJ: Delete profile_pic_url for this specific doctor - set to null */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Remove Profile Picture" />
+                {/* Attn CJ: Let doctor upload document in app + Change cv for this specific doctor */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Re-upload CV" />
+                {/* Attn CJ: Change password for this specific doctor - redirect to ChangePassword */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Change Password" />
+
+                {/* Attn CJ: End login session */}
+                <Button
+                    containerStyle={styles.buttonContainer}
+                    title="Sign Out" />
+            </View>
+        )
+    }
+
+
 }
 
 export default AccountSettingsChild
 
 const styles = StyleSheet.create({
-	buttonContainer: {
-		width: 275,
+    buttonContainer: {
+        width: 275,
         marginTop: 25,
         alignContent: 'center',
     },
-    
+
     buttonContainer2: {
         flexDirection: 'column',
         justifyContent: 'center',

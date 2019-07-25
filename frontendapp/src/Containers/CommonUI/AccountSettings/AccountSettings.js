@@ -47,7 +47,7 @@ export default class AccountSettings extends Component {
                 <Button
                     style={ styles.buttonContainer }
                     title="Update Profile Picture"/>
-                <AccountSettingsChild name = {this.state.user.name}></AccountSettingsChild>
+                <AccountSettingsChild user_type={this.state.user.user_type} name={this.state.user.name}></AccountSettingsChild>
             </View>
         )
     }
