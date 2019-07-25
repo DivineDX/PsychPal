@@ -2,96 +2,76 @@ import { ScrollView } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import React, { Component } from 'react';
 
-// avatar image must be 128 px * 128 px
-const testlist = [
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Andy Robertson',
-    avatar_url: 'https://c.imge.to/2019/07/23/NJXbH.jpg',
-    languages_spoken: ['English', 'Spanish']
-  },
-  {
-    name: 'Andy Robertson',
-    avatar_url: 'https://c.imge.to/2019/07/23/NJXbH.jpg',
-    languages_spoken: ['English', 'Spanish']
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']  
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  },
-  {
-    name: 'Chris Jackson',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    languages_spoken: ['Chinese', 'Italian', 'French', 'English']
-  }
-  
+// Attn CJ: Data required here is all patients with >= 1 appointments with this specific doctor
+const test_patients = [
+	{
+		'name': 'David Beckham',
+		'profile_pic_url': 'https://c.imge.to/2019/07/25/Z71Vs.jpg'
+	},
+	{
+		'name': 'Lionel Messi',
+		'profile_pic_url': 'https://b.imge.to/2019/07/25/ZxesZ.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	},
+	{
+		'name': 'Andy Robertson',
+		'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg'
+	}
+
+
 ]
 
 export default class PatientRecords extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            doctors: testlist
-        }
-    }
+	constructor(props) {
+		super(props)
+		this.state = {
+			patients: test_patients
+		}
+	}
 
-    componentDidMount() {
-        // for cj
-    }
+	componentDidMount() {
+		// for cj
+	}
 
-    render(props) {
-        return (
-            <ScrollView>
-                {
-                    this.state.doctors.map((u) => (
-                        <ListItem
-                            leftAvatar={{ source: { uri: u.avatar_url } }}
-                            title={u.name}
-                            subtitle={u.languages_spoken.toString()}
-                        />
-                    ))
-                }
-            </ScrollView>
-        )
-    }
+	render() {
+		return (
+			<ScrollView>
+				{
+					this.state.patients.map((u) => (
+						<ListItem
+							leftAvatar={{ source: { uri: u.profile_pic_url } }}
+							title={u.name}
+						/>
+					))
+				}
+			</ScrollView>
+		)
+	}
 }

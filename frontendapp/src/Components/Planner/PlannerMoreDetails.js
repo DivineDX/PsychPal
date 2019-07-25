@@ -25,8 +25,8 @@ const test_user =
 
 export default class PlannerMoreDetails extends Component {
 
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			appointment: test_appointment,
 			user: test_user
@@ -63,19 +63,15 @@ export default class PlannerMoreDetails extends Component {
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Join Call' />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Cancel Appointment' />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Treatment Plan of Patient' />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Create Appointment Log' />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Schedule Next Appointment' />
@@ -89,6 +85,7 @@ export default class PlannerMoreDetails extends Component {
 const styles = StyleSheet.create({
 	buttonContainer: {
 		width: 275,
-		marginHorizontal: 75
+		marginHorizontal: 75,
+		marginTop: 20
 	}
 })
