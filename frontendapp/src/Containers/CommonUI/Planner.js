@@ -1,77 +1,65 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements'
-import AppointmentSegment from '../../Components/Planner/AppointmentSegment';
 
-// need to refactor this based on db schema
 
-const fakeData = [
+// Attn CJ: Data required here is all the appointment objects for that specific user (can be patient or psych)
+// Here we assume the specific user is a patient, Karim Benzema
+const test_appointments = [
     {
-        dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
-        person: "Dr. Steven Gerrard",
-        apptType: "Pending"
+        'patient_name': 'Karim Benzema',
+        'doctor_name': 'Dr. Harry Kane',
+        'appointment_date_time': '2019-08-21 21:30:00',
+        'has_appointment_passed': 0,
+        'doctor_accept': 0,
+        'doctor_reason_for_not_accepting': null,
+        'cancel': 0,
+        'cancel_reason': null
     },
     {
-        dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
-        person: "Dr. Frank Lampard",
-        apptType: "Upcoming"
+        'patient_name': 'Karim Benzema',
+        'doctor_name': 'Dr. Andy Robertson',
+        'appointment_date_time': '2019-07-21 19:00:00',
+        'has_appointment_passed': 1,
+        'doctor_accept': 1,
+        'doctor_reason_for_not_accepting': null,
+        'cancel': 0,
+        'cancel_reason': null
     },
     {
-        dateTime: "Friday 21 July 2019 6.00pm - 8.00pm",
-        person: "Dr. Paul Scholes",
-        apptType: "Upcoming"
+        'patient_name': 'Karim Benzema',
+        'doctor_name': 'Dr. Robert Green',
+        'appointment_date_time': '2019-06-21 21:30:00',
+        'has_appointment_passed': 1,
+        'doctor_accept': 0,
+        'doctor_reason_for_not_accepting': 'Hi Karim, sorry but I am already on break till next year. Please cancel this appointment request. Thank you.',
+        'cancel': 1,
+        'cancel_reason': 'Doctor is on break so he told me to cancel.'
     },
 ]
 
 export default class Planner extends Component {
-    constructor() { //receive type and account completion as props
-        super();
-        this.state={
-            userData: [],
+    constructor(props) { //receive type and account completion as props
+        super(props);
+        this.state = {
+            appointments: test_appointments
         }
     }
 
     componentDidMount() {
-        //
+        // for CJ
     }
 
 
     render() {
-        const { navigation } = this.props;
-        const type = navigation.dangerouslyGetParent().dangerouslyGetParent().getParam('type', 'nulltype');
-        const id = navigation.dangerouslyGetParent().dangerouslyGetParent().getParam('id', 'nullid')
-
         return (
             <ScrollView>
-                <Text h4>Welcome back {id}</Text>
+                <Text h4>Pending Appointments</Text>
+                <Text h4>Upcoming Appointments</Text>
+                <Text h4>Past Appointments</Text>
+                <Text h4>Cancelled Appointments</Text>
 
-                <AppointmentSegment
-                    header="Pending Appointments"
-                    appointmentData={fakeData.filter(function(item) {
-                        return item.apptType == 'Pending';
-                    })}
-                    type = {type}
-                    navigation = {navigation}
-                    />
-
-                <AppointmentSegment
-                    header="Upcoming Appointments"
-                    appointmentData={fakeData.filter(function(item) {
-                        return item.apptType == 'Upcoming';
-                    })}
-                    
-                    type = {type}
-                    navigation = {navigation}
-                    />
-
-                <AppointmentSegment
-                    header="Past Appointments"
-                    appointmentData={fakeData.filter(function(item) {
-                        return item.apptType == 'Past';
-                    })}
-                    type = {type}
-                    navigation = {navigation}
-                    />
+               
 
             </ScrollView>
         );

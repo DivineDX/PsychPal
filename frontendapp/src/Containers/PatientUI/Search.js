@@ -7,52 +7,52 @@ import React, { Component } from 'react';
 
 const test_list = [
   {
-    'name': 'Naomi Osaka',
+    'name': 'Dr. Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Andy Robertson',
+    'name': 'Dr. Andy Robertson',
     'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg',
     'professional_credentials': 'MD (Liverpool)'
   },
   {
-    'name': 'Andy Robertson',
+    'name': 'Dr. Andy Robertson',
     'profile_pic_url': 'https://c.imge.to/2019/07/23/NJXbH.jpg',
     'professional_credentials': 'MD (Liverpool)'
   },
   {
-    'name': 'Naomi Osaka',
+    'name': 'Dr. Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Naomi Osaka',
+    'name': 'Dr. Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Naomi Osaka',
+    'name': 'Dr. Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Naomi Osaka',
+    'name': 'Dr. Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Naomi Osaka',
+    'name': 'Dr. Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Naomi Osaka',
+    'name': 'Dr. Naomi Osaka',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
     'professional_credentials': 'MBBS (NUS)'
   },
   {
-    'name': 'Pedro',
+    'name': 'Dr. Gary Cahill',
     'profile_pic_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
     'professional_credentials': 'MD (London)'
   }

@@ -33,7 +33,7 @@ import CreateAppointmentLog from './Components/CreateAppointmentLog'
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: DoctorProfile
+		Main: Planner
 	},
 	{
 		initialRouteName: 'Main'
