@@ -63,10 +63,6 @@ export default class DoctorProfile extends Component {
                     </View>
                 </View>
                 
-                {/* Decided not to display short write up for each doctor */}
-                {/* <Textarea style={styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" /> */}
-
-
                 {/* Attn CJ: Display all the Doctor PDFs here */}
                 <Text h4>Doctor PDFs here</Text>
 

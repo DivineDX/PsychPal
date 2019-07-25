@@ -1,6 +1,7 @@
+import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
-import { ListItem } from 'react-native-elements'
-import React, { Component } from 'react';
+import { ListItem, SearchBar } from 'react-native-elements'
+
 
 // Attn CJ: Data required here is all patients with >= 1 appointments with this specific doctor
 const test_patients = [
@@ -63,6 +64,7 @@ export default class PatientRecords extends Component {
 	render() {
 		return (
 			<ScrollView>
+				<SearchBar />
 				{
 					this.state.patients.map((u) => (
 						<ListItem

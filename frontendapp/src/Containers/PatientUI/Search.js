@@ -1,6 +1,7 @@
-import { ScrollView } from 'react-native'
-import { Button, SearchBar, ListItem } from 'react-native-elements'
 import React, { Component } from 'react';
+import { ScrollView } from 'react-native'
+import { SearchBar, ListItem } from 'react-native-elements'
+
 
 const test_list = [
   {
@@ -71,10 +72,7 @@ export default class Search extends Component {
         return (
             <ScrollView>
                 {/* Attn CJ: Search query for name */}
-                <SearchBar></SearchBar>
-                {/* Filter by any match in language spoken */}
-                <Button
-                    title="Filter" />
+                <SearchBar />
                 {
                     this.state.doctors.map((u) => (
                         <ListItem
