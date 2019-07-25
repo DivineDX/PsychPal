@@ -34,11 +34,6 @@ export default class ChangePassword extends Component {
                 <Input
                     placeholder='New password'
                 />
-                {/* Attn CJ: What they key in here must be == what they key in the previous field */}
-                <Input
-                    placeholder='Re-enter new password'
-                />
-                {/* Once all okay, change the password string in the user object */}
             </View>
         )
     }

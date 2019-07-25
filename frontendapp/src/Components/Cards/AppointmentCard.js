@@ -14,7 +14,7 @@ const AppointmentCard = (props) => {
                 backgroundColor='#03A9F4'
                 buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
                 title='View Appointment'
-                onPress = {() => navigation.navigate(nextRoute)}
+                //onPress = {() => navigation.navigate(nextRoute)}
                 />
         </Card>
     )
