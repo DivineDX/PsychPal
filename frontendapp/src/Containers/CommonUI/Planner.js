@@ -98,7 +98,7 @@ export default class Planner extends Component {
 
     render() {
 
-        if (this.state.user.user_type == 'Patient') {
+        if (this.state.user.user_type == 'Psychiatrist') {
             return (
                 <ScrollView>
                     <Text h4>Pending Appointments</Text>
@@ -137,16 +137,35 @@ export default class Planner extends Component {
             return (
                 <ScrollView>
                     <Text h4>Pending Appointments</Text>
-                    <Text h4>Upcoming Appointments</Text>
-                    <Text h4>Past Appointments</Text>
-                    <Text h4>Cancelled Appointments</Text>
                     {
-                        this.state.appointments.map((u) => (
-                            <AppointmentCard other_party_name="name here" appointment_date_time="date and time here" />
+                        this.state.appointments.filter(this.is_pending).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
                         ))
                     }
-
-
+                    <Text h4>Upcoming Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_upcoming).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                        ))
+                    }
+                    <Text h4>Past Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_past).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                        ))
+                    }
+                    <Text h4>Cancelled Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_cancelled).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                        ))
+                    }
+                    <Text h4>All the test appointments repeated below for sanity check</Text>
+                    {
+                        this.state.appointments.map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                        ))
+                    }
                 </ScrollView>
             )
         }
