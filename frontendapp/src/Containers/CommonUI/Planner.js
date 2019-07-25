@@ -18,7 +18,6 @@ const test_appointments = [
         'appointment_date_time': '2019-08-21 21:30:00',
         'has_appointment_passed': 0,
         'doctor_accept': 0,
-        'doctor_reason_for_not_accepting': null,
         'cancel': 0,
         'cancel_reason': null
     },
@@ -28,7 +27,6 @@ const test_appointments = [
         'appointment_date_time': '2019-07-27 20:00:00',
         'has_appointment_passed': 0,
         'doctor_accept': 1,
-        'doctor_reason_for_not_accepting': null,
         'cancel': 0,
         'cancel_reason': null
     },
@@ -38,7 +36,6 @@ const test_appointments = [
         'appointment_date_time': '2019-07-21 19:00:00',
         'has_appointment_passed': 1,
         'doctor_accept': 1,
-        'doctor_reason_for_not_accepting': null,
         'cancel': 0,
         'cancel_reason': null
     },
@@ -48,9 +45,8 @@ const test_appointments = [
         'appointment_date_time': '2019-06-21 21:30:00',
         'has_appointment_passed': 1,
         'doctor_accept': 0,
-        'doctor_reason_for_not_accepting': 'Hi Karim, sorry but I am already on break till next year. Please cancel this appointment request. Thank you.',
         'cancel': 1,
-        'cancel_reason': 'Doctor is on break so he told me to cancel.'
+        'cancel_reason': 'Hi Karim, I am on break till next year, sorry I have to cancel this.'
     },
 ]
 
@@ -64,10 +60,34 @@ export default class Planner extends Component {
     }
 
     is_pending = (appt) => {
-        if (appt.doctor_accept == 0) {
+        if (appt.doctor_accept == 0 && appt.cancel == 0) {
             return true
         } else {
             return false
+        }
+    }
+
+    is_upcoming = (appt) => {
+        if (appt.doctor_accept == 1 && appt.has_appointment_passed == 0 && appt.cancel == 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    is_past = (appt) => {
+        if (appt.doctor_accept == 1 && appt.has_appointment_passed == 1 && appt.cancel == 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    is_cancelled = (appt) => {
+        if (appt.cancel == 1) {
+            return true
+        } else {
+            false
         }
     }
 
@@ -88,9 +108,24 @@ export default class Planner extends Component {
                         ))
                     }
                     <Text h4>Upcoming Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_upcoming).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                        ))
+                    }
                     <Text h4>Past Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_past).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                        ))
+                    }
                     <Text h4>Cancelled Appointments</Text>
-                    <Text>All the test appointments repeated below, sanity check</Text>
+                    {
+                        this.state.appointments.filter(this.is_cancelled).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                        ))
+                    }
+                    <Text h4>All the test appointments repeated below for sanity check</Text>
                     {
                         this.state.appointments.map((u) => (
                             <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />

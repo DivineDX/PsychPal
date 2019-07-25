@@ -4,11 +4,11 @@ import { Card, Button, Text } from 'react-native-elements'
 const AppointmentCard = (props) => {
     return (
         <Card>
-            <Text style={{ marginBottom: 10 }}>
-                {props.other_party_name}
+            <Text style={{ marginBottom: 15 }}>
+                {props.appointment_date_time}
             </Text>
             <Text style={{ marginBottom: 10 }}>
-                {props.appointment_date_time}
+                {props.other_party_name}
             </Text>
             <Button
                 backgroundColor='#03A9F4'
