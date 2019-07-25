@@ -1,15 +1,16 @@
 import React from 'react'
+import { StyleSheet } from 'react-native'
 import { Card, Button, Text } from 'react-native-elements'
 
 const AppointmentCard = (props) => {
 
-    if (props.appointment_status == "pending") {
+    if (props.option_to_confirm == "exist") {
         return (
             <Card>
-                <Text style={{ marginBottom: 15 }}>
+                <Text style={styles.timeInfo}>
                     {props.appointment_date_time}
                 </Text>
-                <Text style={{ marginBottom: 10 }}>
+                <Text style={styles.drName}>
                     {props.other_party_name}
                 </Text>
                 <Button
@@ -28,10 +29,10 @@ const AppointmentCard = (props) => {
     } else {
         return (
             <Card>
-                <Text style={{ marginBottom: 15 }}>
+                <Text style={styles.timeInfo}>
                     {props.appointment_date_time}
                 </Text>
-                <Text style={{ marginBottom: 10 }}>
+                <Text style={styles.drName}>
                     {props.other_party_name}
                 </Text>
                 <Button
@@ -47,3 +48,15 @@ const AppointmentCard = (props) => {
 
 export default AppointmentCard
 
+const styles = StyleSheet.create({
+    timeInfo: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 5
+    },
+
+    drName: {
+        fontSize: 18,
+        marginBottom:10
+    }
+})

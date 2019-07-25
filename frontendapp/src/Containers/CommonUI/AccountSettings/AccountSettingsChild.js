@@ -8,7 +8,7 @@ const AccountSettingsChild = (props) => {
     if (props.user_type == "Patient") {
         return (
             <View style={styles.buttonContainer2}>
-                <Text h4>{props.name}</Text>
+                <Text style={styles.textStyle}>{props.name}</Text>
 
                 {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific patient */}
                 <Button
@@ -34,7 +34,7 @@ const AccountSettingsChild = (props) => {
     } else {
         return (
             <View style={styles.buttonContainer2}>
-                <Text h4>{props.name}</Text>
+                <Text style={styles.textStyle}>{props.name}</Text>
 
                 {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific doctor */}
                 <Button
@@ -79,4 +79,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginBottom: 40,
     },
+
+    textStyle: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        marginTop: 10,
+        textAlign: 'center',
+    }
 })

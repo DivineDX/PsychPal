@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AccountSettingsChild from './AccountSettingsChild'
 import { View, AsyncStorage, StyleSheet } from 'react-native';
-import { Avatar, Button} from 'react-native-elements';
+import { Avatar, Button } from 'react-native-elements';
 
 
 const test_user = 
@@ -38,30 +38,36 @@ export default class AccountSettings extends Component {
                             } catch(error) {
                             } 
                             } } />
-                <Avatar
-                    containerStyle={ styles.avatarContainer }
-                    size='large'
-                    rounded
-                    source={{ uri: this.state.user.profile_picture_url }}
-                />
-                <Button
-                    style={ styles.buttonContainer }
-                    title="Update Profile Picture"/>
-                <AccountSettingsChild user_type={this.state.user.user_type} name={this.state.user.name}></AccountSettingsChild>
+
+                <View style={styles.wholeContainer}>
+                    <Avatar
+                        // containerStyle={ styles.avatarContainer }
+                        size='large'
+                        rounded
+                        source={{ uri: this.state.user.profile_picture_url }}
+                    />
+                    {/* <Button
+                        containerStyle={ styles.buttonContainer }
+                        title="Update Profile Picture"/> */}
+                    <AccountSettingsChild user_type={this.state.user.user_type} name={this.state.user.name}></AccountSettingsChild>
+                </View>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    avatarContainer: {
-        marginHorizontal: 170
-    },
 
     buttonContainer: {
-        width: 100,
-        height: 45,
-        justifyContent: 'center',
-        marginTop: 10,
+        width: 275,
+        marginTop: 25,
+        alignContent: 'center',
     },
+
+    wholeContainer: {
+        marginTop: 30,
+        // justifyContent: 'center',
+        alignItems: 'center',
+    },
+
 })

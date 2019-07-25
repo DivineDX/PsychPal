@@ -49,14 +49,14 @@ export default class DoctorProfile extends Component {
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
                 <View style = {styles.textboxContainer}>
-                    <Text h4>{this.state.doctor.professional_credentials}</Text>
+                    <Text style={{fontSize:24}}>{this.state.doctor.professional_credentials}</Text>
                     <Text h3>{this.state.doctor.name}</Text>
                     <View style = {styles.languagesContainer}>
-                        <Text h4>{'Languages: '}</Text>
+                        <Text style={{fontSize:24, fontWeight:'400'}}>{'Languages: '}</Text>
                         <View style = {styles.colContainer}>
                         {
                             this.state.doctor_languages.map((u) => (
-                                <Text h4>{u.language}</Text>
+                                <Text style={styles.langText}>{u.language}</Text>
                             ))
                         }
                         </View>
@@ -79,7 +79,7 @@ export default class DoctorProfile extends Component {
 const styles = StyleSheet.create({
     avatarContainer: {
         marginTop: 30,
-        marginBottom: 30
+        marginBottom: 10
     },
 
     buttonContainer: {
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     },
 
     wholeContainer: {
-        marginTop: 30,
+        marginTop: 10,
         // justifyContent: 'center',
         alignItems: 'center',
     },
@@ -108,4 +108,9 @@ const styles = StyleSheet.create({
     colContainer: {
         flexDirection: 'column'
     },
+
+    langText: {
+        fontSize: 20,
+        lineHeight: 35
+    }
 })
