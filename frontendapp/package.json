@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "formik": "^1.5.8",
+    "moment": "^2.24.0",
     "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.0",

@@ -1,7 +1,7 @@
 import { Button, Text } from 'react-native-elements'
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native'
-import DateTimePicker from '../Components/Input/DateTimePicker'
+import DateTimePicker from './DateTimePicker'
 
 export default class RequestReschedule extends Component {
     constructor() {

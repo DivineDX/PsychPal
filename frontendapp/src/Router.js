@@ -20,7 +20,6 @@ import PatientRecords from './Containers/PsychUI/PatientRecords'
 
 // import from Components
 import InputBox from './Components/Input/InputBox'
-import RequestReschedule from './ArchivedFiles/RequestReschedule'
 import ScheduleNextAppointment from './Components/ScheduleNextAppointment'
 import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails'
 import AddTreatment from './Components/AddTreatment'
@@ -29,11 +28,11 @@ import PatientRecordsMoreDetails from './Components/PatientRecordsMoreDetails'
 import DoctorProfile from './Components/DoctorProfile'
 import ChangePassword from './Components/ChangePassword'
 import CreateAppointmentLog from './Components/CreateAppointmentLog'
-
+import RequestForAppointment from './Components/RequestForAppointment'
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: Planner
+		Main: RequestForAppointment
 	},
 	{
 		initialRouteName: 'Main'

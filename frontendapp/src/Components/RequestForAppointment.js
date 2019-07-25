@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 import DateTimePicker from "react-native-modal-datetime-picker";
 
-// Attn CJ: Appointment object created with doctor_accept == 1
-export default class ScheduleNextAppointment extends Component {
+// Attn CJ: Appointment object created with doctor_accept == 0
+export default class RequestForAppointment extends Component {
     
     constructor(props) {
         super(props)
@@ -26,7 +26,7 @@ export default class ScheduleNextAppointment extends Component {
 	};
 
 	handleDatePicked = date => {
-		this.setState({ selectedDate: "Appointment scheduled for \n" + date.toString() });
+		this.setState({ selectedDate: "Submitted appointment request for \n" + date.toString() });
 		this.hideDateTimePicker();
 	};
 
@@ -34,7 +34,7 @@ export default class ScheduleNextAppointment extends Component {
 
 		return (
 			<View style={styles.container}>
-				<Button title="Schedule Next Appointment" onPress={this.showDateTimePicker} />
+				<Button title="Request for an Appointment" onPress={this.showDateTimePicker} />
 				<Text style={styles.text}>{this.state.selectedDate}</Text>
 				<DateTimePicker
 					isVisible={this.state.isDateTimePickerVisible}
