@@ -38,7 +38,7 @@ export default AccountSettingsChild
 const styles = StyleSheet.create({
 	buttonContainer: {
 		width: 275,
-        // marginTop: 25,
+        marginTop: 25,
         alignContent: 'center',
     },
     

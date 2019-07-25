@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native'
 import { ListItem, SearchBar } from 'react-native-elements'
 
 
-// Attn CJ: Data required here is all patients with >= 1 appointments with this specific doctor
+// Attn CJ: Data required here is all patients with >= 1 appointment with this specific doctor where cancel == 0
 const test_patients = [
 	{
 		'name': 'David Beckham',
