@@ -3,20 +3,35 @@ import { View, StyleSheet } from 'react-native';
 import { Avatar, Text, Button } from 'react-native-elements';
 import { Textarea } from "native-base";
 
-const test_user = 
+// Attn CJ: Data required here is the specific Doctor object
+const test_doctor =
+{
+    'user_type': 'Doctor',
+    'name': 'Naomi Osaka',
+    'profile_picture_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+    'professional_credentials': 'MBBS (NUS)'
+}
+// Attn CJ: Data required here is the array of all language objects where name == Naomi Osaka (specific doctor)
+const test_doctor_languages = [
     {
-        user_type: 'Patient',
-        name : 'Aaron Ramsey',
-        profile_picture_uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        professional_credentials: 'MBBS (NUS)',
-        languages_spoken: ['Chinese', 'Italian', 'French', 'English']
+        'name': 'Naomi Osaka',
+        'language': 'Japanese'
+    },
+    {
+        'name': 'Naomi Osaka',
+        'language': 'English'
+    },
+    {
+        'name': 'Naomi Osaka',
+        'language': 'French'
     }
-
+]
 export default class DoctorProfile extends Component {
     constructor() {
         super()
         this.state = {
-            user : test_user
+            doctor: test_doctor,
+            doctor_languages: test_doctor_languages
         }
     }
 
@@ -26,30 +41,36 @@ export default class DoctorProfile extends Component {
 
     render() {
         return (
-            <View style={ styles.wholeContainer }>
+            <View style={styles.wholeContainer}>
                 <Avatar
-                    containerStyle={ styles.avatarContainer }
+                    containerStyle={styles.avatarContainer}
                     size='large'
                     rounded
-                    source={{ uri: this.state.user.profile_picture_uri }}
+                    source={{ uri: this.state.doctor.profile_picture_url }}
                 />
                 <View>
-                    <Text h4>{ this.state.user.professional_credentials }</Text>
-                    <Text h3>{ this.state.user.name }</Text>
+                    <Text h4>{this.state.doctor.professional_credentials}</Text>
+                    <Text h3>{this.state.doctor.name}</Text>
                     <View>
-                    <Text h4>{ 'Languages Spoken: ' }</Text>
-                    <Text h5>{ this.state.user.languages_spoken.toString() }</Text>
+                        <Text h4>{'Languages Spoken: '}</Text>
+                        {
+                            this.state.doctor_languages.map((u) => (
+                                <Text>{u.language}</Text>
+                            ))
+                        }
                     </View>
                 </View>
-
-                <Textarea style = {styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" />
-
-                {/* <PDF></PDF> */}
-                {/* for pdfs */}
                 
-                <Button 
-                    title='Request for appointment'
-                    // onPress={}
+                {/* Decided not to display short write up for each doctor */}
+                {/* <Textarea style={styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" /> */}
+
+
+                {/* Attn CJ: Display all the Doctor PDFs here */}
+                <Text h4>Doctor PDFs here</Text>
+
+                <Button
+                    title='Request for an Appointment'
+                // onPress={}
                 />
             </View>
         )

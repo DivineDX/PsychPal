@@ -26,11 +26,14 @@ import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails'
 import AddTreatment from './Components/AddTreatment'
 import MedicalRecord from './Components/MedicalRecord'
 import PatientRecordsMoreDetails from './Components/PatientRecordsMoreDetails'
+import DoctorProfile from './Components/DoctorProfile'
+import ChangePassword from './Components/ChangePassword'
+import CreateAppointmentLog from './Components/CreateAppointmentLog'
 
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: Planner
+		Main: DoctorProfile
 	},
 	{
 		initialRouteName: 'Main'

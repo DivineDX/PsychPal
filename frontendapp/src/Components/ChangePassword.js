@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Input } from 'react-native-elements'
 
+
+// Attn CJ: Data required here is the specific user object
 const test_user =
 {
     "password": "helloworld"
@@ -13,7 +15,7 @@ export default class ChangePassword extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            user = test_user
+            user : test_user
         }
     }
 
@@ -28,14 +30,15 @@ export default class ChangePassword extends Component {
                 <Input
                     placeholder='Your current password'
                 />
-                {/* Attn CJ: Password they declare here MUST != password in that user object */}
+                {/* Attn CJ: New password they declare here MUST != password in that user object */}
                 <Input
                     placeholder='New password'
                 />
-                {/* Attn CJ: Password they declare here MUST == password in second field */}
+                {/* Attn CJ: What they key in here must be == what they key in the previous field */}
                 <Input
                     placeholder='Re-enter new password'
                 />
+                {/* Once all okay, change the password string in the user object */}
             </View>
         )
     }
