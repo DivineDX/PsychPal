@@ -1,26 +1,19 @@
 import React from 'react'
 import { Card, Button, Text } from 'react-native-elements'
 
-const AppointmentCard = ({ dateTime, person, type, navigation }) => {
-    let nextRoute = '';
-    if (type === 'patient') {
-        nextRoute = 'PatientDetails';
-    } else if(type === 'psychiatrist') {
-        nextRoute = 'PsychDetails'
-    }
-
+const AppointmentCard = (props) => {
     return (
         <Card>
             <Text style={{ marginBottom: 10 }}>
-                {person}
+                {props.other_party_name}
             </Text>
             <Text style={{ marginBottom: 10 }}>
-                {dateTime}
+                {props.appointment_date_time}
             </Text>
             <Button
                 backgroundColor='#03A9F4'
                 buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                title='More details'
+                title='View Appointment'
                 onPress = {() => navigation.navigate(nextRoute)}
                 />
         </Card>

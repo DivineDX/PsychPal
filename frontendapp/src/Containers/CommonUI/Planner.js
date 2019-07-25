@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import { Text } from 'react-native-elements'
+import AppointmentCard from '../../Components/Cards/AppointmentCard'
 
 
 // Attn CJ: Data required here is all the appointment objects for that specific user (can be patient or psych)
@@ -58,7 +59,11 @@ export default class Planner extends Component {
                 <Text h4>Upcoming Appointments</Text>
                 <Text h4>Past Appointments</Text>
                 <Text h4>Cancelled Appointments</Text>
-
+                {
+                    this.state.appointments.map((u) => (
+                        <AppointmentCard other_party_name = "name here" appointment_date_time = "date and time here"/>
+                    ))
+                }
                
 
             </ScrollView>
