@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import { Text } from 'react-native-elements'
+import { ScrollView, View } from 'react-native';
+import { Text, Button } from 'react-native-elements'
 import AppointmentCard from '../../Components/Cards/AppointmentCard'
 
 
@@ -104,7 +104,7 @@ export default class Planner extends Component {
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} appointment_status="pending" />
                         ))
                     }
                     <Text h4>Upcoming Appointments</Text>
