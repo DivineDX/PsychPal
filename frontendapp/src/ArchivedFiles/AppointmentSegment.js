@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native';
 import {Text } from 'react-native-elements'
-import AppointmentCard from '../Cards/AppointmentCard';
+import AppointmentCard from '../Components/Cards/AppointmentCard';
 
 const AppointmentSegment = ({header, appointmentData, type, navigation}) => {
     console.log("Type:", type);

@@ -1,51 +1,39 @@
-import { Button, Text } from 'react-native-elements'
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native'
+import { Button, Text } from 'react-native-elements'
 import DateTimePicker from './Input/DateTimePicker'
 
-// const App = () => {
-//   return (
-//       <Overlay>
-//         <Text h4>Request To Reschedule</Text>
-//         <Text>{'\n'}</Text>
-//         <Text h4>Date and Time picker here</Text>
-//         <Button title="Confirm"></Button>
-//         <Text>{'\n'}</Text>
-//         <Button title="Cancel"></Button>
-//       </Overlay>
-//   );
-// };
 
-export default class SceheduleNextAppointment extends Component {
-    constructor() {
-        super()
+export default class ScheduleNextAppointment extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
-            userData: [],
-            isVisible : true,
+            selected_date: 'hi'
         }
     }
 
+    handleSelection = date => {
+        this.setState({ selected_date: date.toString() })
+        this.forceUpdate()
+    }
+
     componentDidMount() {
-        // for cj
+        // for CJ
     }
 
     render() {
         return (
             <View>
-                <Text h4>Scehedule Next Appointment{ '\n' }</Text>
-                <DateTimePicker></DateTimePicker>
-
+                <Text h4>Schedule Next Appointment{ '\n' }</Text>
+                <DateTimePicker onConfirm={this.handleSelection}></DateTimePicker>
                 <Text>{'\n'}</Text>
-
                 <Button 
                     buttonStyle={ styles.buttonContainer }
                     title="Confirm"></Button>
-
-                <Text>{'\n'}</Text>
-
                 <Button 
                     buttonStyle = { styles.buttonContainer }
                     title="Cancel"></Button>
+                <Text>{this.state.selected_date}</Text>
             </View>
         )
     }
@@ -55,6 +43,6 @@ export default class SceheduleNextAppointment extends Component {
 const styles = StyleSheet.create({
 	buttonContainer: {
 		marginHorizontal: 20,
-		marginBottom: 10,
+		marginBottom: 20,
 	}
 })  

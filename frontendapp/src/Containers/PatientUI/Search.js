@@ -2,9 +2,6 @@ import { ScrollView } from 'react-native'
 import { Button, SearchBar, ListItem } from 'react-native-elements'
 import React, { Component } from 'react';
 
-// need to refactor this based on database
-
-
 const test_list = [
   {
     'name': 'Dr. Naomi Osaka',

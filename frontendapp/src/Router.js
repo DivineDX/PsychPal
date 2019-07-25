@@ -20,7 +20,7 @@ import PatientRecords from './Containers/PsychUI/PatientRecords'
 
 // import from Components
 import InputBox from './Components/Input/InputBox'
-import RequestReschedule from './Components/RequestReschedule'
+import RequestReschedule from './ArchivedFiles/RequestReschedule'
 import ScheduleNextAppointment from './Components/ScheduleNextAppointment'
 import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails'
 import AddTreatment from './Components/AddTreatment'
