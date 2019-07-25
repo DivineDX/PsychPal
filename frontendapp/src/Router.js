@@ -29,10 +29,12 @@ import DoctorProfile from './Components/DoctorProfile'
 import ChangePassword from './Components/ChangePassword'
 import CreateAppointmentLog from './Components/CreateAppointmentLog'
 import RequestForAppointment from './Components/RequestForAppointment'
+import DoctorProfile from './Components/DoctorProfile'
+
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: RequestForAppointment
+		Main: Planner
 	},
 	{
 		initialRouteName: 'Main'

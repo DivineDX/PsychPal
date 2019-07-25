@@ -48,16 +48,18 @@ export default class DoctorProfile extends Component {
                     rounded
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
-                <View>
+                <View style = {styles.textboxContainer}>
                     <Text h4>{this.state.doctor.professional_credentials}</Text>
                     <Text h3>{this.state.doctor.name}</Text>
-                    <View>
-                        <Text h4>{'Languages Spoken: '}</Text>
+                    <View style = {styles.languagesContainer}>
+                        <Text h4>{'Languages: '}</Text>
+                        <View style = {styles.colContainer}>
                         {
                             this.state.doctor_languages.map((u) => (
-                                <Text>{u.language}</Text>
+                                <Text h4>{u.language}</Text>
                             ))
                         }
+                        </View>
                     </View>
                 </View>
                 
@@ -69,6 +71,7 @@ export default class DoctorProfile extends Component {
                 <Text h4>Doctor PDFs here</Text>
 
                 <Button
+                    containerStyle={styles.buttonContainer}
                     title='Request for an Appointment'
                 // onPress={}
                 />
@@ -80,23 +83,33 @@ export default class DoctorProfile extends Component {
 const styles = StyleSheet.create({
     avatarContainer: {
         marginTop: 30,
-        // marginHorizontal: 170
+        marginBottom: 30
     },
 
     buttonContainer: {
-        width: 100,
-        height: 45,
-        justifyContent: 'center',
-        marginTop: 10,
+        // width: 100,
+        // height: 45,
+        marginTop: 20,
     },
 
     textboxContainer: {
         marginHorizontal: 0,
+        alignItems: 'center',
     },
 
     wholeContainer: {
         marginTop: 30,
         // justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    languagesContainer: {
+        marginTop: 10, 
+        flexDirection: 'row',
+        marginBottom: 10
+    },
+
+    colContainer: {
+        flexDirection: 'column'
     },
 })
