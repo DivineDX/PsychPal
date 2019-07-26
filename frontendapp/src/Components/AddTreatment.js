@@ -37,6 +37,7 @@ export default class AddTreatment extends Component {
 
 	create_treatment_obj = () => {
 		// Attn CJ: Create treatment object
+		// data has been stored in treatment_title and treatment_details
 	}
 
 	componentDidMount() {

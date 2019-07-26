@@ -32,7 +32,7 @@ import RequestForAppointment from './Components/RequestForAppointment'
 
 const PlannerStack = createStackNavigator(
 	{
-		Main: AddTreatment
+		Main: Planner
 	},
 	{
 		initialRouteName: 'Main'
