@@ -9,7 +9,8 @@ const test_appointment =
 	"appointment_date_time": "2019-08-21 21:30:00",
 	"doctor_name": "Dr. Andrea Pirlo",
 	"patient_name": "Diego Costa",
-	"jitsi_key": "gfsihdisfhnud"
+	"jitsi_key": "gfsihdisfhnud",
+	"cancel_reason": 'Hi Diego, I find you too rude. Please find another doctor, thank you.'
 }
 
 // Attn CJ: Data required here is the specific user object
@@ -47,6 +48,7 @@ export default class PlannerMoreDetails extends Component {
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Cancel Appointment' />
+					<Text>{this.state.appointment.cancel_reason}</Text>
 				</View>
 			)
 		} else {
@@ -67,6 +69,7 @@ export default class PlannerMoreDetails extends Component {
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Schedule Next Appointment' />
+					<Text>{this.state.appointment.cancel_reason}</Text>
 				</View>
 			)
 		}
