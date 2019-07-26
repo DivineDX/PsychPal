@@ -34,7 +34,10 @@ export default class RequestForAppointment extends Component {
 
 		return (
 			<View style={styles.container}>
-				<Button title="Request for an Appointment" onPress={this.showDateTimePicker} />
+				<Button 
+					type='outline'
+					title="Request for an Appointment" 
+					onPress={this.showDateTimePicker} />
 				<Text style={styles.text}>{this.state.selectedDate}</Text>
 				<DateTimePicker
 					isVisible={this.state.isDateTimePickerVisible}

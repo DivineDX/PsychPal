@@ -23,7 +23,9 @@ export default class JitsiCallButton extends Component {
         return (
             <View>
                 <Text>Jitsi room key: {this.props.jitsi_key}</Text>
-                <Button title="Join Call"onPress={() => this.buttonPress(this.props.jitsi_key)} />
+                <Button 
+                    type='outline'
+                    title="Join Call"onPress={() => this.buttonPress(this.props.jitsi_key)} />
             </View>
         );
     }

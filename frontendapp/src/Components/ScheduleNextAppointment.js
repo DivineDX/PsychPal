@@ -34,7 +34,10 @@ export default class ScheduleNextAppointment extends Component {
 
 		return (
 			<View style={styles.container}>
-				<Button title="Schedule Next Appointment" onPress={this.showDateTimePicker} />
+				<Button 
+					type='outline'
+					title="Schedule Next Appointment" 
+					onPress={this.showDateTimePicker} />
 				<Text style={styles.text}>{this.state.selectedDate}</Text>
 				<DateTimePicker
 					isVisible={this.state.isDateTimePickerVisible}

@@ -180,5 +180,6 @@ const styles = StyleSheet.create({
         // marginBottom: ,
         fontSize: 28,
         fontWeight: 'bold',
+        // color: '#000000'
     }
 })
