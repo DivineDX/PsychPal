@@ -75,7 +75,7 @@ export default class TreatmentPlan extends Component {
 								treatment_title={u.treatment_title}
 								treatment_details={u.treatment_details}
 							/>
-						);
+						)
 					})}
 				</ScrollView>
 			)
@@ -93,10 +93,10 @@ export default class TreatmentPlan extends Component {
 								treatment_title={u.treatment_title}
 								treatment_details={u.treatment_details}
 							/>
-						);
+						)
 					})}
 				</ScrollView>
-			);
+			)
 		}
 	}
 }
