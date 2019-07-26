@@ -29,7 +29,7 @@ export default class PlannerMoreDetails extends Component {
 	}
 
 	componentDidMount() {
-		// for cj
+		// for CJ
 	}
 
 	render() {
@@ -55,9 +55,6 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment.appointment_date_time}</Text>
 					<Text h4>{this.state.appointment.patient_name}</Text>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
-					{/* <Button
-						containerStyle={styles.buttonContainer}
-						title='Join Call' /> */}
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Cancel Appointment' />

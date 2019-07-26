@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Linking, StyleSheet, Dimensions, View } from 'react-native';
-import { Button, Text } from 'native-base';
+import { Button, Text } from 'react-native-elements';
 
 export default class JitsiCallButton extends Component {
 
@@ -23,14 +23,13 @@ export default class JitsiCallButton extends Component {
         return (
             <View>
                 <Text>Jitsi room key: {this.props.jitsi_key}</Text>
-                <Button rounded success onPress={() => this.buttonPress(this.props.jitsi_key)} style={styles.buttonContainer}>
-                    <Text>Join Call</Text>
-                </Button>
+                <Button title="Join Call"onPress={() => this.buttonPress(this.props.jitsi_key)} />
             </View>
         );
     }
 }
-const { width: WIDTH } = Dimensions.get('window');
+
+/*const { width: WIDTH } = Dimensions.get('window');
 const styles = StyleSheet.create({
     buttonContainer: {
         width: WIDTH - 100,
@@ -38,4 +37,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 10,
     },
-})
+})*/
