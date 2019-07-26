@@ -94,6 +94,8 @@ export default class Search extends Component {
 		return (
 			<ScrollView>
 				<SearchBar 
+					placeholder='Search'
+					lightTheme='true'
 					onChangeText={this.receive_query}
 					value={this.state.query} />
 				{

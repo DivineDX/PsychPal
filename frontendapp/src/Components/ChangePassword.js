@@ -64,6 +64,7 @@ export default class ChangePassword extends Component {
                 <Input placeholder='New Password' onChangeText={this.update_input_new} />
                 <Input placeholder='Confirm New Password' onChangeText={this.update_input_new_confirm }/>
                 <Button 
+                    type='outline'
                     title="Confirm"
                     onPress={this.handleInputs} />
                 <Text h4>All three inputs shown below for sanity check</Text>

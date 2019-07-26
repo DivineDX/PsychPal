@@ -47,6 +47,7 @@ export default class CreateAppointmentLog extends Component {
                 {/* Set cancel = 1 and fill in cancel_reason for that appointment object */}
                 {/* Once edit already navigate back to planner more details */}
                 <Button 
+                    type='outline'
                     title="Confirm Cancellation" 
                     onPress={this.cancel_appointment} />
             </View>

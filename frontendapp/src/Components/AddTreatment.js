@@ -57,7 +57,10 @@ export default class AddTreatment extends Component {
 					onChangeText={this.receive_treatment_details} />
 				{/* Attn CJ: Create treatment obj and store in database */}
 				{/* Once create already navigate back to treatment plan page */}
-				<Button title="Confirm" onPress={this.create_treatment_obj} />
+				<Button
+					type='outline' 
+					title="Confirm" 
+					onPress={this.create_treatment_obj} />
 
 			</View>
 		)

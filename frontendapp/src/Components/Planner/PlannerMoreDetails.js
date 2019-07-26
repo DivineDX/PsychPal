@@ -42,10 +42,12 @@ export default class PlannerMoreDetails extends Component {
 					<Text>{'\n'}</Text>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Join Call' />
 					<Text>{'\n'}</Text>
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Cancel Appointment' />
 					<Text>{this.state.appointment.cancel_reason}</Text>
@@ -58,15 +60,19 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment.patient_name}</Text>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Cancel Appointment' />
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Treatment Plan of Patient' />
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Create Appointment Log' />
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Schedule Next Appointment' />
 					<Text>{this.state.appointment.cancel_reason}</Text>

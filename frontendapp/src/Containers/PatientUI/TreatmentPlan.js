@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { Text, Button } from "react-native-elements";
 import TreatmentPlanCard from "../../Components/Cards/TreatmentPlanCard";
 
@@ -65,8 +65,11 @@ export default class TreatmentPlan extends Component {
 		if (this.state.treatment_plan[0].user_type == "Patient") {
 			return (
 				<ScrollView>
-					<Text h4>
-						Treatment Plan for {this.state.treatment_plan[0].patient_name}
+					<Text style={styles.headings}>
+						Treatment Plan for
+					</Text>
+					<Text style={styles.name}>
+						{this.state.treatment_plan[0].patient_name}
 					</Text>
 					{this.state.treatment_plan.map(u => {
 						return (
@@ -85,7 +88,9 @@ export default class TreatmentPlan extends Component {
 					<Text h4>
 						Treatment Plan for {this.state.treatment_plan[0].patient_name}
 					</Text>
-					<Button title="Add Treatment" />
+					<Button 
+						type='outline'
+						title="Add Treatment" />
 					{this.state.treatment_plan.map(u => {
 						return (
 							<TreatmentPlanCard
@@ -100,3 +105,22 @@ export default class TreatmentPlan extends Component {
 		}
 	}
 }
+
+const styles = StyleSheet.create({
+    headings: {
+        marginHorizontal: 15,
+        marginTop: 25,
+        // marginBottom: ,
+        fontSize: 28,
+        fontWeight: 'bold',
+        // color: '#000000'
+	},
+	
+	name: {
+		marginHorizontal: 15,
+        // marginBottom: ,
+        fontSize: 25,
+        fontWeight: 'bold',
+        // color: '#000000'	
+	}
+})

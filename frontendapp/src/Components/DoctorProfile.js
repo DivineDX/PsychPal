@@ -67,6 +67,7 @@ export default class DoctorProfile extends Component {
                 <Text h4>Doctor PDFs here</Text>
 
                 <Button
+                    type='outline'
                     containerStyle={styles.buttonContainer}
                     title='Request for an Appointment'
                 // onPress={}
