@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { Input } from 'react-native-elements'
+import { Input, Button } from 'react-native-elements'
 
 
 // Attn CJ: Data required here is the specific user object
@@ -27,13 +27,11 @@ export default class ChangePassword extends Component {
         return (
             <View>
                 {/* Attn CJ: Password they declare here MUST == password in that user object */}
-                <Input
-                    placeholder='Your current password'
-                />
+                <Input placeholder='Your current password' />
                 {/* Attn CJ: New password they declare here MUST != password in that user object */}
-                <Input
-                    placeholder='New password'
-                />
+                <Input placeholder='New password'/>
+                <Input placeholder='Re-enter new password'/>
+                <Button title="Confirm"/>
             </View>
         )
     }
