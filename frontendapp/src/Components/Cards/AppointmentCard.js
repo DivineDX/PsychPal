@@ -17,15 +17,12 @@ const AppointmentCard = (props) => {
                     type='outline'
                     backgroundColor='#03A9F4'
                     buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 10 }}
-                    title='View Appointment'
-                //onPress = {() => navigation.navigate(nextRoute)}
-                />
+                    title='View Appointment' />
                 <Button
                     type='outline'
                     backgroundColor='#03A9F4'
                     buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                    title='Confirm Appointment'
-                />
+                    title='Confirm Appointment' />
             </Card>
         )
     } else {
@@ -41,9 +38,7 @@ const AppointmentCard = (props) => {
                     type='outline'
                     backgroundColor='#03A9F4'
                     buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
-                    title='View Appointment'
-                //onPress = {() => navigation.navigate(nextRoute)}
-                />
+                    title='View Appointment' />
             </Card>
         )
     }

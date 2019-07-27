@@ -39,13 +39,7 @@ export default class PlannerMoreDetails extends Component {
 				<View>
 					<Text h4>{this.state.appointment.appointment_date_time}</Text>
 					<Text h4>{this.state.appointment.doctor_name}</Text>
-					<Text>{'\n'}</Text>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
-					<Button
-						type='outline'
-						containerStyle={styles.buttonContainer}
-						title='Join Call' />
-					<Text>{'\n'}</Text>
 					<Button
 						type='outline'
 						containerStyle={styles.buttonContainer}
