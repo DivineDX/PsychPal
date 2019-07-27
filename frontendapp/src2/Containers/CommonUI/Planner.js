@@ -105,13 +105,14 @@ export default class Planner extends Component {
 
 
     render() {
+        console.log(this.state.user)
         if (this.state.user == 'Psychiatrist') {
             return (
                 <ScrollView>
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} appointment_status="pending" />
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}  option_to_confirm="exist"/>
                         ))
                     }
                     <Text h4>Upcoming Appointments</Text>
@@ -141,7 +142,6 @@ export default class Planner extends Component {
                 </ScrollView>
             )
         } else {
-            console.log(this.state.user)
             return (
                 <ScrollView>
                     <Text h4>Pending Appointments</Text>

@@ -62,7 +62,27 @@ export default class Search extends Component {
         super(props)
         this.state = {
             doctors: test_list,
+            query: ''
         }
+    }
+
+    receive_query = (text) => {
+      this.setState({
+        query: text.toLowerCase()
+      })
+    }
+  
+    is_matched = (doctor) => {
+      if (this.state.query == '') {
+        return true
+      } else {
+        if (doctor.name.toLowerCase().includes(this.state.query)) {
+          return true
+        } else {
+          return false
+        }
+      }
+  
     }
 
     componentDidMount() {
@@ -77,12 +97,14 @@ export default class Search extends Component {
         return (
             <ScrollView>
                 {/* Attn CJ: Search query for name */}
-                <SearchBar></SearchBar>
+                <SearchBar 
+                  placeholder='Search'
+                  lightTheme='true'
+                  onChangeText={this.receive_query}
+                  value={this.state.query} />
                 {/* Filter by any match in language spoken */}
-                <Button
-                    title="Filter" />
                 {
-                    this.state.doctors.map((u) => (
+                    this.state.doctors.filter(this.is_matched).map((u) => (
                         <ListItem
                             leftAvatar={{ source: { uri: u.profile_pic_url } }}
                             title={u.name}

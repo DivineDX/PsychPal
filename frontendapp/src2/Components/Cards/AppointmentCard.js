@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Card, Button, Text } from 'react-native-elements'
+import {StyleSheet } from 'react-native';
+import { Card, Button, Text} from 'react-native-elements'
 import { withNavigation } from 'react-navigation';
 
 class AppointmentCard extends Component{
@@ -8,14 +9,13 @@ class AppointmentCard extends Component{
     }
 
     render() {
-        console.log(this.props.userType)
-        if (this.props.appointment_status == "pending") {
+        if (this.props.option_to_confirm == "exist") {
             return (
                 <Card>
-                    <Text style={{ marginBottom: 15 }}>
+                    <Text style={styles.timeInfo}>
                         {this.props.appointment_date_time}
                     </Text>
-                    <Text style={{ marginBottom: 10 }}>
+                    <Text style={styles.drName}>
                         {this.props.other_party_name}
                     </Text>
                     <Button
@@ -37,10 +37,10 @@ class AppointmentCard extends Component{
         } else {
             return (
                 <Card>
-                    <Text style={{ marginBottom: 15 }}>
+                    <Text style={styles.timeInfo}>
                         {this.props.appointment_date_time}
                     </Text>
-                    <Text style={{ marginBottom: 10 }}>
+                    <Text style={styles.drName}>
                         {this.props.other_party_name}
                     </Text>
                     <Button
@@ -49,7 +49,7 @@ class AppointmentCard extends Component{
                         title='View Appointment'
                         onPress = {() => this.props.navigation.navigate('moreDetails', {
                             appointmentObj: this.props.appointmentObj,
-                            userObj: this.props.userType
+                            userType: this.props.userType
                         })}
                     />
                 </Card>
@@ -60,3 +60,15 @@ class AppointmentCard extends Component{
     
 export default withNavigation(AppointmentCard);
 
+const styles = StyleSheet.create({
+    timeInfo: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 5
+    },
+
+    drName: {
+        fontSize: 18,
+        marginBottom:10
+    }
+})

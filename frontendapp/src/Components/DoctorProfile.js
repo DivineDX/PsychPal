@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Avatar, Text, Button } from 'react-native-elements';
-import RequestAppointment from '../Components/Buttons/RequestAppointmentButton'
+import { Textarea } from "native-base";
 
 // Attn CJ: Data required here is the specific Doctor object
 const test_doctor =
@@ -27,22 +27,16 @@ const test_doctor_languages = [
     }
 ]
 export default class DoctorProfile extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             doctor: test_doctor,
-            doctor_languages: test_doctor_languages,
+            doctor_languages: test_doctor_languages
         }
     }
 
     componentDidMount() {
-        let doctorName = this.props.navigation.state.params.DoctorName;
-        fetch('http://localhost:3005/select * from doctors where name = \'' + doctorName + '\'')
-        .then(response => response.json())
-        .then(data => this.setState({
-          doctor: data[0]
-        }))
-
+        // for cj
     }
 
     render() {
@@ -55,8 +49,8 @@ export default class DoctorProfile extends Component {
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
                 <View>
-                    <Text h3>{this.state.doctor.name}</Text>
                     <Text h4>{this.state.doctor.professional_credentials}</Text>
+                    <Text h3>{this.state.doctor.name}</Text>
                     <View>
                         <Text h4>{'Languages Spoken: '}</Text>
                         {
@@ -73,12 +67,11 @@ export default class DoctorProfile extends Component {
 
                 {/* Attn CJ: Display all the Doctor PDFs here */}
                 <Text h4>Doctor PDFs here</Text>
-                <RequestAppointment 
-                patientName = {this.props.navigation.getParam('PatientName')}
-                doctorName = {this.state.doctor.name}
-                doctorAccept = {0}
-                />
 
+                <Button
+                    title='Request for an Appointment'
+                // onPress={}
+                />
             </View>
         )
     }
@@ -91,11 +84,11 @@ const styles = StyleSheet.create({
     },
 
     buttonContainer: {
-        width: 300,
+        width: 100,
         height: 45,
         justifyContent: 'center',
         marginTop: 10,
-    }, 
+    },
 
     textboxContainer: {
         marginHorizontal: 0,

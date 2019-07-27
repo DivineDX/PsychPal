@@ -10,10 +10,12 @@ export default class SignedOut extends Component {
 		header: null
 	}
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			loggingIn: false,
+			doctors: [],
+			patients: []
 		}
 	}
 
@@ -26,6 +28,25 @@ export default class SignedOut extends Component {
 			this.logginInFlip();
 		}
 	}
+
+	async componentDidMount() {
+        fetch('http://localhost:3005/select * from doctors;')
+        .then(response => response.json())
+        .then(data => {
+			const doctorData = data 
+            this.setState({
+                doctors: doctorData
+			})
+        })
+        fetch('http://localhost:3005/select * from patients;')
+        .then(response => response.json())
+        .then(data => { 
+			const patientData = data
+            this.setState({
+                patients: patientData
+            })
+        })
+    }
 
 
 	render() {
@@ -41,10 +62,16 @@ export default class SignedOut extends Component {
 
 				{
 					this.state.loggingIn
-						? <LoginContainer nav = {navigation}/>
+						? <LoginContainer nav = {navigation}
+								patients = {this.state.patients}
+								doctors = {this.state.doctors}
+							/>
 						: <View style={styles.viewContainer}>
 							<View style={{ marginBottom: 20 }}>
-								<Button large onPress={() => navigation.navigate('AccountCreation')}><Text>Create an Account</Text></Button>
+								<Button large onPress={() => navigation.navigate('AccountCreation', {
+									doctors: this.state.doctors,
+									patients: this.state.patients
+								})}><Text>Create an Account</Text></Button>
 							</View>
 							<Text>
 								Already have an account? <Text onPress={() => this.logginInFlip()}

@@ -1,65 +1,82 @@
 import React, { Component } from 'react';
 import AccountSettingsChild from './AccountSettingsChild'
-import { View, Text, AsyncStorage, StyleSheet } from 'react-native';
-import { Avatar } from 'react-native-elements';
-import { Button } from 'native-base';
+import { View, AsyncStorage, StyleSheet } from 'react-native';
+import { Avatar, Button } from 'react-native-elements';
 
 
 const test_user = 
     {
-        user_type: 'Patient',
-        name : 'Aaron Ramsey',
-        profile_picture_uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg'
+        'user_type': 'Patient',
+        'name' : 'Tom Cruise',
+        'profile_picture_url': 'https://b.imge.to/2019/07/25/ZCTQh.jpg'
     }
 
 // Attn CJ: Data required here is the specific user object (patient/psych)
 export default class AccountSettings extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            user : test_user
+            user : []
         }
     }
 
     componentDidMount() {
-        // for cj
+        let type = null
+        if (this.props.screenProps.userType == 'Patient') {
+            type = 'patients'
+        } else {
+            type = 'doctors'
+        }
+        fetch('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
+        .then(response => response.json())
+        .then(data => this.setState({user: data[0]}))
+        console.log('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
     }
 
     render() {
         return (
             <View>
-                <Button large onPress={async () => {
-                            try{
+                <Button 
+                    large
+                    title="Reset"
+                    onPress=
+                        {async () => {
+                            try {
                                 await AsyncStorage.removeItem('username');
                                 await AsyncStorage.removeItem('password');
-                            }catch(error) {
-    
-                            }
-                    }}><Text>reset</Text></Button>
-                <Avatar
-                    containerStyle={ styles.avatarContainer }
-                    size='large'
-                    rounded
-                    source={{ uri: this.state.user.profile_picture_uri }}
-                />
-                <Button
-                    style={ styles.buttonContainer }
-                    title="Update Profile Picture"/>
-                <AccountSettingsChild name = {this.state.user.name}></AccountSettingsChild>
+                            } catch(error) {
+                            } 
+                            } } />
+
+                <View style={styles.wholeContainer}>
+                    <Avatar
+                        // containerStyle={ styles.avatarContainer }
+                        size='large'
+                        rounded
+                        source={{ uri: this.state.user.profile_picture_url }}
+                    />
+                    {/* <Button
+                        containerStyle={ styles.buttonContainer }
+                        title="Update Profile Picture"/> */}
+                    <AccountSettingsChild user = {this.state.user}></AccountSettingsChild>
+                </View>
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    avatarContainer: {
-        marginHorizontal: 170
-    },
 
     buttonContainer: {
-        width: 100,
-        height: 45,
-        justifyContent: 'center',
-        marginTop: 10,
+        width: 275,
+        marginTop: 25,
+        alignContent: 'center',
     },
+
+    wholeContainer: {
+        marginTop: 30,
+        // justifyContent: 'center',
+        alignItems: 'center',
+    },
+
 })

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {createBottomTabNavigator, createAppContainer} from 'react-navigation'
 import PlannerStack from './PatientPlanner'
 import Search from './PatientSearch'
-import TreatmentPlan from '../Containers/PatientUI/TreatmentPlan'
-import AccountSettings from '../Containers/CommonUI/AccountSettings/AccountSettings'
+import TreatmentPlan from './PatientTreatment'
+import AccountSettings from './OverallAccountSettings'
 import { Icon } from 'native-base';
 
 //tab navigator for patient route

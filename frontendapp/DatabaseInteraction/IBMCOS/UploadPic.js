@@ -6,7 +6,7 @@ import {
   Text,
   Modal
 } from 'react-native';
-import {WebView} from "react-native";
+import {WebView} from "react-native-webview";
 import connection from '../Connection';
 
 //to use, add this class as a component
@@ -35,7 +35,6 @@ export default class UploadPic extends Component {
     fetch(url)
     .then(response => response.json())
     .then(data => console.log("url updated"))
-    console.log(url);
   }
   render() {
     this.updateURL()

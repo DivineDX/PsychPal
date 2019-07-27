@@ -4,18 +4,19 @@ import { Text } from 'native-base';
 import InputBox from './InputBox';
 import LoginButton from '../../../Components/Buttons/LoginButton';
 import { CheckBox } from 'react-native-elements'
+import Patient from '../../../Patient'
  
 //hi nic
-const userData = [ //fake logindata. Can delete after conencted with backend
+/*const userData = [ //fake logindata. Can delete after conencted with backend
     {
-        user_id: 'alex',
+        userID: 'alex',
         password: '123',
         type: 'patient',
         particulars: false,
         details: false,
     },
     {
-        user_id: 'chengjun',
+        userID: 'chengjun',
         password: '123',
         type: 'psychiatrist',
         particulars: true,
@@ -42,7 +43,7 @@ const userData = [ //fake logindata. Can delete after conencted with backend
         particulars: true,
         details: true,
     }
-];
+];*/
  
 //flag to check if previous log in details is stored and verified
 let isloaded = false;
@@ -58,8 +59,7 @@ export default class LoginContainer extends Component {
 			datausername: null,
             datapassword: null,
             checked: false,
-            //put yr hardcoded data in this state            
-            //test local data put userData in []
+            //put yr hardcoded data in this state
             userData: [],
             isloaded: false
         }
@@ -69,8 +69,9 @@ export default class LoginContainer extends Component {
 	checklStoredLoginDetails = () => {
 		let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
 		if (status != null) {
-			this.props.nav.navigate('patientSignedIn', { //replaced with API fetch call 
+			this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
                 patientName: status.name,
+                type: status.user_type,
             });
         } 
         isloaded = true;
@@ -81,10 +82,7 @@ export default class LoginContainer extends Component {
 		this.setState({
 			datapassword: await AsyncStorage.getItem('password'),
 			datausername: await AsyncStorage.getItem('username')
-        })
-        this.setState({
-            userData : this.props.patients.concat(this.props.doctors)
-        })
+		})
 	}
 
     toggleShowPass = () => {
@@ -102,15 +100,16 @@ export default class LoginContainer extends Component {
 
     attemptLogIn = () => {
         let status = this.checkThroughDB(this.state.userID, this.state.password);
-        if (status != null) {
+        if (status) {
             if(this.state.checked) {
                 AsyncStorage.multiSet([
                     ['username', this.state.userID],
                     ['password', this.state.password]
                 ])
             }
-            this.props.nav.navigate('patientSignedIn', { //replaced with API fetch call 
-                patientName: status.name,
+            this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
+                patientName: 'sss',
+                type: status.user_type,
             });
         } else {
             this.setState({ loginFailed: true });
@@ -127,6 +126,12 @@ export default class LoginContainer extends Component {
     }
 
     componentDidMount() {
+        //comment here to use hardcoded data
+        fetch('http://localhost:3005/select*from patients')
+          .then(response => response.json())
+          .then(data => this.setState({userData: data,
+            isloaded: true
+        }))
         //dont comment this
         this.fetchdata();
     }

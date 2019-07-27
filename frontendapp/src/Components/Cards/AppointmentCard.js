@@ -1,83 +1,49 @@
-import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from "react-native";
-import DateTimePicker from "react-native-modal-datetime-picker";
+import React from 'react'
+import { Card, Button, Text } from 'react-native-elements'
 
-// to create appointment and store in database
-//required props: doctorName, patientName, doctorAccept (1 if doctor create 0 if patient create)
-export default class RequestAppointment extends Component {
-    
-    constructor(props) {
-        super(props)
-        this.state = {
-            isDateTimePickerVisible: false,
-            selectedDateDisplay: ""
-        };
-    }
-    
-	showDateTimePicker = () => {
-		this.setState({ isDateTimePickerVisible: true });
-	};
+const AppointmentCard = (props) => {
 
-	hideDateTimePicker = () => {
-        this.setState({ isDateTimePickerVisible: false });
-	};
-
-	handleDatePicked = date => {
-        const formattedDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
-		this.setState({ 
-            selectedDateDisplay: "Submitted appointment request for \n" + formattedDate,
-        });
-        this.createAppointment(formattedDate)
-		this.hideDateTimePicker();
-    };
-    
-    createAppointment(dateSelected) {
-        url = 'http://localhost:3005/insert into appointment_details values(\'' + 
-        this.props.patientName + '\', \'' + 
-        this.props.doctorName + '\',null,' + '\'' + dateSelected  + '\''+ 
-        ', default, null,' + this.props.doctorAccept + ',0,null);'
-        fetch(url).then(
-            response => console.log(response)
+    if (props.appointment_status == "pending") {
+        return (
+            <Card>
+                <Text style={{ marginBottom: 15 }}>
+                    {props.appointment_date_time}
+                </Text>
+                <Text style={{ marginBottom: 10 }}>
+                    {props.other_party_name}
+                </Text>
+                <Button
+                    backgroundColor='#03A9F4'
+                    buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 10 }}
+                    title='View Appointment'
+                //onPress = {() => navigation.navigate(nextRoute)}
+                />
+                <Button
+                    backgroundColor='#03A9F4'
+                    buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
+                    title='Confirm Appointment'
+                />
+            </Card>
         )
-        console.log(url)
+    } else {
+        return (
+            <Card>
+                <Text style={{ marginBottom: 15 }}>
+                    {props.appointment_date_time}
+                </Text>
+                <Text style={{ marginBottom: 10 }}>
+                    {props.other_party_name}
+                </Text>
+                <Button
+                    backgroundColor='#03A9F4'
+                    buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
+                    title='View Appointment'
+                //onPress = {() => navigation.navigate(nextRoute)}
+                />
+            </Card>
+        )
     }
-
-	render() {
-
-		return (
-			<View style={styles.container}>
-				{this.state.selectedDateDisplay == "" ?
-                    <Button
-                    style = {styles.buttonContainer} 
-                    title="Request for an Appointment" 
-                    onPress={this.showDateTimePicker} />
-                :
-                    
-				    <Text style={styles.text}>{this.state.selectedDateDisplay}</Text>
-                }
-				<DateTimePicker
-					isVisible={this.state.isDateTimePickerVisible}
-					onConfirm={this.handleDatePicked}
-					onCancel={this.hideDateTimePicker}
-					mode='datetime'
-				/>
-			</View>
-		);
-	}
 }
 
-const styles = StyleSheet.create({
-	container: {
-        marginTop: 30,
-	},
-	text: {
-		fontSize: 22,
-		marginVertical: 10
-    },
-    buttonContainer: {
-        width: 300,
-        height: 45,
-        justifyContent: 'center',
-        marginTop: 10,
-    }, 
-});
+export default AppointmentCard
+

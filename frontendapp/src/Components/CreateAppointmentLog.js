@@ -1,55 +1,32 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native'
-import { Button, Text } from 'react-native-elements';
+import { Input, Text } from 'react-native-elements';
 import { Textarea } from "native-base";
 
-const test_appointment = {
-    'appointment_details': '', // by default appointment details will be blank
-    'appointment_date_time': '2019-07-25 16:30:00'
-}
-
-// Attn CJ: Data required here is the appointment object
+// Attn CJ: Data required here is just the name of patient
 export default class CreateAppointmentLog extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state={
-            appointment: test_appointment,
-            input_appointment_details: ''
+            name: 'Ashley',
         }
     }
 
-    receive_appointment_details = (text) => {
-        this.setState({
-            input_appointment_details: text
-        })
-    }
-
-    add_details_to_obj = () => {
-        // Attn CJ: Fill in the appointment details for that appointment object
-        // data is stored in input_appointment_details
-    }
-
     componentDidMount() {
-        // for CJ
+        // for cj
     }
 
     render() {
         return (
             <View>
-                <Text h4>Appointment Log</Text>
-                <Text h4>{this.state.appointment.appointment_date_time}</Text>
-                <Textarea 
-                    style = {styles.textboxContainer} 
-                    rowSpan={5} 
-                    bordered 
-                    placeholder="Notes for this session" 
-                    onChangeText={this.receive_appointment_details} />
-                {/* Edit appointment details of appt obj */}
-                {/* Once edit already navigate back to planner more details */}
-                <Button 
-                    type='outline'
-                    title="Confirm" 
-                    onPress={this.add_details_to_obj} />
+                <Text h4>{`\n  `}Appointment Log for {this.state.name + '\n'}</Text>
+                {/* Attn CJ: upon input, appointment_details of the appointment object will be furnished  */}
+                <Input
+                    placeholder='Title'
+                />
+
+                <Textarea style = {styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" />
+
             </View>
         )
     }
