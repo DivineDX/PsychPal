@@ -19,7 +19,6 @@ export default class DateTimePickerTester extends Component {
   };
  
   handleDatePicked = date => {
-    console.log("A date has been picked: ", date);
     this.hideDateTimePicker();
   };
  

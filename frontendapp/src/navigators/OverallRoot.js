@@ -1,4 +1,3 @@
-import React from 'react';
 import {createSwitchNavigator} from "react-navigation";
 
 import SignedOut from '../Containers/CommonUI/SignedOut'
@@ -11,7 +10,7 @@ export const RootNavigator = createSwitchNavigator(
 		SignedOut: SignedOut,
 		AccountCreation: AccountCreation,
 		patientSignedIn: patient,
-		doctorSignedIn: patient
+		doctorSignedIn: patient, //to be changed later
 	},
 	{
 		initialRouteName: 'SignedOut'

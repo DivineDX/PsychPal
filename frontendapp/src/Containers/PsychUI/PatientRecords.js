@@ -1,6 +1,6 @@
 import { ScrollView } from 'react-native'
-import { ListItem } from 'react-native-elements'
-import React, { Component } from 'react';
+import { ListItem } from './node_modules/react-native-elements'
+import React, { Component } from './node_modules/react';
 
 // avatar image must be 128 px * 128 px
 const testlist = [

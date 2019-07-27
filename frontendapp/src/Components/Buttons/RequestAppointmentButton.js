@@ -37,9 +37,9 @@ export default class RequestAppointment extends Component {
         this.props.doctorName + '\',null,' + '\'' + dateSelected  + '\''+ 
         ', default, null,' + this.props.doctorAccept + ',0,null);'
         fetch(url).then(
-            response => console.log(response)
+            // response => console.log(response)
         )
-        console.log(url)
+        // console.log(url)
     }
 
 	render() {

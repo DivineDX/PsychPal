@@ -46,7 +46,7 @@ export default class patient extends Component {
 	}
 	render() {
 		const {navigation} = this.props 
-		console.log(navigation.getParam('patientName'))
+		// console.log(navigation.getParam('patientName'))
 		return (
 			<PatientTab 
 			style = {{margin: 20}}

@@ -54,8 +54,9 @@ export default class Planner extends Component {
     constructor(props) { //receive type and account completion as props
         super(props);
         this.state = {
-            appointments: test_appointments,
-            user: test_user
+            //test local data put test_appointments in []
+            appointments: [],
+            user: test_user,
         }
     }
 
@@ -92,20 +93,26 @@ export default class Planner extends Component {
     }
 
     componentDidMount() {
-        // for CJ
+        let userName = this.props.screenProps.userName
+        fetch('http://localhost:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
+          .then(response => response.json())
+          .then(data => this.setState({appointments: data,
+            user: this.props.screenProps.userType
+        }))
+        
+
     }
 
 
     render() {
-        const {navigation} = this.props;
-		console.log(this.props.screenProps.patientName)
-        if (this.state.user.user_type == 'Patient') {
+        console.log(this.state.user)
+        if (this.state.user == 'Psychiatrist') {
             return (
                 <ScrollView>
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} appointment_status="pending" />
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}  option_to_confirm="exist"/>
                         ))
                     }
                     <Text h4>Upcoming Appointments</Text>
@@ -138,16 +145,50 @@ export default class Planner extends Component {
             return (
                 <ScrollView>
                     <Text h4>Pending Appointments</Text>
-                    <Text h4>Upcoming Appointments</Text>
-                    <Text h4>Past Appointments</Text>
-                    <Text h4>Cancelled Appointments</Text>
                     {
-                        this.state.appointments.map((u) => (
-                            <AppointmentCard other_party_name="name here" appointment_date_time="date and time here" />
+                        this.state.appointments.filter(this.is_pending).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
+                                appointmentObj = {u}
+                                userType = {this.state.user}
+                            />
                         ))
                     }
-
-
+                    <Text h4>Upcoming Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_upcoming).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
+                            appointmentObj = {u}
+                            userType = {this.state.user}
+                            />
+                        ))
+                    }
+                    <Text h4>Past Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_past).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
+                            appointmentObj = {u}
+                            userType = {this.state.user}
+                            />
+                        ))
+                    }
+                    <Text h4>Cancelled Appointments</Text>
+                    {
+                        this.state.appointments.filter(this.is_cancelled).map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
+                            appointmentObj = {u}
+                            userType = {this.state.user}
+                            />
+                        ))
+                    }
+                    <Text h4>All the test appointments repeated below for sanity check</Text>
+                    {
+                        this.state.appointments.map((u) => (
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
+                            appointmentObj = {u}
+                            userType = {this.state.user}
+                            />
+                        ))
+                    }
                 </ScrollView>
             )
         }

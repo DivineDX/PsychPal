@@ -8,8 +8,7 @@ import PlannerMoreDetails from '../Components/Planner/PlannerMoreDetails';
 const PatientPlannerTab = createAppContainer(createStackNavigator(
     {
 		planner: Planner,
-        moreDetails: PlannerMoreDetails
-        
+        moreDetails: PlannerMoreDetails,
 	},
 	{
 		initialRouteName: 'planner',

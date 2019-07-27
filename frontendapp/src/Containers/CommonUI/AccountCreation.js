@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, StyleSheet } from 'react-native';
+import { ScrollView, View, StyleSheet, ActivityIndicator } from 'react-native';
 import { Button, Text, H1, Picker, Label } from 'native-base';
 import { Formik } from 'formik';
 import * as yup from "yup";
@@ -7,6 +7,7 @@ import InputBox from '../../Components/Input/InputBox';
 import DOBInput from '../../Components/Input/DOBInput';
 import PickerCountry from '../../Components/Input/PickerCountry';
 import InputTextArea from '../../Components/Input/InputTextArea';
+import LoginContainer from '../CommonUI/LoginContainer/LoginContainer';
 
 const inputTextArr = [
     { title: "Email", key: 'email', secure: false },
@@ -46,6 +47,10 @@ export default class AccountCreationForm extends Component {
             dob: '',
             country: 'US', //picker with list of nationalities
             description: '',
+            checkUserIDDuplicate: ' ',
+            checkPasswordDuplicate: ' ',
+            checkEmailDuplicate: ' ',
+            checkDuplicate: false,
         }
     }
 
@@ -53,17 +58,110 @@ export default class AccountCreationForm extends Component {
         if (this.state.type === '') { //not selected
             alert("Please select whether you are a patient or psychiatrist");
         } else {
-            //Must check if email/userID already used
-            console.log(values);
-            this.setState(values);
-            const { navigation } = this.props;
-            if (true) { //connect to database, change condition to if backeend responses okay
-                navigation.navigate('SignedIn', {
-                    userID: this.state.userID,
-                    type: this.state.type,
-                });
+            this.checkDuplicate(values, this.state.type);
+            if (this.state.checkEmailDuplicate == ' ' &&
+                this.state.checkPasswordDuplicate == ' ' &&
+                this.state.checkUserIDDuplicate == ' '
+                ) 
+            {
+                //this.setState(values);
+                let flag = this.submitAccount(values);
+                if (flag) { //connect to database, change condition to if backeend responses okay
+                    if (this.state.type == 'patient') {
+                        this.props.navigation.navigate('patientSignedIn', { //replaced with API fetch call 
+                            patientName: values.name,
+                        });
+                    } else {
+                        this.props.navigation.navigate('doctorSignedIn', { //replaced with API fetch call 
+                            doctorName: values.name,
+                        });  
+                    }
+                }  else {
+                    return (
+                        <ActivityIndicator/>
+                    )
+                }
+            } else {
+                this.setState({
+                    checkDuplicate: true
+                })
             }
         }
+    }
+
+    //check database if category (email/username/password etc) is used type: patient or doctor
+    checkDuplicate(value, usertype) {
+        this.setState({
+            checkUserIDDuplicate: ' ',
+            checkPasswordDuplicate: ' ',
+            checkEmailDuplicate: ' '
+        })
+        if (usertype == 'psychiatrist') {
+            let doctors = this.props.navigation.state.params.doctors
+            for (let doc of doctors) {
+                if (doc.user_id == value.userID ) {
+                    this.setState({
+                        checkUserIDDuplicate : 'UserID'
+                    })
+                } else if (doc.password == value.password) {
+                    this.setState({
+                        checkPasswordDuplicate : 'Password'
+                    })    
+                } else if (doc.email == value.email) {
+                    this.setState({
+                        checkEmailDuplicate : 'Email'
+                    })    
+                }
+            }
+        } else {
+            let patients = this.props.navigation.state.params.patients
+            for (let patient of patients) {
+                if (patient.user_id == value.userID ) {
+                    this.setState({
+                        checkUserIDDuplicate : 'UserID'
+                    })
+                }
+                if (patient.password == value.password) {
+                    this.setState({
+                        checkPasswordDuplicate : 'Password'
+                    }) 
+                }  
+                if (patient.email == value.email) {
+                    this.setState({
+                        checkEmailDuplicate : 'Email'
+                    })
+                }  
+            }
+        }
+    }
+
+    async submitAccount(values) {
+        let url = ''
+        if (this.state.type == 'patient') {
+            url = 'http://localhost:3005/insert into patients values(\'' + 
+            values.name + '\', \'' + 
+            values.gender + '\', 21, \'' + 
+            values.country + '\', \'' + 
+            values.password + '\', \'' + 
+            values.userID + '\',null, default, \'' +
+            values.email + '\');'
+            console.log(url)
+        } else {
+            url = 'http://localhost:3005/insert doctor values(\'' + 
+            values.name + '\', \'' + 
+            values.gender + '\', 21, \'' + 
+            values.country + '\', \'' + 
+            values.password + '\', \'' + 
+            values.userID + '\',null, default, \'' +
+            values.email + '\');'
+            console.log(url)
+        }
+        return await fetch(url).then(() => {
+            return true;
+        })
+    }
+    displayAccCreationError() {
+        return this.state.checkUserIDDuplicate + ' ' + this.state.checkPasswordDuplicate + ' ' + this.state.checkEmailDuplicate + ' already taken!'
     }
 
     toggleType = (type) => {
@@ -188,6 +286,11 @@ export default class AccountCreationForm extends Component {
                                     errors={errors[e.key]}
                                 />);
                             })
+                        }
+                        {this.state.checkDuplicate == true? 
+                            <Text style = {{color: 'red'}}>{this.displayAccCreationError()}</Text>
+                            :
+                            null
                         }
 
                         <Button
