@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AccountSettingsChild from './AccountSettingsChild'
 import { View, AsyncStorage, StyleSheet } from 'react-native';
 import { Avatar, Button } from 'react-native-elements';
+import connection from '../../../../DatabaseInteraction/Connection'
 
 
 const test_user = 

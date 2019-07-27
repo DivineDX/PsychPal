@@ -8,6 +8,7 @@ import DOBInput from '../../Components/Input/DOBInput';
 import PickerCountry from '../../Components/Input/PickerCountry';
 import InputTextArea from '../../Components/Input/InputTextArea';
 import LoginContainer from '../CommonUI/LoginContainer/LoginContainer';
+import connection from '../../../DatabaseInteraction/Connection'
 
 const inputTextArr = [
     { title: "Email", key: 'email', secure: false },

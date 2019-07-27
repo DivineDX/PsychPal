@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Text, Button } from 'react-native-elements'
 import AppointmentCard from '../../Components/Cards/AppointmentCard'
+import connection from '../../../DatabaseInteraction/Connection'
 
 
 // Attn CJ: Data required here is all the appointment objects for that specific user (can be patient or psych)

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Avatar, Text, Button } from 'react-native-elements';
 import RequestAppointment from '../Components/Buttons/RequestAppointmentButton'
+import connection from '../../DatabaseInteraction/Connection'
 
 // Attn CJ: Data required here is the specific Doctor object
 const test_doctor =

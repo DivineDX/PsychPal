@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Modal } from 'react-native'
 import { Button, Text } from 'react-native-elements';
 import { Textarea } from "native-base";
+import connection from '../../DatabaseInteraction/Connection'
 
 const test_appointment = {
 	'appointment_date_time': '2019-07-25 16:30:00',

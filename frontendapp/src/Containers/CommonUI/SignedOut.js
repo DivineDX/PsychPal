@@ -4,6 +4,7 @@ import { Button, Text } from 'native-base';
 import bgImage from '../../Images/loginBG.jpg';
 import appLogo from '../../Images/appLogo.png';
 import LoginContainer from './LoginContainer/LoginContainer';
+import connection from '../../../DatabaseInteraction/Connection'
 
 export default class SignedOut extends Component {
 	static navigationOptions = {

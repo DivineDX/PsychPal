@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from "react-native";
 import DateTimePicker from "react-native-modal-datetime-picker";
+import connection from '../../../DatabaseInteraction/Connection'
 
 // to create appointment and store in database
 //required props: doctorName, patientName, doctorAccept (1 if doctor create 0 if patient create)

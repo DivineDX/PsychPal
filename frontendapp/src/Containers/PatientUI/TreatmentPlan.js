@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { Text, Button } from "react-native-elements";
 import TreatmentPlanCard from "../../Components/Cards/TreatmentPlanCard";
+import connection from '../../../DatabaseInteraction/Connection'
 
 // Attn CJ: Data required here is an array of treatment objects for that 1 particular patient
 const treatment_plan_test = [

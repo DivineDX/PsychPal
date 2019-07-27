@@ -1,6 +1,7 @@
 import { ScrollView } from 'react-native'
 import { Button, SearchBar, ListItem } from 'react-native-elements'
 import React, { Component } from 'react';
+import connection from '../../../DatabaseInteraction/Connection'
 
 // is used when database is not available 
 const test_list = [
