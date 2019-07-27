@@ -9,13 +9,11 @@ const test_user =
     "password": "helloworld"
 }
 
-
 export default class ChangePassword extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
-            user : test_user,
+            user: test_user,
             input_current: 'current',
             input_new: 'new',
             input_new_confirm: 'new_confirm'
@@ -56,17 +54,17 @@ export default class ChangePassword extends Component {
     changePassword() {
         let userType = null
         if (this.state.user.user_type == 'patient') {
-            userType ='patients' 
+            userType = 'patients'
         } else {
             userType = 'doctors'
         }
-        const url = "http://localhost:3005/update " + userType + " set " + 
-        "password = \'" + this.state.input_new + "\' where name = " + "\'" +
-        this.state.user.name + '\';'
+        const url = "http://localhost:3005/update " + userType + " set " +
+            "password = \'" + this.state.input_new + "\' where name = " + "\'" +
+            this.state.user.name + '\';'
         fetch(url)
-        .then(response => response.json())
-        .then(data => {
-        })
+            .then(response => response.json())
+            .then(data => {
+            })
     }
 
     componentDidMount() {
@@ -80,8 +78,8 @@ export default class ChangePassword extends Component {
             <View>
                 <Input placeholder='Current Password' onChangeText={this.update_input_current} />
                 <Input placeholder='New Password' onChangeText={this.update_input_new} />
-                <Input placeholder='Confirm New Password' onChangeText={this.update_input_new_confirm }/>
-                <Button 
+                <Input placeholder='Confirm New Password' onChangeText={this.update_input_new_confirm} />
+                <Button
                     type='outline'
                     title="Confirm"
                     onPress={this.handleInputs} />

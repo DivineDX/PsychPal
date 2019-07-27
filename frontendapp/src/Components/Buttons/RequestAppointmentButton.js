@@ -48,6 +48,7 @@ export default class RequestAppointment extends Component {
 			<View style={styles.container}>
 				{this.state.selectedDateDisplay == "" ?
                     <Button
+                    type='outline'
                     style = {styles.buttonContainer} 
                     title="Request for an Appointment" 
                     onPress={this.showDateTimePicker} />
