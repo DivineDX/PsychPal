@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AccountSettingsChild from './AccountSettingsChild'
 import { View, AsyncStorage, StyleSheet } from 'react-native';
 import { Avatar, Button } from 'react-native-elements';
-import connection from '../../../../DatabaseInteraction/Connection'
 
 
 const test_user = 
@@ -28,10 +27,10 @@ export default class AccountSettings extends Component {
         } else {
             type = 'doctors'
         }
-        fetch('http://connection.connection:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
+        fetch('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
         .then(response => response.json())
         .then(data => this.setState({user: data[0]}))
-        console.log('http://connection.connection:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
+        console.log('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
     }
 
     render() {

@@ -65,7 +65,7 @@ export default class LoginContainer extends Component {
         }
     }
 
-    //ACTUAL
+    //to verify stored log in details
 	checklStoredLoginDetails = () => {
 		let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
 		if (status != null) {
@@ -75,15 +75,6 @@ export default class LoginContainer extends Component {
         } 
         isloaded = true;
     }
-    
-    // checklStoredLoginDetails = () => {
-	// 	if (true) {
-	// 		this.props.nav.navigate('patientSignedIn', { //replaced with API fetch call 
-    //             patientName: 'alex',
-    //         });
-    //     } 
-    //     isloaded = true;
-    // }
     
     //get log in details from local storage if available
     async fetchdata() {
