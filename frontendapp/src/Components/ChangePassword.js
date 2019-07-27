@@ -61,7 +61,7 @@ export default class ChangePassword extends Component {
         } else {
             userType = 'doctors'
         }
-        const url = "http://localhost:3005/update " + userType + " set " + 
+        const url = 'http://' + connection.connection + ":3005/update " + userType + " set " + 
         "password = \'" + this.state.input_new + "\' where name = " + "\'" +
         this.state.user.name + '\';'
         fetch(url)

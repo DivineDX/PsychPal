@@ -139,7 +139,7 @@ export default class AccountCreationForm extends Component {
     async submitAccount(values) {
         let url = ''
         if (this.state.type == 'patient') {
-            url = 'http://localhost:3005/insert into patients values(\'' + 
+            url = 'http://' + connection.connection + ':3005/insert into patients values(\'' + 
             values.name + '\', \'' + 
             values.gender + '\', 21, \'' + 
             values.country + '\', \'' + 
@@ -148,7 +148,7 @@ export default class AccountCreationForm extends Component {
             values.email + '\');'
             console.log(url)
         } else {
-            url = 'http://localhost:3005/insert doctor values(\'' + 
+            url = 'http://' + connection.connection + ':3005/insert doctor values(\'' + 
             values.name + '\', \'' + 
             values.gender + '\', 21, \'' + 
             values.country + '\', \'' + 

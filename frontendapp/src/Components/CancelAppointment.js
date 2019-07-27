@@ -32,7 +32,7 @@ export default class CancelAppointment extends Component {
 		const appointment = this.props.appointment;
 		const {jitsy_key} = appointment;
 
-		const url = "http://localhost:3005/update appointment_details set " +
+		const url = 'http://' + connection.connection + ":3005/update appointment_details set " +
 			"cancel = 1, cancel_reason = \'" + this.state.input_reason + "\'" +
 			"where jitsy_key = \'" + jitsy_key + //take jitsi_key as the unique key
 			"\';"

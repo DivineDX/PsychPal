@@ -38,7 +38,7 @@ export default class DoctorProfile extends Component {
 
     componentDidMount() {
         let doctorName = this.props.navigation.state.params.DoctorName;
-        fetch('http://localhost:3005/select * from doctors where name = \'' + doctorName + '\'')
+        fetch('http://' + connection.connection + ':3005/select * from doctors where name = \'' + doctorName + '\'')
         .then(response => response.json())
         .then(data => this.setState({
           doctor: data[0]

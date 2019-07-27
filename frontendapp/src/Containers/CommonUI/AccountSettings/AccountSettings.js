@@ -28,10 +28,9 @@ export default class AccountSettings extends Component {
         } else {
             type = 'doctors'
         }
-        fetch('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
+        fetch('http://' + connection.connection + ':3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
         .then(response => response.json())
         .then(data => this.setState({user: data[0]}))
-        console.log('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
     }
 
     render() {

@@ -12,7 +12,7 @@ const test_list = [
   },
   {
     'name': 'Dr. Andy Robertson',
-    'profile_pic_url': 'http://localhost:80/download/profile-pic/alex',
+    'profile_pic_url': "http://" + connection.connection + ":80/download/profile-pic/alex",
     'professional_credentials': 'MD (Liverpool)'
   },
   {
@@ -87,7 +87,7 @@ export default class Search extends Component {
     }
 
     componentDidMount() {
-      fetch('http://localhost:3005/select * from doctors')
+      fetch('http://' + connection.connection + ':3005/select * from doctors')
       .then(response => response.json())
       .then(data => this.setState({
         doctors: data

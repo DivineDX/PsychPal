@@ -39,7 +39,7 @@ export default class PlannerMoreDetails extends Component {
 	}
 
 	componentDidUpdate() {
-		fetch('http://localhost:3005/select * from appointment_details where patient_name = \'' +
+		fetch('http://' + connection.connection + ':3005/select * from appointment_details where patient_name = \'' +
 			this.state.appointment.patient_name + "\'  and doctor_name = \'" +
 			this.state.appointment.doctor_name + "\' and appointment_date_time = \'" +
 			this.state.appointment.appointment_date_time + "\';"

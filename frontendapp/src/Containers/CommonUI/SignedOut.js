@@ -31,7 +31,7 @@ export default class SignedOut extends Component {
 	}
 
 	async componentDidMount() {
-		fetch('http://localhost:3005/select * from doctors;')
+		fetch('http://' + connection.connection + ':3005/select * from doctors;')
 			.then(response => response.json())
 			.then(data => {
 				const doctorData = data
@@ -39,7 +39,7 @@ export default class SignedOut extends Component {
 					doctors: doctorData
 				})
 			})
-		fetch('http://localhost:3005/select * from patients;')
+		fetch('http://' + connection.connection + ':3005/select * from patients;')
 			.then(response => response.json())
 			.then(data => {
 				const patientData = data

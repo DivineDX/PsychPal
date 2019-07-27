@@ -29,7 +29,7 @@ export default class UploadPic extends Component {
     }
     //const profile_pic_url = 'http://' + connection.connection + ':80/download/profile-pic/' + this.props.navigation.state.params.user.name
     const profile_pic_url = "sss"
-    let url = "http://localhost:3005/update " + userType + ' set ' + 
+    let url = 'http://' + connection.connection + ":3005/update " + userType + ' set ' + 
     "profile_pic_url = \'" + 'http://' + connection.connection + ":80/download/profile-pic/" + this.props.navigation.state.params.user.name + 
     "\' where name = \'" + this.props.navigation.state.params.user.name + "\';" 
     fetch(url)

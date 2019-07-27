@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { ScrollView, StyleSheet } from 'react-native';
-import { Text } from 'react-native-elements'
-=======
-import { ScrollView, View } from 'react-native';
 import { Text, Button } from 'react-native-elements'
->>>>>>> 6db493c8064af2f31e06b7622214dedbff0af050
 import AppointmentCard from '../../Components/Cards/AppointmentCard'
 import connection from '../../../DatabaseInteraction/Connection'
 
@@ -100,7 +95,7 @@ export default class Planner extends Component {
 
     refresh_page = () => {
         let userName = this.props.screenProps.userName
-        fetch('http://localhost:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
+        fetch("http://" + connection.connection + ':3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
           .then(response => response.json())
           .then(data => this.setState({appointments: data,
             user: this.props.screenProps.userType
@@ -109,7 +104,7 @@ export default class Planner extends Component {
 
     componentDidMount() {
         let userName = this.props.screenProps.userName
-        fetch('http://localhost:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
+        fetch("http://" + connection.connection + ':3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
           .then(response => response.json())
           .then(data => this.setState({appointments: data,
             user: this.props.screenProps.userType
@@ -215,7 +210,6 @@ export default class Planner extends Component {
         }
 
     }
-<<<<<<< HEAD
 }
 
 const styles = StyleSheet.create({
@@ -226,6 +220,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     }
 })
-=======
-}
->>>>>>> 6db493c8064af2f31e06b7622214dedbff0af050
