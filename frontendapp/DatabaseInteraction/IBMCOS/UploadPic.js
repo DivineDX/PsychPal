@@ -6,7 +6,7 @@ import {
   Text,
   Modal
 } from 'react-native';
-import {WebView} from "react-native-webview";
+import {WebView} from "react-native";
 import connection from '../Connection';
 
 //to use, add this class as a component
