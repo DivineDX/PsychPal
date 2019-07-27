@@ -105,7 +105,6 @@ export default class Planner extends Component {
 
 
     render() {
-        console.log(this.state.user)
         if (this.state.user == 'Psychiatrist') {
             return (
                 <ScrollView>

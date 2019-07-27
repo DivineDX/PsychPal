@@ -28,16 +28,14 @@ export default class CancelAppointment extends Component {
 
 	cancel_appointment = () => {
 		this.setModalVisible(!this.state.modalVisible);
-		const {appointment} = this.props.appointment;
-		const {patient_name, doctor_name, appointment_date_time} = appointment;
+		const appointment = this.props.appointment;
+		const {jitsy_key} = appointment;
+
 		const url = "http://localhost:3005/update appointment_details set " +
 			"cancel = 1, cancel_reason = \'" + this.state.input_reason + "\'" +
-			"where patient_name = \'" + patient_name +
-			"\' and doctor_name = \'" + doctor_name +
-			"\' and appointment_date_time = \'" + appointment_date_time + //error here, will crash server
+			"where jitsy_key = \'" + jitsy_key + //take jitsi_key as the unique key
 			"\';"
-		console.log("Cancel appt component", appointment);
-		console.log("Type of APT date time", appointment_date_time);
+
 		fetch(url).then(() => {
 			return true;
 		})
