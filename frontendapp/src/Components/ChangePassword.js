@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Input, Button, Text } from 'react-native-elements'
+import connection from '../../DatabaseInteraction'
 
 
 // Attn CJ: Data required here is the specific user object

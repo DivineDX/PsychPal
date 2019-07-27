@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Button, Text } from 'react-native-elements'
 import JitsiCallButton from '../../Components/Buttons/JitsiCallButton'
-import CancelAppointment from '../CancelAppointment';
+import CancelAppointment from '../CancelAppointment'
+import connection from '../../../DatabaseInteraction/Connection'
 
 // Attn CJ: Data required here is the appointment object of that specific user
 const test_appointment =
