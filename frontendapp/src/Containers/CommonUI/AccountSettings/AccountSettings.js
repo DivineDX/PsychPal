@@ -16,12 +16,21 @@ export default class AccountSettings extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            user : test_user
+            user : []
         }
     }
 
     componentDidMount() {
-        // for cj
+        let type = null
+        if (this.props.screenProps.userType == 'Patient') {
+            type = 'patients'
+        } else {
+            type = 'doctors'
+        }
+        fetch('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
+        .then(response => response.json())
+        .then(data => this.setState({user: data[0]}))
+        console.log('http://localhost:3005/select * from ' + type + " where name = \'" + this.props.screenProps.userName + "\' ;")
     }
 
     render() {
@@ -49,7 +58,7 @@ export default class AccountSettings extends Component {
                     {/* <Button
                         containerStyle={ styles.buttonContainer }
                         title="Update Profile Picture"/> */}
-                    <AccountSettingsChild user_type={this.state.user.user_type} name={this.state.user.name}></AccountSettingsChild>
+                    <AccountSettingsChild user = {this.state.user}></AccountSettingsChild>
                 </View>
             </View>
         )
