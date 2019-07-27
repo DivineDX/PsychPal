@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Avatar, Text } from 'react-native-elements';
+import { Avatar, Text, Button } from 'react-native-elements';
 import RequestAppointment from '../Components/Buttons/RequestAppointmentButton'
 
 // Attn CJ: Data required here is the specific Doctor object
@@ -38,10 +38,10 @@ export default class DoctorProfile extends Component {
     componentDidMount() {
         let doctorName = this.props.navigation.state.params.DoctorName;
         fetch('http://localhost:3005/select * from doctors where name = \'' + doctorName + '\'')
-            .then(response => response.json())
-            .then(data => this.setState({
-                doctor: data[0]
-            }))
+        .then(response => response.json())
+        .then(data => this.setState({
+          doctor: data[0]
+        }))
 
     }
 
@@ -54,31 +54,29 @@ export default class DoctorProfile extends Component {
                     rounded
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
-                <View style={styles.textboxContainer}>
-                    <Text style={{ fontSize: 24 }}>{this.state.doctor.professional_credentials}</Text>
+                <View>
                     <Text h3>{this.state.doctor.name}</Text>
-                    <View style={styles.languagesContainer}>
-                        <Text style={{ fontSize: 24, fontWeight: '400' }}>{'Languages: '}</Text>
-                        <View style={styles.colContainer}>
-                            {
-                                this.state.doctor_languages.map((u) => (
-                                    <Text style={styles.langText}>{u.language}</Text>
-                                ))
-                            }
-                        </View>
+                    <Text h4>{this.state.doctor.professional_credentials}</Text>
+                    <View>
+                        <Text h4>{'Languages Spoken: '}</Text>
+                        {
+                            this.state.doctor_languages.map((u) => (
+                                <Text>{u.language}</Text>
+                            ))
+                        }
                     </View>
                 </View>
-
+                
                 {/* Decided not to display short write up for each doctor */}
                 {/* <Textarea style={styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" /> */}
 
 
                 {/* Attn CJ: Display all the Doctor PDFs here */}
                 <Text h4>Doctor PDFs here</Text>
-                <RequestAppointment
-                    patientName={this.props.navigation.getParam('PatientName')}
-                    doctorName={this.state.doctor.name}
-                    doctorAccept={0}
+                <RequestAppointment 
+                patientName = {this.props.navigation.getParam('PatientName')}
+                doctorName = {this.state.doctor.name}
+                doctorAccept = {0}
                 />
 
             </View>
@@ -89,35 +87,23 @@ export default class DoctorProfile extends Component {
 const styles = StyleSheet.create({
     avatarContainer: {
         marginTop: 30,
-        marginBottom: 10
+        // marginHorizontal: 170
     },
 
     buttonContainer: {
-        marginTop: 20,
-    },
+        width: 300,
+        height: 45,
+        justifyContent: 'center',
+        marginTop: 10,
+    }, 
 
     textboxContainer: {
         marginHorizontal: 0,
-        alignItems: 'center',
     },
 
     wholeContainer: {
-        marginTop: 10,
+        marginTop: 30,
+        // justifyContent: 'center',
         alignItems: 'center',
     },
-
-    languagesContainer: {
-        marginTop: 10,
-        flexDirection: 'row',
-        marginBottom: 10
-    },
-
-    colContainer: {
-        flexDirection: 'column'
-    },
-
-    langText: {
-        fontSize: 20,
-        lineHeight: 35
-    }
 })

@@ -97,7 +97,6 @@ export default class PlannerMoreDetails extends Component {
 const styles = StyleSheet.create({
 	buttonContainer: {
 		width: 275,
-		marginHorizontal: 75,
-		marginTop: 20,
+		marginHorizontal: 75
 	}
 })

@@ -46,7 +46,7 @@ export default class CreateAppointmentLog extends Component {
                     onChangeText={this.receive_appointment_details} />
                 {/* Edit appointment details of appt obj */}
                 {/* Once edit already navigate back to planner more details */}
-                <Button type='outline' title="Confirm" onPress={this.add_details_to_obj} />
+                <Button title="Confirm" onPress={this.add_details_to_obj} />
             </View>
         )
     }
