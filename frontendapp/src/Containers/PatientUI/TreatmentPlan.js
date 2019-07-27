@@ -58,11 +58,20 @@ export default class TreatmentPlan extends Component {
 	}
 
 	componentDidMount() {
-		// for cj
+        let patient = this.props.screenProps.userName
+        fetch('http://localhost:3005/select * from treatment_plan where patient_name = \'' + patient +
+        "\';"
+        )
+        .then(response => response.json())
+        .then(data => this.setState({
+            treatment_plan: data
+        
+        }))
 	}
 
 	render() {
-		if (this.state.treatment_plan[0].user_type == "Patient") {
+        console.log(this.state.treatment_plan)
+		if (this.props.screenProps.userType == "patient") {
 			return (
 				<ScrollView>
 					<Text style={styles.headings}>
@@ -74,7 +83,7 @@ export default class TreatmentPlan extends Component {
 					{this.state.treatment_plan.map(u => {
 						return (
 							<TreatmentPlanCard
-								user_type={u.user_type}
+								user_type={this.props.screenProps.userType}
 								treatment_title={u.treatment_title}
 								treatment_details={u.treatment_details}
 							/>

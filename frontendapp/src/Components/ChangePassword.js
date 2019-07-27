@@ -45,7 +45,7 @@ export default class ChangePassword extends Component {
             alert("Incorrect Current Password. Please re-enter.")
         } else {
             if (this.state.input_new == this.state.input_new_confirm) {
-                // Attn CJ: CHANGE USER PASSWORD to this.state.input_new
+                this.changePassword()
                 alert("Password succesfully changed.")
             } else {
                 alert("New Password and Confirm New Password do not match. Please re-enter.")
@@ -53,11 +53,32 @@ export default class ChangePassword extends Component {
         }
     }
 
+    changePassword() {
+        let userType = null
+        if (this.state.user.user_type == 'patient') {
+            userType ='patients' 
+        } else {
+            userType = 'doctors'
+        }
+        const url = "http://localhost:3005/update " + userType + " set " + 
+        "password = \'" + this.state.input_new + "\' where name = " + "\'" +
+        this.state.user.name + '\';'
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log('password changed')
+        })
+        console.log(url)
+    }
+
     componentDidMount() {
-        // for CJ
+        this.setState({
+            user: this.props.navigation.state.params.user
+        })
     }
 
     render() {
+        console.log(this.state.user)
         return (
             <View>
                 <Input placeholder='Current Password' onChangeText={this.update_input_current} />

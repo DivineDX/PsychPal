@@ -4,32 +4,32 @@ import { Icon } from 'native-base';
 
 // import from CommonUI
 
-import LoginContainer from './Containers/CommonUI/LoginContainer/LoginContainer'
-import AccountCreation from './Containers/CommonUI/AccountCreation'
-import AccountSettings from './Containers/CommonUI/AccountSettings/AccountSettings'
-import Planner from './Containers/CommonUI/Planner'
-import SignedOut from './Containers/CommonUI/SignedOut'
+import LoginContainer from '../Containers/CommonUI/LoginContainer/LoginContainer'
+import AccountCreation from '../Containers/CommonUI/AccountCreation'
+import AccountSettings from '../Containers/CommonUI/AccountSettings/AccountSettings'
+import Planner from '../Containers/CommonUI/Planner'
+import SignedOut from '../Containers/CommonUI/SignedOut'
 
 
 // import from PatientUI
-import Search from './Containers/PatientUI/Search'
-import TreatmentPlan from './Containers/PatientUI/TreatmentPlan'
+import Search from '../Containers/PatientUI/Search'
+import TreatmentPlan from '../Containers/PatientUI/TreatmentPlan'
 
 // import from PsychUI
-import PatientRecords from './Containers/PsychUI/PatientRecords'
+import PatientRecords from '../Containers/PsychUI/PatientRecords'
 
 // import from Components
-import InputBox from './Components/Input/InputBox'
+import InputBox from '../Components/Input/InputBox'
 import ScheduleNextAppointment from './Components/ScheduleNextAppointment'
-import PlannerMoreDetails from './Components/Planner/PlannerMoreDetails'
-import AddTreatment from './Components/AddTreatment'
-import MedicalRecord from './Components/MedicalRecord'
-import PatientRecordsMoreDetails from './Components/PatientRecordsMoreDetails'
-import DoctorProfile from './Components/DoctorProfile'
-import ChangePassword from './Components/ChangePassword'
-import CreateAppointmentLog from './Components/CreateAppointmentLog'
+import PlannerMoreDetails from '../Components/Planner/PlannerMoreDetails'
+import AddTreatment from '../Components/AddTreatment'
+import MedicalRecord from '../Components/MedicalRecord'
+import PatientRecordsMoreDetails from '../Components/PatientRecordsMoreDetails'
+import DoctorProfile from '../Components/DoctorProfile'
+import ChangePassword from '../Components/ChangePassword'
+import CreateAppointmentLog from '../Components/CreateAppointmentLog'
 import RequestForAppointment from './Components/RequestForAppointment'
-import CancelAppointment from './Components/CancelAppointment'
+import CancelAppointment from '../Components/CancelAppointment'
 
 const PlannerStack = createStackNavigator(
 	{
