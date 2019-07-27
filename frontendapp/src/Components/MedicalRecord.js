@@ -13,7 +13,7 @@ const dates = [
     },
 ]
 
-const patient = {
+const patient = { 
     name: 'Asahi',
     age: '23',
     // put as array of languages, modify to text only if needed
@@ -47,47 +47,47 @@ export default class MedicalRecord extends Component {
     render(props) {
         return (
             <ScrollView>
-                <View style={{ alignItems: 'center' }}>
-                    <Text h2>{'Medical Record'}</Text>
+                <View style = {{alignItems:'center'}}>
+                    <Text h2>{ 'Medical Record' }</Text>
                 </View>
-                <View style={{ marginTop: 30, marginHorizontal: 15 }}>
-                    <Text h3>{'Basic Information'}</Text>
-                    <View style={styles.eachBlock}>
+                <View style = {{marginTop: 30, marginHorizontal: 15}}> 
+                    <Text h3>{ 'Basic Information' }</Text>
+                    <View style = {styles.eachBlock}>
                         <Text h4>
-                            {'Name:' + patient.name + '\n' +
-                                'Age: ' + patient.age + '\n' +
-                                'Language: ' + patient.language.toString() + '\n'}
+                            { 'Name:' +  patient.name + '\n' +
+                            'Age: ' +  patient.age  + '\n' +
+                            'Language: ' + patient.language.toString() + '\n' }
+                        </Text>
+                    </View>
+                    
+                    <Text h3>{ 'Current Condition' }</Text>
+                    <View style = {styles.eachBlock}>
+                        <Text h4>
+                            { 'Medical Sypnosis: ' + patient.medicalSypnosis + '\n' }
                         </Text>
                     </View>
 
-                    <Text h3>{'Current Condition'}</Text>
-                    <View style={styles.eachBlock}>
+                    <Text h3>{ 'Medical History' }</Text>
+                    <View style = {styles.eachBlock}>
                         <Text h4>
-                            {'Medical Sypnosis: ' + patient.medicalSypnosis + '\n'}
+                            { 'Drug Allergies: ' + patient.drugAllergies + '\n' +
+                            'Past Condition: ' + patient.pastCondition + '\n' +
+                            'Family History: ' + patient.familyHistory + '\n' }
                         </Text>
                     </View>
 
-                    <Text h3>{'Medical History'}</Text>
-                    <View style={styles.eachBlock}>
-                        <Text h4>
-                            {'Drug Allergies: ' + patient.drugAllergies + '\n' +
-                                'Past Condition: ' + patient.pastCondition + '\n' +
-                                'Family History: ' + patient.familyHistory + '\n'}
-                        </Text>
-                    </View>
-
-                    <Text h3>{'Medical Log:'}</Text>
-                    <View styles={styles.eachBlock}>
+                    <Text h3>{ 'Medical Log:' }</Text>
+                    <View styles = {styles.eachBlock}>
                         {
                             dates.map((i) => {
                                 return (
-                                    <Text h4>{'Appointment on ' + i.date}</Text>
+                                    <Text h4>{ 'Appointment on ' + i.date }</Text>
                                 )
                             })
                         }
                     </View>
                 </View>
-            </ScrollView>
+		</ScrollView>
         )
     }
 }

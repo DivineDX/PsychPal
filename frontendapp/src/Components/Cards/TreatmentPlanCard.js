@@ -21,6 +21,8 @@ const TreatmentPlanCard = (props) => {
             </Card>
         )
     }
+    
+    
 }
 
 export default TreatmentPlanCard
