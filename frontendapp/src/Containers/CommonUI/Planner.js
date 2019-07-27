@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Text, Button } from 'react-native-elements'
 import AppointmentCard from '../../Components/Cards/AppointmentCard'
+import connection from '../../../DatabaseInteraction/Connection'
 
 
 // Attn CJ: Data required here is all the appointment objects for that specific user (can be patient or psych)
@@ -49,7 +50,6 @@ const test_appointments = [
         'cancel_reason': 'Hi Karim, I am on break till next year, sorry I have to cancel this.'
     },
 ]
-
 export default class Planner extends Component {
     constructor(props) { //receive type and account completion as props
         super(props);
@@ -92,14 +92,23 @@ export default class Planner extends Component {
         }
     }
 
-    componentDidMount() {
+    refresh_page = () => {
         let userName = this.props.screenProps.userName
-        fetch('http://localhost:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
+        fetch('http://connection.connection:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
           .then(response => response.json())
           .then(data => this.setState({appointments: data,
             user: this.props.screenProps.userType
         }))
-        
+    }
+
+
+    componentDidMount() {
+        let userName = this.props.screenProps.userName
+        fetch('http://connection.connection:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
+          .then(response => response.json())
+          .then(data => this.setState({appointments: data,
+            user: this.props.screenProps.userType
+        }))
 
     }
 
@@ -108,6 +117,7 @@ export default class Planner extends Component {
         if (this.state.user == 'Psychiatrist') {
             return (
                 <ScrollView>
+                    <Button title = "Refresh" onPress={this.refresh_page}/>
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
@@ -143,6 +153,7 @@ export default class Planner extends Component {
         } else {
             return (
                 <ScrollView>
+                    <Button title = "Refresh" onPress={this.refresh_page}/>
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (

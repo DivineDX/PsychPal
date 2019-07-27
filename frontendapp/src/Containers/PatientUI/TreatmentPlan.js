@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { Text, Button } from "react-native-elements";
 import TreatmentPlanCard from "../../Components/Cards/TreatmentPlanCard";
+import connection from '../../../DatabaseInteraction/Connection'
 
 // Attn CJ: Data required here is an array of treatment objects for that 1 particular patient
 const treatment_plan_test = [
@@ -59,7 +60,7 @@ export default class TreatmentPlan extends Component {
 
 	componentDidMount() {
         let patient = this.props.screenProps.userName
-        fetch('http://localhost:3005/select * from treatment_plan where patient_name = \'' + patient +
+        fetch('http://connection.connection:3005/select * from treatment_plan where patient_name = \'' + patient +
         "\';"
         )
         .then(response => response.json())
@@ -70,8 +71,9 @@ export default class TreatmentPlan extends Component {
 	}
 
 	render() {
+		alert(this.props.screenProps.userType)
         console.log(this.state.treatment_plan)
-		if (this.props.screenProps.userType == "patient") {
+		if (this.props.screenProps.userType == "Patient") {
 			return (
 				<ScrollView>
 					<Text style={styles.headings}>

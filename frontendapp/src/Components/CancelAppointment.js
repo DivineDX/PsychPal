@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Modal } from 'react-native'
 import { Button, Text } from 'react-native-elements';
 import { Textarea } from "native-base";
+import connection from '../../DatabaseInteraction/Connection'
 
 const test_appointment = {
 	'appointment_date_time': '2019-07-25 16:30:00',
@@ -31,7 +32,7 @@ export default class CancelAppointment extends Component {
 		const appointment = this.props.appointment;
 		const {jitsy_key} = appointment;
 
-		const url = "http://localhost:3005/update appointment_details set " +
+		const url = "http://connection.connection:3005/update appointment_details set " +
 			"cancel = 1, cancel_reason = \'" + this.state.input_reason + "\'" +
 			"where jitsy_key = \'" + jitsy_key + //take jitsi_key as the unique key
 			"\';"
@@ -61,7 +62,7 @@ export default class CancelAppointment extends Component {
 					}}>
 					<View style={styles.Modal}>
 						<Text h4>Cancel Appointment</Text>
-						<Text h4>{this.state.appointment.appointment_date_time}</Text>
+						{/* <Text h4>{this.state.appointment.appointment_date_time}</Text> */}
 						<Textarea
 							style={styles.textboxContainer}
 							rowSpan={5}
