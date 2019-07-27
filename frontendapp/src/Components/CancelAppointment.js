@@ -38,6 +38,7 @@ export default class CancelAppointment extends Component {
 			"\';"
 
 		fetch(url).then(() => {
+			RNRestart.Restart();
 			return true;
 		})
 	}

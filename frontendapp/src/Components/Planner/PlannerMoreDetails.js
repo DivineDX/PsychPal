@@ -51,7 +51,7 @@ export default class PlannerMoreDetails extends Component {
 			}))
 	}
 
-
+	
 	render() {
 		if (this.state.userType == "Patient") {
 			return (

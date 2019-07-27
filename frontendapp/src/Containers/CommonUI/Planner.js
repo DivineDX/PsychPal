@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
+import { ScrollView, StyleSheet } from 'react-native';
+import { Text } from 'react-native-elements'
+=======
 import { ScrollView, View } from 'react-native';
 import { Text, Button } from 'react-native-elements'
+>>>>>>> 6db493c8064af2f31e06b7622214dedbff0af050
 import AppointmentCard from '../../Components/Cards/AppointmentCard'
 import connection from '../../../DatabaseInteraction/Connection'
 
@@ -111,8 +116,8 @@ export default class Planner extends Component {
         }))
     }
 
-
     render() {
+        console.log("Rendering planner");
         if (this.state.user == 'Psychiatrist') {
             return (
                 <ScrollView>
@@ -120,13 +125,20 @@ export default class Planner extends Component {
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}  option_to_confirm="exist"/>
+                            <AppointmentCard
+                                other_party_name={u.doctor_name}
+                                appointment_date_time={u.appointment_date_time}
+                                option_to_confirm="exist"
+                                refresh = {this.fetchPlannerData} />
                         ))
                     }
                     <Text h4>Upcoming Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_upcoming).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} />
+                            <AppointmentCard 
+                                other_party_name={u.doctor_name} 
+                                appointment_date_time={u.appointment_date_time}
+                                refresh = {this.fetchPlannerData}  />
                         ))
                     }
                     <Text h4>Past Appointments</Text>
@@ -156,45 +168,45 @@ export default class Planner extends Component {
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
-                                appointmentObj = {u}
-                                userType = {this.state.user}
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}
+                                appointmentObj={u}
+                                userType={this.state.user}
                             />
                         ))
                     }
                     <Text h4>Upcoming Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_upcoming).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
-                            appointmentObj = {u}
-                            userType = {this.state.user}
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}
+                                appointmentObj={u}
+                                userType={this.state.user}
                             />
                         ))
                     }
                     <Text h4>Past Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_past).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
-                            appointmentObj = {u}
-                            userType = {this.state.user}
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}
+                                appointmentObj={u}
+                                userType={this.state.user}
                             />
                         ))
                     }
                     <Text h4>Cancelled Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_cancelled).map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
-                            appointmentObj = {u}
-                            userType = {this.state.user}
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}
+                                appointmentObj={u}
+                                userType={this.state.user}
                             />
                         ))
                     }
                     <Text h4>All the test appointments repeated below for sanity check</Text>
                     {
                         this.state.appointments.map((u) => (
-                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time} 
-                            appointmentObj = {u}
-                            userType = {this.state.user}
+                            <AppointmentCard other_party_name={u.doctor_name} appointment_date_time={u.appointment_date_time}
+                                appointmentObj={u}
+                                userType={this.state.user}
                             />
                         ))
                     }
@@ -203,4 +215,17 @@ export default class Planner extends Component {
         }
 
     }
+<<<<<<< HEAD
 }
+
+const styles = StyleSheet.create({
+    headings: {
+        marginHorizontal: 15,
+        marginTop: 25,
+        fontSize: 28,
+        fontWeight: 'bold',
+    }
+})
+=======
+}
+>>>>>>> 6db493c8064af2f31e06b7622214dedbff0af050
