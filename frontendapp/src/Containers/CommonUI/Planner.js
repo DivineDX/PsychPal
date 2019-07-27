@@ -92,6 +92,15 @@ export default class Planner extends Component {
         }
     }
 
+    refresh_page = () => {
+        let userName = this.props.screenProps.userName
+        fetch('http://localhost:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
+          .then(response => response.json())
+          .then(data => this.setState({appointments: data,
+            user: this.props.screenProps.userType
+        }))
+    }
+
     componentDidMount() {
         let userName = this.props.screenProps.userName
         fetch('http://localhost:3005/select *, appointment_date_time <  now() as has_appointment_passed from appointment_details where patient_name = \'' + userName + "\'")
@@ -99,8 +108,6 @@ export default class Planner extends Component {
           .then(data => this.setState({appointments: data,
             user: this.props.screenProps.userType
         }))
-        
-
     }
 
 
@@ -108,6 +115,7 @@ export default class Planner extends Component {
         if (this.state.user == 'Psychiatrist') {
             return (
                 <ScrollView>
+                    <Button title="Refresh" onPress={this.refresh_page}/>
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
@@ -143,6 +151,7 @@ export default class Planner extends Component {
         } else {
             return (
                 <ScrollView>
+                    <Button title="Refresh" onPress={this.refresh_page}/>
                     <Text h4>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
