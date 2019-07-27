@@ -58,9 +58,6 @@ export default class LoginContainer extends Component {
             datausername: null,
             datapassword: null,
             checked: false,
- 
- 
- 
         }
     }
  
