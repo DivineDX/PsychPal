@@ -8,14 +8,14 @@ import { CheckBox } from 'react-native-elements'
 //hi nic
 const userData = [ //fake logindata. Can delete after conencted with backend
     {
-        userID: 'alex',
+        user_id: 'alex',
         password: '123',
         type: 'patient',
         particulars: false,
         details: false,
     },
     {
-        userID: 'chengjun',
+        user_id: 'chengjun',
         password: '123',
         type: 'psychiatrist',
         particulars: true,
@@ -46,30 +46,31 @@ const userData = [ //fake logindata. Can delete after conencted with backend
  
 //flag to check if previous log in details is stored and verified
 let isloaded = false;
- 
+
 export default class LoginContainer extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             userID: '',
             password: '',
             showPass: false,
             loginFailed: false,
-            datausername: null,
+			datausername: null,
             datapassword: null,
             checked: false,
+            //put yr hardcoded data in this state            
+            //test local data put userData in []
+            userData: [],
+            isloaded: false
         }
     }
- 
+
     //to verify stored log in details
-    checklStoredLoginDetails = () => {
-        let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
-        if (status != null) {
-            this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
-                id: status.userID,
-                type: status.type,
-                particulars: status.particulars,
-                details: status.details,
+	checklStoredLoginDetails = () => {
+		let status = this.checkThroughDB(this.state.datausername, this.state.datapassword);
+		if (status != null) {
+			this.props.nav.navigate('patientSignedIn', { //replaced with API fetch call 
+                patientName: status.name,
             });
         } 
         isloaded = true;
@@ -77,21 +78,20 @@ export default class LoginContainer extends Component {
     
     //get log in details from local storage if available
     async fetchdata() {
-        this.setState({
-            datapassword: await AsyncStorage.getItem('password'),
-            datausername: await AsyncStorage.getItem('username')
+		this.setState({
+			datapassword: await AsyncStorage.getItem('password'),
+			datausername: await AsyncStorage.getItem('username')
         })
-    }
- 
-    componentDidMount() {
-        this.fetchdata();
-    }
- 
+        this.setState({
+            userData : this.props.patients.concat(this.props.doctors)
+        })
+	}
+
     toggleShowPass = () => {
         const curr = this.state.showPass;
         this.setState({ showPass: !curr });
     }
- 
+
     onInputChange = (input, value) => {
         if (input === 'userid') {
             this.setState({ userID: value })
@@ -99,45 +99,37 @@ export default class LoginContainer extends Component {
             this.setState({ password: value })
         }
     }
- 
+
     attemptLogIn = () => {
         let status = this.checkThroughDB(this.state.userID, this.state.password);
-        if (status) {
+        if (status != null) {
             if(this.state.checked) {
                 AsyncStorage.multiSet([
                     ['username', this.state.userID],
                     ['password', this.state.password]
                 ])
             }
-            this.props.nav.navigate('SignedIn', { //replaced with API fetch call 
-                id: status.userID,
-                type: status.type,
-                particulars: status.particulars,
-                details: status.details,
+            this.props.nav.navigate('patientSignedIn', { //replaced with API fetch call 
+                patientName: status.name,
             });
         } else {
             this.setState({ loginFailed: true });
         }
     }
- 
+
     checkThroughDB = (userID, password) => {
-        for (let user of userData) { //reaplaced with api fetch call
-            if (user.userID === userID && user.password === password) {
+        for (let user of this.state.userData) { //reaplaced with api fetch call
+            if (user.user_id === userID && user.password === password) {
                 return user;
             }
         }
         return null;
     }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+    componentDidMount() {
+        //dont comment this
+        this.fetchdata();
+    }
  
  
     render() {
