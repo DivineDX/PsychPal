@@ -30,17 +30,18 @@ export default class CancelAppointment extends Component {
 	cancel_appointment = () => {
 		this.setModalVisible(!this.state.modalVisible);
 		const appointment = this.props.appointment;
-		const {jitsy_key} = appointment;
+		const jitsy = appointment.jitsy_key;
 
 		const url = 'http://' + connection.connection + ":3005/update appointment_details set " +
 			"cancel = 1, cancel_reason = \'" + this.state.input_reason + "\'" +
-			"where jitsy_key = \'" + jitsy_key + //take jitsi_key as the unique key
-			"\';"
+			"where jitsy_key = \'" + jitsy + "\';"
 
-		fetch(url).then(() => {
-			RNRestart.Restart();
-			return true;
-		})
+		fetch(url)
+		// then(() => {
+		// 	RNRestart.Restart();
+		// 	return true;
+		// }
+		// )
 	}
 
 	setModalVisible(visible) {
@@ -63,7 +64,6 @@ export default class CancelAppointment extends Component {
 					}}>
 					<View style={styles.Modal}>
 						<Text h4>Cancel Appointment</Text>
-						<Text h4>{this.state.appointment.appointment_date_time}</Text>
 						<Textarea
 							style={styles.textboxContainer}
 							rowSpan={5}
