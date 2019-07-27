@@ -4,6 +4,7 @@ import AccountSettings from '../Containers/CommonUI/AccountSettings/AccountSetti
 import ChangePassword from '../Components/ChangePassword';
 import uploadProfilePic from '../../DatabaseInteraction/IBMCOS/UploadPic';
 
+
 //switch navigator for both account settings page
 const OverallAccountSettingsTab = createAppContainer(createStackNavigator(
     {
