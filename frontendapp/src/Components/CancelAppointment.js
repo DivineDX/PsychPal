@@ -58,7 +58,7 @@ export default class CancelAppointment extends Component {
 						Alert.alert('Modal has been closed.');
 					}}>
 					<View style={styles.Modal}>
-						<Text h4>Cancel Appointment</Text>
+						<Text style={styles.headings}>Cancel Appointment</Text>
 						<Textarea
 							style={styles.textboxContainer}
 							rowSpan={5}
@@ -68,10 +68,12 @@ export default class CancelAppointment extends Component {
 						{/* Set cancel = 1 and fill in cancel_reason for that appointment object */}
 						{/* Once edit already navigate back to planner more details */}
 						<Button
+							containerStyle={styles.buttonContainer}
 							type='outline'
 							title="Confirm Cancellation"
 							onPress={this.cancel_appointment} />
 						<Button
+							containerStyle={styles.buttonContainer}
 							type='outline'
 							title="Go back"
 							onPress={() => {
@@ -80,6 +82,7 @@ export default class CancelAppointment extends Component {
 					</View>
 				</Modal>
 				<Button
+					containerStyle={styles.buttonContainer}
 					type='outline'
 					containerStyle={styles.buttonContainer}
 					title='Cancel Appointment'
@@ -93,9 +96,11 @@ export default class CancelAppointment extends Component {
 
 const styles = StyleSheet.create({
 	textboxContainer: {
+		marginTop:25,
 		marginHorizontal: 20,
 	},
 	buttonContainer: {
+		marginTop: 25,
 		width: 275,
 		marginHorizontal: 75
 	},
@@ -122,7 +127,13 @@ const styles = StyleSheet.create({
 		left: 0,
 		right: 0,
 		top: 50,
-	}
+	},
+	headings: {
+        marginHorizontal: 20,
+        marginTop: 25,
+        fontSize: 28,
+        fontWeight: 'bold',
+    }
 })
 
 

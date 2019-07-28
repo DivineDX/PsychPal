@@ -7,16 +7,19 @@ const PatientRecordsMoreDetails = () => {
 		<View>
 			<Card>
 				<Button
+					type='outline'
 					backgroundColor='#03A9F4'
 					buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
 					title='Medical Record' />
 				<Text>{'\n'}</Text>
 				<Button
+					type='outline'
 					backgroundColor='#03A9F4'
 					buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
 					title='Treatment Plan' />
 				<Text>{'\n'}</Text>
 				<Button
+					type='outline'
 					backgroundColor='#03A9F4'
 					buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
 					title='Schedule Next Appointment' />

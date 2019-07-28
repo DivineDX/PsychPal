@@ -23,22 +23,14 @@ export default class JitsiCallButton extends Component {
         return (
             <View>
                 
-                <Card
-                    title='Jitsi Room Key'>
-
-                    <Text style={styles.key}>{this.props.jitsi_key}</Text>
-                    {/* <Text style={styles.timeInfo}>
+                <Card>
+                    <Text style={styles.roomKeyHeading}>
+                        Jitsi Room Key:
                     </Text>
-                    <Text style={styles.drName}>
-                        {this.props.other_party_name}
-                    </Text> */}
+                    <Text style={styles.key}>
+                        {this.props.jitsi_key}
+                    </Text>
                 </Card>
-
-
-                <Text style={styles.headings}>Jitsi room key: 
-                    
-                </Text>
-                <Text style={styles.key}>{this.props.jitsi_key}</Text>
                 
                 <Button 
                     type='outline'
@@ -65,12 +57,6 @@ const styles = StyleSheet.create({
         marginBottom: 30,
 		width: 275,
 		marginHorizontal: 75
-    },
-    
-    headings: {
-        marginHorizontal: 15,
-        marginTop: 25,
-        fontSize: 22,
     },
 
     roomKeyHeading: {

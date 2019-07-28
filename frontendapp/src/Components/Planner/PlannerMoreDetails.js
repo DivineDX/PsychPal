@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
 	},
 
 	headings: {
-        marginHorizontal: 15,
+        marginHorizontal: 20,
         marginTop: 25,
         fontSize: 28,
         fontWeight: 'bold',
