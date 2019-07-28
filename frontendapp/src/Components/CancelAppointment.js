@@ -37,11 +37,6 @@ export default class CancelAppointment extends Component {
 			"where jitsy_key = \'" + jitsy + "\';"
 
 		fetch(url)
-		// then(() => {
-		// 	RNRestart.Restart();
-		// 	return true;
-		// }
-		// )
 	}
 
 	setModalVisible(visible) {

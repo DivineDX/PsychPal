@@ -1,9 +1,5 @@
 import React, { Component} from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-} from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import connection from '../Connection';
 
 export default class ProfilePic extends Component {
