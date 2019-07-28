@@ -69,8 +69,8 @@ export default class TreatmentPlan extends Component {
 	}
 
 	render() {
-		console.log(this.state.treatment_plan)
-		console.log("User type:", this.props.screenProps.userType);
+		// console.log(this.state.treatment_plan)
+		// console.log("User type:", this.props.screenProps.userType);
 		if (this.props.screenProps.userType == "Patient") {
 			return (
 				<ScrollView>
