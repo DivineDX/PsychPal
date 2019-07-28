@@ -3,7 +3,7 @@ import AccountSettingsChild from './AccountSettingsChild'
 import { View, AsyncStorage, StyleSheet } from 'react-native';
 import { Avatar, Button } from 'react-native-elements';
 import connection from '../../../../DatabaseInteraction/Connection'
-
+import RNRestart from 'react-native-restart';
 
 const test_user = 
     {
@@ -38,12 +38,13 @@ export default class AccountSettings extends Component {
             <View>
                 <Button 
                     large
-                    title="Reset"
+                    title="Sign Out"
                     onPress=
                         {async () => {
                             try {
                                 await AsyncStorage.removeItem('username');
                                 await AsyncStorage.removeItem('password');
+                                RNRestart.Restart();
                             } catch(error) {
                             } 
                             } } />
