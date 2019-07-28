@@ -10,7 +10,7 @@ export default class UploadPic extends Component {
 		super(props)
 		this.state = {
 			modalVisible: false,
-			url: "http://" + connection.connection + ":80/upload/profile-pic/" + this.props.navigation.state.params.user.name
+			url: "http://" + connection.connection + ":80/upload/profile-pic/" + this.props.navigation.state.params.user.name + ".jpg"
 		}
 	}
 

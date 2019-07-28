@@ -58,9 +58,7 @@ export default class PlannerMoreDetails extends Component {
 				<View>
 					<Text h4>{this.state.appointment.appointment_date_time}</Text>
 					<Text h4>{this.state.appointment.doctor_name}</Text>
-					<Text>{'\n'}</Text>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsy_key} />
-					<Text>{'\n'}</Text>
 					<CancelAppointment appointment={this.state.appointment} />
 					<Text>{this.state.appointment.cancel_reason}</Text>
 				</View>
@@ -71,19 +69,15 @@ export default class PlannerMoreDetails extends Component {
 					<Text h4>{this.state.appointment.appointment_date_time}</Text>
 					<Text h4>{this.state.appointment.patient_name}</Text>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Cancel Appointment' />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Treatment Plan of Patient' />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Create Appointment Log' />
-					<Text>{'\n'}</Text>
 					<Button
 						containerStyle={styles.buttonContainer}
 						title='Schedule Next Appointment' />
