@@ -55,10 +55,7 @@ export default class AccountSettings extends Component {
                         rounded
                         source={{ uri: this.state.user.profile_picture_url }}
                     />
-                    {/* <Button
-                        containerStyle={ styles.buttonContainer }
-                        title="Update Profile Picture"/> */}
-                    <AccountSettingsChild user = {this.state.user}></AccountSettingsChild>
+                    <AccountSettingsChild user = {this.state.user} />
                 </View>
             </View>
         )
