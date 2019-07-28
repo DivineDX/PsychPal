@@ -34,13 +34,14 @@ export default class AccountSettings extends Component {
     }
 
     render() {
+        const profile_picture_url = "http://" + connection.connection + ":80/download/profile-pic/" + this.state.user.name + ".jpg"
         return (
             <View style={styles.wholeContainer}>
                 <Avatar
                     // containerStyle={ styles.avatarContainer }
                     size='large'
                     rounded
-                    source={{ uri: this.state.user.profile_picture_url }}
+                    source={{ uri: profile_picture_url }}
                 />
                 <Avatar
                     // containerStyle={ styles.avatarContainer }
