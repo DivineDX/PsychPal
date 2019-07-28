@@ -6,7 +6,6 @@ import connection from '../../../DatabaseInteraction/Connection'
 // to create appointment and store in database
 //required props: doctorName, patientName, doctorAccept (1 if doctor create 0 if patient create)
 export default class RequestAppointment extends Component {
-    
     constructor(props) {
         super(props)
         this.state = {
@@ -24,8 +23,8 @@ export default class RequestAppointment extends Component {
 	};
 
 	handleDatePicked = date => {
-        const formattedDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes()
-		this.setState({ 
+        const formattedDate = date.toLocaleString();
+        this.setState({ 
             selectedDateDisplay: "Submitted appointment request for \n" + formattedDate,
         });
         this.createAppointment(formattedDate)
