@@ -42,6 +42,12 @@ export default class AccountSettings extends Component {
                     rounded
                     source={{ uri: this.state.user.profile_picture_url }}
                 />
+                <Avatar
+                    // containerStyle={ styles.avatarContainer }
+                    size='large'
+                    rounded
+                    source={{ uri: 'http://10.0.2.2:80/download/profile-pic/alex.jpg' }}
+                />
                 <AccountSettingsChild user={this.state.user} />
             </View>
         )

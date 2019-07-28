@@ -21,17 +21,19 @@ export default class UploadPic extends Component {
 		} else {
 			userType = 'doctors'
 		}
-		const google = "www.yahoo.com" // for testing
-		// download link should not be used
-		//const download_profile_pic = 'http://' + connection.connection + ':80/download/profile-pic/' + this.props.navigation.state.params.user.name
-		const working_url = "http://" + connection.connection + ":3005/update%20patients%20set%20profile_pic_url=%22" + google + "%22%20where%20name=%22" + this.props.navigation.state.params.user.name + "%22;"
-		const url_dont_use = 'http://' + connection.connection + ":3005/update " + userType + ' set ' +
-			"profile_pic_url = \'" + 'alex' + connection.connection + ":80/download/profile-pic/" + this.props.navigation.state.params.user.name +
-			"\' where name = \'" + this.props.navigation.state.params.user.name + "\';"
-		fetch(working_url)
+		
+		const tiny = 'https://tinyurl.com/y64v6trz'
+		const download_profile_pic = 'http://' + connection.connection + ':80/download/profile-pic/' + "beckham" + ".jpg"
+		const test = 'hello'
+		//const test_url = "http://" + connection.connection + ":3005/update%20patients%20set%20profile_pic_url=%22" + google + "%22%20where%20name=%22" + this.props.navigation.state.params.user.name + "%22;"
+		const set_url = 'http://' + connection.connection + ":3005/update " + userType + ' set ' +
+			"profile_pic_url = \'" + 'http://' + connection.connection + ":80/download/profile-pic/" + this.props.navigation.state.params.user.name + ".jpg"
+			+ "\' where name = \'" + this.props.navigation.state.params.user.name + "\';"
+		const the_url = "http://" + connection.connection + ":3005/update%20" + userType + "%20set%20profile_pic_url=%22" + tiny + "%22%20where%20name=%22" + this.props.navigation.state.params.user.name + "%22;"
+		fetch(the_url)
 	}
 	render() {
-		alert(this.props.navigation.state.params.user.name)
+		//alert(this.props.navigation.state.params.user.user_type)
 		this.updateURL()
 		return (
 			<View style={{ flex: 1 }}>
