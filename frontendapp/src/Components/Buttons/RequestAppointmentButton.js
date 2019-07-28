@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { Button } from 'react-native-elements'
 import DateTimePicker from "react-native-modal-datetime-picker";
 import connection from '../../../DatabaseInteraction/Connection'
 
@@ -47,6 +48,7 @@ export default class RequestAppointment extends Component {
 			<View style={styles.container}>
 				{this.state.selectedDateDisplay == "" ?
                     <Button
+                    type='outline'
                     style = {styles.buttonContainer} 
                     title="Request for an Appointment" 
                     onPress={this.showDateTimePicker} />

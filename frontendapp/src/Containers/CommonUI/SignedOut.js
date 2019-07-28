@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, ImageBackground, Image, StyleSheet, AsyncStorage } from 'react-native';
 import { Button, Text } from 'native-base';
-import bgImage from '../../Images/loginBG.jpg';
-import appLogo from '../../Images/appLogo.png';
+import bgImage from '../../Images/blank.png';
+import appLogo from '../../Images/psychpal.jpg';
 import LoginContainer from './LoginContainer/LoginContainer';
 import connection from '../../../DatabaseInteraction/Connection'
 
@@ -56,7 +56,7 @@ export default class SignedOut extends Component {
 			<ImageBackground source={bgImage} style={styles.backgroundContainer}>
 				<View style={styles.viewContainer}>
 					<Image source={appLogo} style={styles.logo} />
-					<Text style={styles.logoText}>Telehealth App</Text>
+					{/* <Text style={styles.logoText}>Telehealth App</Text> */}
 
 				</View>
 
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
 		marginBottom: 30
 	},
 	logo: {
-		width: 120,
-		height: 120,
+		width: 250,
+		height: 250,
 	},
 	logoText: {
 		color: 'white',

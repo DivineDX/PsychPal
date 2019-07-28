@@ -56,6 +56,20 @@ export default class DoctorProfile extends Component {
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
                 <View style = {styles.textboxContainer}>
+                    <Text style={{fontSize:24}}>{this.state.doctor.professional_credentials}</Text>
+                    <Text h3>{this.state.doctor.name}</Text>
+                    <View style = {styles.languagesContainer}>
+                        <Text style={{fontSize:24, fontWeight:'400'}}>{'Languages: '}</Text>
+                        <View style = {styles.colContainer}>
+                        {
+                            this.state.doctor_languages.map((u) => (
+                                <Text style={styles.langText}>{u.language}</Text>
+                            ))
+                        }
+                        </View>
+                    </View>
+                </View>
+                {/* <View style = {styles.textboxContainer}>
                     <Text h3>{this.state.doctor.name}</Text>
                     <Text style={{fontSize:24}}>{this.state.doctor.professional_credentials}</Text>
 
@@ -67,7 +81,7 @@ export default class DoctorProfile extends Component {
                             ))
                         }
                     </View>
-                </View>
+                </View> */}
 
                 {/* Decided not to display short write up for each doctor */}
                 {/* <Textarea style={styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" /> */}
