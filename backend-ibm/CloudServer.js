@@ -140,15 +140,14 @@ app.get('/:function/:category/:name', function (req, res) {
 			Key: req.params.name,
 			Expires: 60 * 5, // 5 minutes
 		});
-		/*res.writeHead(302, {
+		res.writeHead(302, {
 			'Location': url
-		});*/
-		res.send(url);
+		});
 		res.end();
 	} else if (req.params.function == 'delete') {  // deleting data from ibm cloud object storage
 		deleteItems(req.params.category, req.params.name)
 		res.send("record deleted");
-	} else if (req.params.function == 'upload') {                                         //uploading data from ibm cloud object storage
+	} else if (req.params.function == 'upload') {  //uploading data from ibm cloud object storage
 		reqName = req.params.name;
 		category = req.params.category;
 		res.sendFile(__dirname + '/upload.html');

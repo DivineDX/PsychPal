@@ -22,6 +22,7 @@ class AppointmentCard extends Component{
                         {this.props.other_party_name}
                     </Text>
                     <Button
+                        type='outline'
                         backgroundColor='#03A9F4'
                         buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 10 }}
                         title='View Appointment'
@@ -31,6 +32,7 @@ class AppointmentCard extends Component{
                         })}
                     />
                     <Button
+                        type='outline'
                         backgroundColor='#03A9F4'
                         buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
                         title='Confirm Appointment'
@@ -47,6 +49,7 @@ class AppointmentCard extends Component{
                         {this.props.other_party_name}
                     </Text>
                     <Button
+                        type='outline'
                         backgroundColor='#03A9F4'
                         buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
                         title='View Appointment'
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
     },
 
     drName: {
-        fontSize: 20,
+        fontSize: 18,
         marginBottom:10
     }
 })

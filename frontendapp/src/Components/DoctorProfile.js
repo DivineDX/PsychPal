@@ -55,18 +55,33 @@ export default class DoctorProfile extends Component {
                     rounded
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
-                <View>
+                <View style = {styles.textboxContainer}>
+                    <Text style={{fontSize:24}}>{this.state.doctor.professional_credentials}</Text>
                     <Text h3>{this.state.doctor.name}</Text>
-                    <Text h4>{this.state.doctor.professional_credentials}</Text>
-                    <View>
-                        <Text h4>{'Languages Spoken: '}</Text>
+                    <View style = {styles.languagesContainer}>
+                        <Text style={{fontSize:24, fontWeight:'400'}}>{'Languages: '}</Text>
+                        <View style = {styles.colContainer}>
                         {
                             this.state.doctor_languages.map((u) => (
-                                <Text>{u.language}</Text>
+                                <Text style={styles.langText}>{u.language}</Text>
+                            ))
+                        }
+                        </View>
+                    </View>
+                </View>
+                {/* <View style = {styles.textboxContainer}>
+                    <Text h3>{this.state.doctor.name}</Text>
+                    <Text style={{fontSize:24}}>{this.state.doctor.professional_credentials}</Text>
+
+                    <View style={styles.languagesContainer}>
+                        <Text style={{fontSize:24, fontWeight:'400'}}>{'Languages: '}</Text>
+                        {
+                            this.state.doctor_languages.map((u) => (
+                                <Text style={styles.langText}>{u.language}</Text>
                             ))
                         }
                     </View>
-                </View>
+                </View> */}
 
                 {/* Decided not to display short write up for each doctor */}
                 {/* <Textarea style={styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" /> */}
@@ -87,23 +102,38 @@ export default class DoctorProfile extends Component {
 const styles = StyleSheet.create({
     avatarContainer: {
         marginTop: 30,
-        // marginHorizontal: 170
+        marginBottom: 10
     },
 
     buttonContainer: {
-        width: 300,
-        height: 45,
-        justifyContent: 'center',
-        marginTop: 10,
+        // width: 100,
+        // height: 45,
+        marginTop: 20,
     },
 
     textboxContainer: {
         marginHorizontal: 0,
+        alignItems: 'center',
     },
 
     wholeContainer: {
-        marginTop: 30,
+        marginTop: 10,
         // justifyContent: 'center',
         alignItems: 'center',
     },
+
+    languagesContainer: {
+        marginTop: 10, 
+        flexDirection: 'row',
+        marginBottom: 10
+    },
+
+    colContainer: {
+        flexDirection: 'column'
+    },
+
+    langText: {
+        fontSize: 20,
+        lineHeight: 35
+    }
 })
