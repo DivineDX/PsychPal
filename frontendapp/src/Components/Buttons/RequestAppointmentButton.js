@@ -24,7 +24,7 @@ export default class RequestAppointment extends Component {
 	};
 
 	handleDatePicked = date => {
-        const formattedDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+        const formattedDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes()
 		this.setState({ 
             selectedDateDisplay: "Submitted appointment request for \n" + formattedDate,
         });

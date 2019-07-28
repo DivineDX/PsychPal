@@ -9,11 +9,15 @@ class AppointmentCard extends Component{
     }
 
     render() {
+
         if (this.props.option_to_confirm == "exist") {
+            const date = this.props.appointment_date_time.substring(0,10)
+            const time = this.props.appointment_date_time.substring(11,16)
+            const datetime = date + '  ' + time
             return (
                 <Card>
                     <Text style={styles.timeInfo}>
-                        {this.props.appointment_date_time}
+                        {datetime}
                     </Text>
                     <Text style={styles.drName}>
                         {this.props.other_party_name}
@@ -35,10 +39,13 @@ class AppointmentCard extends Component{
                 </Card>
             )
         } else {
+            const date = this.props.appointment_date_time.substring(0,10)
+            const time = this.props.appointment_date_time.substring(11,16)
+            const datetime = date + '  ' + time
             return (
                 <Card>
                     <Text style={styles.timeInfo}>
-                        {this.props.appointment_date_time}
+                        {datetime}
                     </Text>
                     <Text style={styles.drName}>
                         {this.props.other_party_name}
@@ -68,7 +75,7 @@ const styles = StyleSheet.create({
     },
 
     drName: {
-        fontSize: 18,
+        fontSize: 20,
         marginBottom:10
     }
 })
