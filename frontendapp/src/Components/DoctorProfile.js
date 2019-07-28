@@ -39,10 +39,10 @@ export default class DoctorProfile extends Component {
     componentDidMount() {
         let doctorName = this.props.navigation.state.params.DoctorName;
         fetch('http://' + connection.connection + ':3005/select * from doctors where name = \'' + doctorName + '\'')
-        .then(response => response.json())
-        .then(data => this.setState({
-          doctor: data[0]
-        }))
+            .then(response => response.json())
+            .then(data => this.setState({
+                doctor: data[0]
+            }))
 
     }
 
@@ -67,19 +67,18 @@ export default class DoctorProfile extends Component {
                         }
                     </View>
                 </View>
-                
+
                 {/* Decided not to display short write up for each doctor */}
                 {/* <Textarea style={styles.textboxContainer} rowSpan={5} bordered placeholder="Instructions" /> */}
 
 
                 {/* Attn CJ: Display all the Doctor PDFs here */}
                 <Text h4>Doctor PDFs here</Text>
-                <RequestAppointment 
-                patientName = {this.props.navigation.getParam('PatientName')}
-                doctorName = {this.state.doctor.name}
-                doctorAccept = {0}
+                <RequestAppointment
+                    patientName={this.props.navigation.getParam('PatientName')}
+                    doctorName={this.state.doctor.name}
+                    doctorAccept={0}
                 />
-
             </View>
         )
     }
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
         height: 45,
         justifyContent: 'center',
         marginTop: 10,
-    }, 
+    },
 
     textboxContainer: {
         marginHorizontal: 0,

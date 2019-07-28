@@ -60,13 +60,11 @@ export default class TreatmentPlan extends Component {
 
 	componentDidMount() {
         let patient = this.props.screenProps.userName
-        fetch("http://" + connection.connection + ":3005/select * from treatment_plan where patient_name = \''" + patient +
-        "\';"
-        )
+		fetch("http://" + connection.connection + ":3005/select * from treatment_plan where patient_name = \'" 
+		+ patient + "\';")
         .then(response => response.json())
         .then(data => this.setState({
             treatment_plan: data
-        
         }))
 	}
 

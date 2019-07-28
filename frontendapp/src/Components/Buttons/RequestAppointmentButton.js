@@ -33,10 +33,11 @@ export default class RequestAppointment extends Component {
     };
     
     createAppointment(dateSelected) {
+        const generatedJitsiKey = ''
         url = 'http://' + connection.connection + ':3005/insert into appointment_details values(\'' + 
         this.props.patientName + '\', \'' + 
         this.props.doctorName + '\',null,' + '\'' + dateSelected  + '\''+ 
-        ', default, null,' + this.props.doctorAccept + ',0,null);'
+        ', "testkey", null,' + this.props.doctorAccept + ',0,null);'
         fetch(url)
     }
 
