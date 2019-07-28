@@ -53,10 +53,14 @@ export default class PlannerMoreDetails extends Component {
 
 	
 	render() {
+		const dateTime = new Date(this.state.appointment.appointment_date_time).toLocaleString();
+
 		if (this.state.userType == "Patient") {
+			console.log("DateTime in More details", dateTime);
+			console.log("Type: ", typeof dateTime);
 			return (
 				<View>
-					<Text style={styles.headings}>{this.state.appointment.appointment_date_time}</Text>
+					<Text style={styles.headings}>{dateTime}</Text>
 					<View style={{flexDirection: 'row'}}>
 						<Text style={styles.headings}>Doctor:</Text>
 						<Text style={styles.nameText}> {this.state.appointment.doctor_name}</Text>	
@@ -75,7 +79,7 @@ export default class PlannerMoreDetails extends Component {
 					{/* <Text style={styles.headings}>{this.state.appointment.appointment_date_time}</Text>
 					<Text style={styles.headings}>{this.state.appointment.patient_name}</Text> */}
 
-					<Text style={styles.headings}>{this.state.appointment.appointment_date_time}</Text>
+					<Text style={styles.headings}>{dateTime}</Text>
 					<View style={{flexDirection: 'row'}}>
 						<Text style={styles.headings}>Patient:</Text>
 						<Text style={styles.nameText}> {this.state.appointment.patient_name}</Text>	
