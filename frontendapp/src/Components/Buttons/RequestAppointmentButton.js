@@ -58,8 +58,7 @@ export default class RequestAppointment extends Component {
 					isVisible={this.state.isDateTimePickerVisible}
 					onConfirm={this.handleDatePicked}
 					onCancel={this.hideDateTimePicker}
-					mode='datetime'
-				/>
+					mode='datetime' />
 			</View>
 		);
 	}

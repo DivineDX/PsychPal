@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, AsyncStorage} from 'react-native';
 import { Text, Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-
+import RNRestart from 'react-native-restart';
 
 class AccountSettingsChild extends Component {
+
 
     constructor(props) {
         super(props)
@@ -15,35 +16,43 @@ class AccountSettingsChild extends Component {
             return (
                 <View style={styles.buttonContainer2}>
                     <Text style={styles.textStyle}>{this.props.user.name}</Text>
-    
+
                     {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific patient */}
                     <Button
                         type='outline'
                         containerStyle={styles.buttonContainer}
-                        onPress = {() => this.props.navigation.navigate('uploadProfilePic', {
+                        onPress={() => this.props.navigation.navigate('uploadProfilePic', {
                             user: this.props.user
                         })}
                         title="Update Profile Picture" />
-    
+
                     {/* Attn CJ: Delete profile_pic_url for this specific patient - set to null */}
                     <Button
                         type='outline'
                         containerStyle={styles.buttonContainer}
                         title="Remove Profile Picture" />
-    
+
                     {/* Attn CJ: Change password for this specific patient */}
                     <Button
                         type='outline'
                         containerStyle={styles.buttonContainer}
-                        onPress = {() => this.props.navigation.navigate('ChangePassword', {
+                        onPress={() => this.props.navigation.navigate('ChangePassword', {
                             user: this.props.user
                         })}
                         title="Change Password" />
-    
+
                     {/* Attn CJ: End login session */}
                     <Button
                         type='outline'
                         containerStyle={styles.buttonContainer}
+                        onPress={async () => {
+                            try {
+                                await AsyncStorage.removeItem('username');
+                                await AsyncStorage.removeItem('password');
+                                RNRestart.Restart();
+                            } catch (error) {
+                            }
+                        }}
                         title="Sign Out" />
                 </View>
             )
@@ -51,13 +60,13 @@ class AccountSettingsChild extends Component {
             return (
                 <View style={styles.buttonContainer2}>
                     <Text style={styles.textStyle}>{this.props.user.name}</Text>
-    
+
                     {/* Attn CJ: Let user upload img in app + Change profile_pic_url for this specific doctor */}
                     <Button
                         type='outline'
                         containerStyle={styles.buttonContainer}
                         title="Update Profile Picture" />
-    
+
                     {/* Attn CJ: Delete profile_pic_url for this specific doctor - set to null */}
                     <Button
                         type='outline'
@@ -72,9 +81,9 @@ class AccountSettingsChild extends Component {
                     <Button
                         type='outline'
                         containerStyle={styles.buttonContainer}
-                        onPress = {() => this.props.navigation.navigate('ChangePassword')}
+                        onPress={() => this.props.navigation.navigate('ChangePassword')}
                         title="Change Password" />
-    
+
                     {/* Attn CJ: End login session */}
                     <Button
                         type='outline'

@@ -9,11 +9,10 @@ class AppointmentCard extends Component{
     }
 
     render() {
-
+        let {appointment_date_time} = this.props;
+        // datetime = new Date(appointment_date_time).toUTCString();
+        datetime = new Date(appointment_date_time).toLocaleString();
         if (this.props.option_to_confirm == "exist") {
-            const date = this.props.appointment_date_time.substring(0,10)
-            const time = this.props.appointment_date_time.substring(11,16)
-            const datetime = date + '  ' + time
             return (
                 <Card>
                     <Text style={styles.timeInfo}>
@@ -41,9 +40,6 @@ class AppointmentCard extends Component{
                 </Card>
             )
         } else {
-            const date = this.props.appointment_date_time.substring(0,10)
-            const time = this.props.appointment_date_time.substring(11,16)
-            const datetime = date + '  ' + time
             return (
                 <Card>
                     <Text style={styles.timeInfo}>
