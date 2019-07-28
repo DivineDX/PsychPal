@@ -59,7 +59,7 @@ export default class PlannerMoreDetails extends Component {
 					<Text style={styles.headings}>{this.state.appointment.appointment_date_time}</Text>
 					<View style={{flexDirection: 'row'}}>
 						<Text style={styles.headings}>Doctor:</Text>
-						<Text style={{fontSize: 24, lineHeight:35, marginTop:28}}> {this.state.appointment.doctor_name}</Text>	
+						<Text style={styles.nameText}> {this.state.appointment.doctor_name}</Text>	
 					</View>
 					<View>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsy_key} />
@@ -78,7 +78,7 @@ export default class PlannerMoreDetails extends Component {
 					<Text style={styles.headings}>{this.state.appointment.appointment_date_time}</Text>
 					<View style={{flexDirection: 'row'}}>
 						<Text style={styles.headings}>Patient:</Text>
-						<Text style={{fontSize: 24, lineHeight:35, marginTop:28}}> {this.state.appointment.patient_name}</Text>	
+						<Text style={styles.nameText}> {this.state.appointment.patient_name}</Text>	
 					</View>
 
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
@@ -120,9 +120,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
 	},
 	
-	nameContainer: {
-        // marginTop: 10, 
-        flexDirection: 'row',
-        // marginBottom: 10
+	nameText: {
+		fontSize: 24, 
+		lineHeight:35, 
+		marginTop:28,
+		fontWeight: "400",
     },
 })
