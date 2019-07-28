@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Linking,  View } from 'react-native';
-import { Button, Text } from 'react-native-elements';
+import { Linking,  View, StyleSheet } from 'react-native';
+import { Button, Text, Card } from 'react-native-elements';
 
 export default class JitsiCallButton extends Component {
 
@@ -22,8 +22,28 @@ export default class JitsiCallButton extends Component {
     render() {
         return (
             <View>
-                <Text>Jitsi room key: {this.props.jitsi_key}</Text>
-                <Button title="Join Call"onPress={() => this.buttonPress(this.props.jitsi_key)} />
+                
+                <Card
+                    title='Jitsi Room Key'>
+
+                    <Text style={styles.key}>{this.props.jitsi_key}</Text>
+                    {/* <Text style={styles.timeInfo}>
+                    </Text>
+                    <Text style={styles.drName}>
+                        {this.props.other_party_name}
+                    </Text> */}
+                </Card>
+
+
+                <Text style={styles.headings}>Jitsi room key: 
+                    
+                </Text>
+                <Text style={styles.key}>{this.props.jitsi_key}</Text>
+                
+                <Button 
+                    type='outline'
+                    containerStyle={styles.buttonContainer}
+                    title="Join Call"onPress={() => this.buttonPress(this.props.jitsi_key)} />
             </View>
         );
     }
@@ -38,3 +58,29 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
 })*/
+
+const styles = StyleSheet.create({
+	buttonContainer: {
+        marginTop: 25,
+        marginBottom: 30,
+		width: 275,
+		marginHorizontal: 75
+    },
+    
+    headings: {
+        marginHorizontal: 15,
+        marginTop: 25,
+        fontSize: 22,
+    },
+
+    roomKeyHeading: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 5
+    },
+
+    key: {
+        fontSize: 18,
+        marginBottom:10
+    }
+})

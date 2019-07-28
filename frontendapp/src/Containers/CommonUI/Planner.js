@@ -115,8 +115,11 @@ export default class Planner extends Component {
         if (this.state.user == 'Psychiatrist') {
             return (
                 <ScrollView>
-                    <Button title="Refresh" onPress={this.refresh_page}/>
-                    <Text h4>Pending Appointments</Text>
+                    <Button 
+                        type='outline'
+                        title="Click to Refresh" onPress={this.refresh_page}/>
+
+                    <Text style={styles.headings}>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
                             <AppointmentCard
@@ -125,7 +128,7 @@ export default class Planner extends Component {
                                 option_to_confirm="exist" />
                         ))
                     }
-                    <Text h4>Upcoming Appointments</Text>
+                    <Text style={styles.headings}>Upcoming Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_upcoming).map((u) => (
                             <AppointmentCard 
@@ -133,7 +136,7 @@ export default class Planner extends Component {
                                 appointment_date_time={u.appointment_date_time} />
                         ))
                     }
-                    <Text h4>Past Appointments</Text>
+                    <Text style={styles.headings}>Past Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_past).map((u) => (
                             <AppointmentCard 
@@ -141,7 +144,7 @@ export default class Planner extends Component {
                                 appointment_date_time={u.appointment_date_time} />
                         ))
                     }
-                    <Text h4>Cancelled Appointments</Text>
+                    <Text style={styles.headings}>Cancelled Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_cancelled).map((u) => (
                             <AppointmentCard 
@@ -149,7 +152,7 @@ export default class Planner extends Component {
                                 appointment_date_time={u.appointment_date_time} />
                         ))
                     }
-                    <Text h4>All the test appointments repeated below for sanity check</Text>
+                    <Text style={styles.headings}>All the test appointments repeated below for sanity check</Text>
                     {
                         this.state.appointments.map((u) => (
                             <AppointmentCard 
@@ -162,8 +165,11 @@ export default class Planner extends Component {
         } else {
             return (
                 <ScrollView>
-                    <Button title="Refresh" onPress={this.refresh_page}/>
-                    <Text h4>Pending Appointments</Text>
+                    <Button 
+                        type='outline'
+                        title="Click to Refresh" onPress={this.refresh_page}/>
+
+                    <Text style={styles.headings}>Pending Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_pending).map((u) => (
                             <AppointmentCard 
@@ -174,7 +180,7 @@ export default class Planner extends Component {
                             />
                         ))
                     }
-                    <Text h4>Upcoming Appointments</Text>
+                    <Text style={styles.headings}>Upcoming Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_upcoming).map((u) => (
                             <AppointmentCard 
@@ -185,7 +191,7 @@ export default class Planner extends Component {
                             />
                         ))
                     }
-                    <Text h4>Past Appointments</Text>
+                    <Text style={styles.headings}>Past Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_past).map((u) => (
                             <AppointmentCard 
@@ -196,7 +202,7 @@ export default class Planner extends Component {
                             />
                         ))
                     }
-                    <Text h4>Cancelled Appointments</Text>
+                    <Text style={styles.headings}>Cancelled Appointments</Text>
                     {
                         this.state.appointments.filter(this.is_cancelled).map((u) => (
                             <AppointmentCard 
@@ -207,7 +213,7 @@ export default class Planner extends Component {
                             />
                         ))
                     }
-                    <Text h4>All the test appointments repeated below for sanity check</Text>
+                    <Text style={styles.headings}>All the test appointments repeated below for sanity check</Text>
                     {
                         this.state.appointments.map((u) => (
                             <AppointmentCard 
