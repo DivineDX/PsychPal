@@ -51,19 +51,31 @@ export default class DoctorProfile extends Component {
             <View style={styles.wholeContainer}>
                 <Avatar
                     containerStyle={styles.avatarContainer}
-                    size='large'
+                    size='xlarge'
                     rounded
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
                 <View style = {styles.textboxContainer}>
-                    <Text h3>{this.state.doctor.professional_credentials}</Text>
                     <Text h3>{this.state.doctor.name}</Text>
-                    <View style = {styles.languagesContainer}>
+                    <Text style={{fontSize:28}}>{this.state.doctor.professional_credentials}</Text>
+                    {/* <View style = {styles.languagesContainer}>
                         <Text style={{fontSize:28, fontWeight:'400'}}>{'Languages: '}</Text>
                         <View style = {styles.colContainer}>
                         {
                             this.state.doctor_languages.map((u) => (
                                 <Text style={styles.langText}>{u.language}</Text>
+                            ))
+                        }
+                        </View> */}
+                    <View style={styles.languages}>
+                        <Text style={{fontSize:28, textDecorationLine: 'underline', textAlign: 'center'}}>
+                            Languages Spoken
+                        </Text>
+
+                        <View style={{flexDirection: 'row'}}>
+                        {
+                            this.state.doctor_languages.map((u) => (
+                                <Text style={styles.langText}>{u.language + ' '}</Text>
                             ))
                         }
                         </View>
@@ -88,7 +100,14 @@ export default class DoctorProfile extends Component {
 
 
                 {/* Attn CJ: Display all the Doctor PDFs here */}
-                <Text h4>Doctor PDFs here</Text>
+                {/* <Text h4>Doctor PDFs here</Text> */}
+                <Button
+                    type='outline'
+                    containerStyle={ styles.buttonContainer }
+                    // buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 10 }}
+                    title='View CV'
+                />
+    
                 <RequestAppointment
                     patientName={this.props.navigation.getParam('PatientName')}
                     doctorName={this.state.doctor.name}
@@ -106,9 +125,9 @@ const styles = StyleSheet.create({
     },
 
     buttonContainer: {
-        // width: 100,
-        // height: 45,
-        marginTop: 20,
+        width: 275,
+        marginTop: 25,
+        alignContent: 'center',
     },
 
     textboxContainer: {
@@ -122,18 +141,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-    languagesContainer: {
-        marginTop: 10, 
-        flexDirection: 'row',
-        marginBottom: 10
-    },
+    // languagesContainer: {
+    //     marginTop: 10, 
+    //     flexDirection: 'row',
+    //     marginBottom: 10
+    // },
 
-    colContainer: {
-        flexDirection: 'column'
+    // colContainer: {
+    //     flexDirection: 'column'
+    // },
+    languages: {
+        marginTop: 10,
     },
 
     langText: {
-        fontSize: 28,
+        fontSize: 24,
         lineHeight: 40
     }
 })

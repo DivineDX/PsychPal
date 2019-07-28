@@ -48,7 +48,7 @@ export default class RequestAppointment extends Component {
 				{this.state.selectedDateDisplay == "" ?
                     <Button
                     type='outline'
-                    style = {styles.buttonContainer} 
+                    containerStyle = {styles.buttonContainer} 
                     title="Request for an Appointment" 
                     onPress={this.showDateTimePicker} />
                 :
@@ -67,16 +67,15 @@ export default class RequestAppointment extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-        marginTop: 30,
+        marginTop: 0,
 	},
 	text: {
 		fontSize: 22,
 		marginVertical: 10
     },
     buttonContainer: {
-        width: 300,
-        height: 45,
-        justifyContent: 'center',
-        marginTop: 10,
-    }, 
+        width: 275,
+        marginTop: 25,
+        alignContent: 'center',
+    },
 });
