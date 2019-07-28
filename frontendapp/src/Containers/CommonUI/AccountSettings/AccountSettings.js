@@ -56,6 +56,11 @@ export default class AccountSettings extends Component {
                         rounded
                         source={{ uri: this.state.user.profile_picture_url }}
                     />
+                    <Avatar 
+                        size = 'large'
+                        rounded
+                        source={{ uri: 'https://profile-pic.s3.us-south.cloud-object-storage.appdomain.cloud/beckham.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=51a981da44e04b79932ac12f40de99d1%2F20190728%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190728T130700Z&X-Amz-Expires=300&X-Amz-Signature=1248b140e9df0e05d85d88e0a28c07cff38cd36626d4f87ccc0f757892dde52c&X-Amz-SignedHeaders=host'}}
+                        />
                     <AccountSettingsChild user = {this.state.user} />
                 </View>
             </View>

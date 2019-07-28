@@ -56,35 +56,41 @@ export default class PlannerMoreDetails extends Component {
 		if (this.state.userType == "Patient") {
 			return (
 				<View>
-					<Text h4>{this.state.appointment.appointment_date_time}</Text>
-					<Text h4>{this.state.appointment.doctor_name}</Text>
-					<Text>{'\n'}</Text>
+					<Text style={styles.headings}>{this.state.appointment.appointment_date_time}</Text>
+					<Text style={styles.headings}>{this.state.appointment.doctor_name}</Text>					
+
+					<View>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsy_key} />
-					<Text>{'\n'}</Text>
 					<CancelAppointment appointment={this.state.appointment} />
+					</View>
+
 					<Text>{this.state.appointment.cancel_reason}</Text>
 				</View>
 			)
 		} else {
 			return (
 				<View>
-					<Text h4>{this.state.appointment.appointment_date_time}</Text>
-					<Text h4>{this.state.appointment.patient_name}</Text>
+					<Text style={styles.headings}>{this.state.appointment.appointment_date_time}</Text>
+					<Text style={styles.headings}>{this.state.appointment.patient_name}</Text>
 					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
-					<Text>{'\n'}</Text>
+					{/* <Text>{'\n'}</Text> */}
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Cancel Appointment' />
-					<Text>{'\n'}</Text>
+					{/* <Text>{'\n'}</Text> */}
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Treatment Plan of Patient' />
-					<Text>{'\n'}</Text>
+					{/* <Text>{'\n'}</Text> */}
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Create Appointment Log' />
-					<Text>{'\n'}</Text>
+					{/* <Text>{'\n'}</Text> */}
 					<Button
+						type='outline'
 						containerStyle={styles.buttonContainer}
 						title='Schedule Next Appointment' />
 					<Text>{this.state.appointment.cancel_reason}</Text>
@@ -97,7 +103,15 @@ export default class PlannerMoreDetails extends Component {
 
 const styles = StyleSheet.create({
 	buttonContainer: {
+		marginTop: 25,
 		width: 275,
 		marginHorizontal: 75
-	}
+	},
+
+	headings: {
+        marginHorizontal: 15,
+        marginTop: 25,
+        fontSize: 28,
+        fontWeight: 'bold',
+    }
 })

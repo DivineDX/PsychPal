@@ -68,9 +68,11 @@ export default class CancelAppointment extends Component {
 						{/* Set cancel = 1 and fill in cancel_reason for that appointment object */}
 						{/* Once edit already navigate back to planner more details */}
 						<Button
+							type='outline'
 							title="Confirm Cancellation"
 							onPress={this.cancel_appointment} />
 						<Button
+							type='outline'
 							title="Go back"
 							onPress={() => {
 								this.setModalVisible(false);
@@ -78,6 +80,7 @@ export default class CancelAppointment extends Component {
 					</View>
 				</Modal>
 				<Button
+					type='outline'
 					containerStyle={styles.buttonContainer}
 					title='Cancel Appointment'
 					onPress={() => { this.setModalVisible(true); }}
