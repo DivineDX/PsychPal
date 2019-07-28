@@ -97,13 +97,11 @@ export default class Search extends Component {
     render() {
         return (
             <ScrollView>
-                {/* Attn CJ: Search query for name */}
                 <SearchBar 
                   placeholder='Search'
                   lightTheme='true'
                   onChangeText={this.receive_query}
                   value={this.state.query} />
-                {/* Filter by any match in language spoken */}
                 {
                     this.state.doctors.filter(this.is_matched).map((u) => (
                         <ListItem
