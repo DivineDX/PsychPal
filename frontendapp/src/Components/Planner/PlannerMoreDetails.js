@@ -60,14 +60,16 @@ export default class PlannerMoreDetails extends Component {
 			console.log("Type: ", typeof dateTime);
 			return (
 				<View>
-					<Text style={styles.headings}>{dateTime}</Text>
+					{/* <Text style={styles.headings}>{dateTime}</Text>
 					<View style={{flexDirection: 'row'}}>
 						<Text style={styles.headings}>Doctor:</Text>
 						<Text style={styles.nameText}> {this.state.appointment.doctor_name}</Text>	
-					</View>
-					<View>
-					<JitsiCallButton jitsi_key={this.state.appointment.jitsy_key} />
-					<CancelAppointment appointment={this.state.appointment} />
+					</View> */}
+					<Text style={styles.headings}>{dateTime}</Text>
+					<Text style={styles.headings}>Doctor: {this.state.appointment.doctor_name}</Text>
+					<View style={styles.wholeContainer}>
+						<JitsiCallButton jitsi_key={this.state.appointment.jitsy_key} />
+						<CancelAppointment appointment={this.state.appointment} />
 					</View>
 
 					<Text>{this.state.appointment.cancel_reason}</Text>
@@ -85,24 +87,26 @@ export default class PlannerMoreDetails extends Component {
 						<Text style={styles.nameText}> {this.state.appointment.patient_name}</Text>	
 					</View>
 
-					<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
-					<Button
-						type='outline'
-						containerStyle={styles.buttonContainer}
-						title='Cancel Appointment' />
-					<Button
-						type='outline'
-						containerStyle={styles.buttonContainer}
-						title='Treatment Plan of Patient' />
-					<Button
-						type='outline'
-						containerStyle={styles.buttonContainer}
-						title='Create Appointment Log' />
-					<Button
-						type='outline'
-						containerStyle={styles.buttonContainer}
-						title='Schedule Next Appointment' />
-					<Text>{this.state.appointment.cancel_reason}</Text>
+					<View style={styles.wholeContainer}>
+						<JitsiCallButton jitsi_key={this.state.appointment.jitsi_key} />
+						<Button
+							type='outline'
+							containerStyle={styles.buttonContainer}
+							title='Cancel Appointment' />
+						<Button
+							type='outline'
+							containerStyle={styles.buttonContainer}
+							title='Treatment Plan of Patient' />
+						<Button
+							type='outline'
+							containerStyle={styles.buttonContainer}
+							title='Create Appointment Log' />
+						<Button
+							type='outline'
+							containerStyle={styles.buttonContainer}
+							title='Schedule Next Appointment' />
+						<Text>{this.state.appointment.cancel_reason}</Text>
+					</View>
 				</View>
 			)
 		}
@@ -129,5 +133,11 @@ const styles = StyleSheet.create({
 		lineHeight:35, 
 		marginTop:28,
 		fontWeight: "400",
+	},
+	
+	wholeContainer: {
+        marginTop: 30,
+        // justifyContent: 'center',
+        alignItems: 'center',
     },
 })

@@ -56,10 +56,10 @@ export default class DoctorProfile extends Component {
                     source={{ uri: this.state.doctor.profile_picture_url }}
                 />
                 <View style = {styles.textboxContainer}>
-                    <Text style={{fontSize:24}}>{this.state.doctor.professional_credentials}</Text>
+                    <Text h3>{this.state.doctor.professional_credentials}</Text>
                     <Text h3>{this.state.doctor.name}</Text>
                     <View style = {styles.languagesContainer}>
-                        <Text style={{fontSize:24, fontWeight:'400'}}>{'Languages: '}</Text>
+                        <Text style={{fontSize:28, fontWeight:'400'}}>{'Languages: '}</Text>
                         <View style = {styles.colContainer}>
                         {
                             this.state.doctor_languages.map((u) => (
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     },
 
     langText: {
-        fontSize: 20,
-        lineHeight: 35
+        fontSize: 28,
+        lineHeight: 40
     }
 })

@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
 		marginHorizontal: 20,
 	},
 	buttonContainer: {
-		marginTop: 25,
+		// marginTop: 25,
 		width: 275,
 		marginHorizontal: 75
 	},
