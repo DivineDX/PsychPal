@@ -31,7 +31,7 @@
   * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
-* [Contributing / License](#contributing / license)
+* [Contributing / License](#contributing-/-license)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
