@@ -69,8 +69,6 @@ export default class TreatmentPlan extends Component {
 	}
 
 	render() {
-		// console.log(this.state.treatment_plan)
-		// console.log("User type:", this.props.screenProps.userType);
 		if (this.props.screenProps.userType == "Patient") {
 			return (
 				<ScrollView>
@@ -119,17 +117,13 @@ const styles = StyleSheet.create({
     headings: {
         marginHorizontal: 15,
         marginTop: 25,
-        // marginBottom: ,
         fontSize: 28,
         fontWeight: 'bold',
-        // color: '#000000'
 	},
 	
 	name: {
 		marginHorizontal: 15,
-        // marginBottom: ,
         fontSize: 25,
         fontWeight: 'bold',
-        // color: '#000000'	
 	}
 })

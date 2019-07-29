@@ -3,7 +3,6 @@ import AccountSettingsChild from './AccountSettingsChild'
 import { View, AsyncStorage, StyleSheet } from 'react-native';
 import { Avatar, Button } from 'react-native-elements';
 import connection from '../../../../DatabaseInteraction/Connection'
-import RNRestart from 'react-native-restart';
 
 const test_user =
 {
@@ -17,7 +16,8 @@ export default class AccountSettings extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            user: []
+            user: test_user,
+            profile_pic: null
         }
     }
 
@@ -34,21 +34,14 @@ export default class AccountSettings extends Component {
     }
 
     render() {
-        const profile_picture_url = "http://" + connection.connection + ":80/download/profile-pic/" + this.state.user.name + ".jpg"
+        alert("For this Beta Version, you may only upload your profile picture once. This is to minimise the data held on our cloud storage. ")
         return (
             <View style={styles.wholeContainer}>
                 <Avatar
                     // containerStyle={ styles.avatarContainer }
                     size='large'
                     rounded
-                    source={{ uri: profile_picture_url }}
-                />
-                {/* <Avatar
-                    // containerStyle={ styles.avatarContainer }
-                    size='large'
-                    rounded
-                    source={{ uri: 'http://10.0.2.2:80/download/profile-pic/alex.jpg' }}
-                /> */}
+                    source={{ uri: "http://" + connection.connection + ":80/download/profile-pic/" + this.state.user.name + "profilepic.jpg" }} />
                 <AccountSettingsChild user={this.state.user} />
             </View>
         )

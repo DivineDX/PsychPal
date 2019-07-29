@@ -2,7 +2,7 @@
 // iOS emulator use 'localHost'
 // Android emulator use '10.0.2.2'
 const connection = {
-    // connection: '10.0.2.2',
-    connection: 'localhost',
+    connection: '10.0.2.2',
+    //connection: 'localhost',
 }
 export default connection;
