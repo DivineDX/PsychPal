@@ -96,7 +96,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-Please refer to PsychPalRoadmap.png on the repository for our roadmap from July till end of 2019.
+Please refer to PsychPalRoadmap.png on the root of this repository for PsychPal's roadmap from July till end of 2019.
 
 
 <!-- CONTRIBUTING -->
