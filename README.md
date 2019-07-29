@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="frontendapp/src/Images/psychpal.jpg" width="200" height="100">
   </a>
 
   <h3 align="center">PsychPal</h3>
