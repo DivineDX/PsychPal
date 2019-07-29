@@ -31,7 +31,7 @@
   * [Installation](#installation)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
-* [Contributing / License](#contributing-/-license)
+* [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
@@ -100,7 +100,7 @@ Please refer to PsychPalRoadmap.png on the repository for our roadmap from July 
 
 
 <!-- CONTRIBUTING -->
-## Contributing / License
+## Contributing
 
 We are not an open source project, but all suggestions, requests and issues sent to us will be taken into serious consideration. After all, we intend to launch PsychPal as a Non-Profit Organisation aiming to benefit as many people as possible.
 
