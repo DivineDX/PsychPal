@@ -43,7 +43,7 @@
 
 TelePsychiatry
 
-### Built With]
+### Built With
 
 Tech Stack:
 * React Native
