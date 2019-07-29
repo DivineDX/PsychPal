@@ -8,10 +8,10 @@
   <h3 align="center">PsychPal</h3>
 
   <p align="center">
-    IBM Call for Code 2019
+    IBM Call for Code 2019 Global Challenge
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Video Demo</a>
+    <a href="https://www.youtube.com/watch?v=IZW6IxCt-XQ&feature=youtu.be">View Video Demo</a>
     ·
     <a href="https://github.com/DivineDX/CallForCode-Telehealth/issues">Report Bug</a>
     ·
@@ -43,7 +43,7 @@
 
 PsychPal is a tech solution which aims to overcome the aftermaths of natural disasters in the world. Many victims of natural disasters go on to develop mental illnesses such as depression, PTSD, anxiety issues etc. Yet, most of them do not get to seek treatment due to three big reasons - financial cost, geographical inaccessibility and social stigma associated with mental illnesses. PsychPal, which takes the form of a cross-platform mobile app, acts as a virtual clinic which is able to write off the three factors mentioned and make treatment accessible to patients all over the world. This form of technology is also known as TelePsychiatry.
 
-We have submitted PsychPal for IBM Call for Code 2019 Global Challenge.
+We have submitted PsychPal for the IBM Call for Code 2019 Global Challenge.
 
 ### Built With
 
