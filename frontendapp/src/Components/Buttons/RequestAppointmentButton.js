@@ -24,16 +24,16 @@ export default class RequestAppointment extends Component {
 	};
 
 	handleDatePicked = date => {
-        const formattedDate = date.toLocaleString();
+        const dateCreate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes();
         this.setState({ 
-            selectedDateDisplay: "Submitted appointment request for \n" + formattedDate,
+            selectedDateDisplay: "Submitted appointment request for \n" + date.toLocaleString(),
         });
-        this.createAppointment(formattedDate)
+        this.createAppointment(dateCreate)
 		this.hideDateTimePicker();
     };
     
-    createAppointment(dateSelected) {
-        const generatedJitsiKey = ''
+    createAppointment = (dateSelected) => {
+        // console.log(dateSelected);
         url = 'http://' + connection.connection + ':3005/insert into appointment_details values(\'' + 
         this.props.patientName + '\', \'' + 
         this.props.doctorName + '\',null,' + '\'' + dateSelected  + '\''+ 

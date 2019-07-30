@@ -213,7 +213,8 @@ export default class Planner extends Component {
                             />
                         ))
                     }
-                    <Text style={styles.headings}>All the test appointments repeated below for sanity check</Text>
+                    
+                    {/* <Text style={styles.headings}>All the test appointments repeated below for sanity check</Text>
                     {
                         this.state.appointments.map((u) => (
                             <AppointmentCard 
@@ -223,7 +224,7 @@ export default class Planner extends Component {
                                 userType={this.state.user}
                             />
                         ))
-                    }
+                    } */}
                 </ScrollView>
             )
         }
