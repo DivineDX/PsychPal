@@ -102,13 +102,13 @@ Please refer to PsychPalRoadmap.png on the root of this repository for PsychPal'
 <!-- CONTRIBUTING -->
 ## Contributing
 
-We are not an open source project, but all suggestions, requests and issues sent to us will be taken into serious consideration. After all, we intend to launch PsychPal as a Non-Profit Organisation aiming to benefit as many people as possible.
-
+We are not an open source project, but all feedback sent to us will be taken into serious consideration. 
+To send us a feedback, please raise a "new issue" under the issues tab of this repository, with a suitable title and label.
 
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Please raise a "new issue" under the issues tab of this repository, the team at PsychPal promises to respond to your enquiries as soon as possible.
 
 
 <!-- ACKNOWLEDGEMENTS -->
