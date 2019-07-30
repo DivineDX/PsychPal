@@ -77,7 +77,7 @@ This instruction guide will help you get the app running on your local machine.
 ```sh
 git clone https://github.com/DivineDX/CallForCode-Telehealth.git
 ```
-2. Change your directory to ./PsychPal/frontendapp. This contains our React Native mobile application files built using React Native CLI.  <a href="https://facebook.github.io/react-native/docs/getting-started.html">Please ensure that you have set-up the development environment</a>
+2. Change your directory to ./PsychPal/frontendapp. This contains our React Native mobile application files built using React Native CLI.  <a href="https://facebook.github.io/react-native/docs/getting-started.html">Please ensure that you set-up the development environment</a>
 
 3. Install NPM Packages
 ```sh
@@ -85,15 +85,8 @@ npm install or yarn install
 ```
 4. Start the RN App.
 ```sh
-Open a window and run:
-react-native start --reset-cache
-
-Wait for dependency graph to be fully loaded.
-
-Open another window to run:
-react-native run-android (Android users)
-react-native run-ios (iOS users)
-
+react-native run-ios OR react-native run-android
+Note: If you encounter an "Error: Unable to resolve module `./index`", open a new, seperate window and run react-native start -- --reset-cache first before react-native run-ios or react-native run-android
 ```
 5. Change your directory to ./Psychpal/server and install NPM Packages
 ```sh
@@ -106,15 +99,15 @@ npm install or yarn install
 
 9. Start the backend server 
 ```sh
-Open a window, change directory to server folder:
-npm install
 npm start or yarn start
 ```
 
-10. Start the IBM backend server 
+10. Change your directory to ./PsychPal/backend-ibm and install NPM Packages
 ```sh
-Open a window, change directory to backend-ibm folder:
-npm install
+npm install or yarn install
+```
+11. Start the ibm backeend server 
+```sh
 npm start or yarn start
 ```
 
