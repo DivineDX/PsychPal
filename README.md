@@ -93,7 +93,7 @@ As of 29 July 2019, PsychPal (Patient UI) is available for public trial usage fo
 <!-- ROADMAP -->
 ## Roadmap
 
-Please refer to PsychPalRoadmap.png on the root of this repository for PsychPal's roadmap from July till end of 2019.
+Please click <a href="https://github.com/DivineDX/PsychPal/blob/workingApp/PsychPalRoadmap.png">here</a> to view PsychPal's roadmap from July till end of 2019.
 
 
 <!-- CONTRIBUTING -->
