@@ -87,7 +87,7 @@ npm install
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-As of 29 July 2019, PsychPal (Patient UI) is available for public trial usage for both Android and iOS users. For a product walkthrough and demo to familiarise with the workings of the movile app, please <a href="https://www.youtube.com/watch?v=IZW6IxCt-XQ&feature=youtu.be">view our video demo.</a>
+As of 29 July 2019, PsychPal (Patient UI) is available for public trial usage for both Android and iOS users. For a product walkthrough and demo to familiarise with the workings of the mobile app, please <a href="https://www.youtube.com/watch?v=IZW6IxCt-XQ&feature=youtu.be">view our video demo.</a>
 
 
 <!-- ROADMAP -->
