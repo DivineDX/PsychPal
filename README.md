@@ -86,7 +86,7 @@ npm install or yarn install
 4. Start the RN App.
 ```sh
 react-native run-ios OR react-native run-android
-Note: If you encounter an "Error: Unable to resolve module `./index`", open a new, seperate window and run react-native start -- --reset-cache first before react-native run-ios or react-native run-android
+Important Note: If you encounter an "Error: Unable to resolve module `./index`", open one window to run react-native start -- --reset-cache first before running another window for react-native run-ios or react-native run-android
 ```
 5. Change your directory to ./Psychpal/server and install NPM Packages
 ```sh
@@ -106,13 +106,13 @@ npm start or yarn start
 ```sh
 npm install or yarn install
 ```
-11. Start the ibm backeend server 
+11. Start the ibm backend server 
 ```sh
 npm start or yarn start
 ```
 
 <b>Configuration:</b>
-1. Backeend Connection
+1. Backend Connection
 ```sh
 Go to ./PsychPal/frontendapp/DatabaseInteraction/Connection.js
 
