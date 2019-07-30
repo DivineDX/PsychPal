@@ -140,7 +140,7 @@ PsychPal's roadmap from July 2019 till the end of 2019, is available for viewing
 <!-- CONTRIBUTING -->
 ## Contributing
 
-We are not an open source project, but all feedback sent to us will be taken into serious consideration. 
+PsychPal is open source under MIT License. All feedback sent to us will be taken into serious consideration. 
 To send us a feedback, please raise a "new issue" under the issues tab of this repository, with a suitable title and label.
 
 <!-- CONTACT -->
