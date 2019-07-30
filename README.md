@@ -71,18 +71,60 @@ This instruction guide will help you get the app running on your local machine.
 * React Native 0.59 environment - Please refer to React Native Docs here for the setup
 * MySQL server on your local machine
 
-### Installation
+### Installation and Running App in Development Mode
 
 1. Clone the repo
 ```sh
 git clone https://github.com/DivineDX/CallForCode-Telehealth.git
 ```
-2. Install NPM packages
+2. Change your directory to ./PsychPal/frontendapp. This contains our React Native mobile application files built using React Native CLI.  <a href="https://facebook.github.io/react-native/docs/getting-started.html">Please ensure that you set-up the development environment</a>
+
+3. Install NPM Packages
 ```sh
-npm install
+npm install or yarn install
+```
+4. Start the RN App.
+```sh
+react-native run-ios OR react-native run-android
+Note: If you encounter an "Error: Unable to resolve module `./index`", open a new, seperate window and run react-native start -- --reset-cache first before react-native run-ios or react-native run-android
+```
+5. Change your directory to ./Psychpal/server and install NPM Packages
+```sh
+npm install or yarn install
 ```
 
+6. Dump the PsychPal.sql file in this folder to your own MySQL server. <a href="https://alvinalexander.com/blog/post/mysql/how-restore-mysql-database-from-backup-file">You may follow this guide for reference</a>
 
+8. Modify lines 6-11 of server.js according to your local MySQL configuration
+
+9. Start the backend server 
+```sh
+npm start or yarn start
+```
+
+10. Change your directory to ./PsychPal/backend-ibm and install NPM Packages
+```sh
+npm install or yarn install
+```
+11. Start the ibm backeend server 
+```sh
+npm start or yarn start
+```
+
+<b>Configuration:</b>
+1. Backeend Connection
+```sh
+Go to ./PsychPal/frontendapp/DatabaseInteraction/Connection.js
+
+If running on iOS, ensure that line 5 (connection: '10.0.2.2') is commented out and line 6 (connection: 'localhost') is uncommented out
+If running on Android, do the opposite - ensure that line 5 (connection: '10.0.2.2') is uncommented out and line 6 (connection: 'localhost') is commented out
+```
+
+2. MySQL Configuration
+```sh
+Go to ./PsychPal/server/server.js
+Modify lines 6-11 according to your local MySQL configuration
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
