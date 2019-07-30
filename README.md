@@ -41,9 +41,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-PsychPal is a tech solution which aims to overcome the aftermaths of natural disasters in the world. Many victims of natural disasters go on to develop mental illnesses such as depression, PTSD, anxiety issues etc. Yet, most of them do not get to seek treatment due to three big reasons - financial cost, geographical inaccessibility and social stigma associated with mental illnesses. PsychPal, which takes the form of a cross-platform mobile app, acts as a virtual clinic which is able to write off the three factors mentioned and make treatment accessible to patients all over the world. This form of technology is also known as TelePsychiatry.
+PsychPal is a tech solution which aims to overcome the aftermaths of natural disasters in the world. Many victims of natural disasters go on to develop mental illnesses such as depression, PTSD, anxiety issues etc. Yet, most of them do not get to seek treatment due to three big reasons - financial cost, geographical inaccessibility and social stigma associated with mental illnesses. PsychPal, which takes the form of a cross-platform mobile app, acts as a virtual clinic which is able to write off the three factors mentioned and make treatment accessible to patients all over the world. 
 
-We have submitted PsychPal for IBM Call for Code 2019 Global Challenge.
+The team at PsychPal aims to launch PsychPal as a Non-Profit Organisation, providing complimentary/subsidised TelePsychiatry services to patients suffering from mental disorders. We have submitted PsychPal for IBM Call for Code 2019 Global Challenge.
 
 ### Built With
 
@@ -71,30 +71,71 @@ This instruction guide will help you get the app running on your local machine.
 * React Native 0.59 environment - Please refer to React Native Docs here for the setup
 * MySQL server on your local machine
 
-### Installation
+### Installation and Running App in Development Mode
 
 1. Clone the repo
 ```sh
 git clone https://github.com/DivineDX/CallForCode-Telehealth.git
 ```
-2. Install NPM packages
+2. Change your directory to ./PsychPal/frontendapp. This contains our React Native mobile application files built using React Native CLI.  <a href="https://facebook.github.io/react-native/docs/getting-started.html">Please ensure that you set-up the development environment</a>
+
+3. Install NPM Packages
 ```sh
-npm install
+npm install or yarn install
+```
+4. Start the RN App.
+```sh
+react-native run-ios OR react-native run-android
+Note: If you encounter an "Error: Unable to resolve module `./index`", open a new, seperate window and run react-native start -- --reset-cache first before react-native run-ios or react-native run-android
+```
+5. Change your directory to ./Psychpal/server and install NPM Packages
+```sh
+npm install or yarn install
 ```
 
+6. Dump the PsychPal.sql file in this folder to your own MySQL server. <a href="https://alvinalexander.com/blog/post/mysql/how-restore-mysql-database-from-backup-file">You may follow this guide for reference</a>
 
+8. Modify lines 6-11 of server.js according to your local MySQL configuration
+
+9. Start the backend server 
+```sh
+npm start or yarn start
+```
+
+10. Change your directory to ./PsychPal/backend-ibm and install NPM Packages
+```sh
+npm install or yarn install
+```
+11. Start the ibm backeend server 
+```sh
+npm start or yarn start
+```
+
+<b>Configuration:</b>
+1. Backeend Connection
+```sh
+Go to ./PsychPal/frontendapp/DatabaseInteraction/Connection.js
+
+If running on iOS, ensure that line 5 (connection: '10.0.2.2') is commented out and line 6 (connection: 'localhost') is uncommented out
+If running on Android, do the opposite - ensure that line 5 (connection: '10.0.2.2') is uncommented out and line 6 (connection: 'localhost') is commented out
+```
+
+2. MySQL Configuration
+```sh
+Go to ./PsychPal/server/server.js
+Modify lines 6-11 according to your local MySQL configuration
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-As of 29 July 2019, PsychPal (Patient UI) is available for public trial usage for both Android and iOS users. For a product walkthrough and demo to familiarise with the workings of the movile app, please <a href="https://www.youtube.com/watch?v=IZW6IxCt-XQ&feature=youtu.be">view our video demo.</a>
+As of 29 July 2019, PsychPal (Patient UI) is available for public trial usage for both Android and iOS users. For a product walkthrough and demo to familiarise with the workings of the mobile app, please <a href="https://www.youtube.com/watch?v=IZW6IxCt-XQ&feature=youtu.be">view our video demo.</a>
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-Please refer to PsychPalRoadmap.png on the root of this repository for PsychPal's roadmap from July till end of 2019.
-
+PsychPal's roadmap from July 2019 till the end of 2019, is available for viewing <a href="https://github.com/DivineDX/PsychPal/blob/workingApp/PsychPalRoadmap.png">here</a>.
 
 <!-- CONTRIBUTING -->
 ## Contributing
