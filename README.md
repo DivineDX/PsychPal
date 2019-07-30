@@ -86,7 +86,7 @@ npm install or yarn install
 4. Start the RN App.
 ```sh
 react-native run-ios OR react-native run-android
-Important Note: If you encounter an "Error: Unable to resolve module `./index`", open one window to run react-native start -- --reset-cache first before running another window for react-native run-ios or react-native run-android
+Important Note: If you encounter "Error: Unable to resolve module `./index`", open one window to run react-native start -- --reset-cache first before running opening another window to run react-native run-ios or react-native run-android
 ```
 5. Change your directory to ./Psychpal/server and install NPM Packages
 ```sh
